@@ -5,6 +5,23 @@
 
 ---
 
+## Phylum 번호 순서가 의미하는 것
+
+번호 1~14는 우선순위/중요도/논문 수가 **아닙니다**. "입력에 가까운 perception task → 시각 이해 → 모델링 → ML 방법론 → 실세계 응용"이라는 연구 스택을 따라 배치한 **컨셉 그룹핑**입니다.
+
+| 범위 | 그룹 | 핵심 질문 |
+|------|------|----------|
+| 1, 2 | **Perception** | "픽셀에서 무엇이 어디 있나?" (Detection / Segmentation) |
+| 3, 4, 5 | **Visual understanding** | "그게 뭐고, 어떻게 생겼고, 어떻게 움직이나?" (3D / Recognition / Video) |
+| 6, 7, 8 | **Modeling & synthesis** | "어떻게 만들고, 어떻게 표현하고, 어떻게 언어와 잇나?" (Generative / Representation / Vision-Language) |
+| 9, 10 | **Specialized vision** | 픽셀 레벨 처리(Low-level)와 사람 중심(Human) 도메인의 특수화 |
+| 11, 12, 13 | **ML methodology** | "어떤 모델로, 어떻게 학습시키고, 어떻게 배포·견고화하나?" (Architecture / Training / Efficient·Robust) |
+| 14 | **Application** | 의료/자율주행/원격탐사/문서 등 도메인 응용 |
+
+분류 우선순위(specificity ordering)는 별개 — 분류기는 가장 specific한 키워드부터 매칭하므로 번호 순서가 아니라 [맨 아래 우선순위 섹션](#분류-우선순위-specificity-ordering)을 따릅니다.
+
+---
+
 ## 1. Object Detection & Localization
 
 - **2D Object Detection**

@@ -37,28 +37,44 @@ CV+ML Paper Phylogenetic Taxonomy
 
 ---
 
-## 분류 분포 요약
+## 14 Phylum 번호 순서의 함의
 
-총 112,183편. 14 Phylum.
+번호(1~14)는 **느슨한 컨셉 그룹핑**이지 우선순위/논문 수/연대와 무관합니다. "픽셀 → 의미 → 학습 → 응용"이라는 연구 스택을 따라 내려가게 배치:
+
+| 번호 | 그룹 | 의도 |
+|---|---|---|
+| **1~2** | Perception task | 픽셀에서 객체 단위로 잘라내는 가장 직접적인 인식: Detection, Segmentation |
+| **3~5** | Visual understanding | 더 풍부한 시각 정보: 3D 기하, 카테고리 인식, 시간(영상) |
+| **6~8** | Modeling & synthesis | 무엇을 만들고 무엇을 배울까: 생성, 표현, 비전-언어 |
+| **9~10** | Specialized vision | 픽셀 레벨 처리(Low-level)와 사람 중심(Human) 특수화 |
+| **11~13** | ML methodology | 어떻게 학습/배포할까: 아키텍처, 학습법, 효율·견고성 |
+| **14** | Application | 의료/자율주행/원격탐사/문서 등 실세계 도메인 |
+
+> 따라서 "1번이 가장 중요"가 아니라 "1번은 가장 입력에 가까운 task". 실제 논문 수로 정렬한 분포는 아래.
+
+## 분류 분포 (실측, 112,183편)
 
 | Phylum | 논문 수 | % |
-|--------|---------|---|
-| Object Detection & Localization | — | — |
-| Segmentation | — | — |
-| 3D Vision & Reconstruction | — | — |
-| Image Recognition & Retrieval | — | — |
-| Video & Motion Understanding | — | — |
-| Generative Models & Synthesis | — | — |
-| Representation Learning | — | — |
-| Vision-Language & Multimodal | — | — |
-| Low-level Vision | — | — |
-| Human-centric Vision | — | — |
-| Deep Learning Architecture | — | — |
-| Training & Learning Methods | — | — |
-| Efficient & Robust ML | — | — |
-| Application Domains | — | — |
+|---|---:|---:|
+| 12. Training & Learning Methods | 23,857 | 21.3% |
+| 13. Efficient & Robust ML | 11,993 | 10.7% |
+| 3. 3D Vision & Reconstruction | 10,970 | 9.8% |
+| 4. Image Recognition & Retrieval | 8,090 | 7.2% |
+| 11. Deep Learning Architecture | 7,751 | 6.9% |
+| 7. Representation Learning | 6,619 | 5.9% |
+| 6. Generative Models & Synthesis | 6,488 | 5.8% |
+| 5. Video & Motion Understanding | 6,215 | 5.5% |
+| 8. Vision-Language & Multimodal | 5,691 | 5.1% |
+| 10. Human-centric Vision | 4,506 | 4.0% |
+| 1. Object Detection & Localization | 3,859 | 3.4% |
+| 14. Application Domains | 3,655 | 3.3% |
+| 2. Segmentation | 2,967 | 2.6% |
+| 9. Low-level Vision | 2,900 | 2.6% |
+| Other / Unclassified | 6,225 | 5.5% |
+| Other / Editorial | 397 | 0.4% |
+| **합계** | **112,183** | **100.0%** |
 
-*← 분류 실행 후 자동 채워짐*
+> Training & Learning Methods가 1위인 이유: NeurIPS/ICML/ICLR이 데이터셋의 큰 비중을 차지하고, 이 학회들은 vision-specific task보다 학습 방법론·이론 논문이 더 많기 때문.
 
 ---
 
