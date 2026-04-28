@@ -1347,10 +1347,10 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Medical Image Enhancement & Reconstruction'
         elif _any(t, ['registrat', 'align']):
             cls = 'Medical Image Registration'
-            order = 'Medical Image Registration'
+            order = 'General Medical Image Registration'
         else:
             cls = 'Medical Image Analysis'
-            order = 'Medical Image Analysis'
+            order = 'General Medical Image Analysis'
         return ('16. Application Domains', cls, order)
 
     # 2b. Autonomous Driving
@@ -1435,32 +1435,16 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     # ------------------------------------------------------------------
 
     # 3a. Gaussian Splatting (checked BEFORE NeRF — more specific keywords)
+    # Variants (Dynamic / Human / Editing / Compact / etc.) are demoted to
+    # Genus level inside genus_rules.py — Order stays flat so the same
+    # variant name (e.g. "Efficient NeRF") cannot appear at both Order
+    # and Genus rings of the tree.
     if _any(t, GAUSSIAN_SPLAT):
-        if _any(t, ['dynamic', '4d gaussian']):
-            order = 'Dynamic Gaussian Splatting'
-        elif _any(t, ['edit', 'style', 'manipulat']):
-            order = 'Gaussian Splatting Editing'
-        elif _any(t, ['human', 'avatar', 'body']):
-            order = 'Human Gaussian Splatting'
-        else:
-            order = 'Gaussian Splatting'
-        return ('3. 3D Vision & Reconstruction', 'Neural Implicit Representations', order)
+        return ('3. 3D Vision & Reconstruction', 'Neural Implicit Representations', 'Gaussian Splatting')
 
     # 3b. NeRF / Neural Implicit
     if _any(t, NERF):
-        if _any(t, ['dynamic', 'deformable', 'non-rigid']):
-            order = 'Dynamic NeRF'
-        elif _any(t, ['edit', 'styliz', 'manipulat']):
-            order = 'NeRF Editing'
-        elif _any(t, ['large-scale', 'outdoor', 'unbounded', 'city']):
-            order = 'Large-scale NeRF'
-        elif _any(t, ['avatar', 'human', 'body', 'face', 'cloth', 'sifu']):
-            order = 'Human NeRF'
-        elif _any(t, ['compress', 'efficien', 'fast', 'accelerat', 'real-time']):
-            order = 'Efficient NeRF'
-        else:
-            order = 'Neural Radiance Fields'
-        return ('3. 3D Vision & Reconstruction', 'Neural Implicit Representations', order)
+        return ('3. 3D Vision & Reconstruction', 'Neural Implicit Representations', 'Neural Radiance Fields')
 
     # 3c. Depth Estimation
     if _any(t, DEPTH_KW):
@@ -1513,6 +1497,9 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         return ('3. 3D Vision & Reconstruction', 'SfM, SLAM & Localization', order)
 
     # 3g. Scene Reconstruction / Novel View
+    # Catch-all Order renamed away from "3D Scene Understanding" because that
+    # was identical to the Class name. Now split into Shape Analysis / AR-VR /
+    # General 3D Vision.
     if _any(t, SCENE_3D):
         if _any(t, ['novel view', 'view synthesis', 'image-based render', 'light field']):
             order = 'Novel View Synthesis'
@@ -1520,8 +1507,16 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Surface Reconstruction'
         elif _any(t, ['scene reconstruct', 'dense reconstruct', 'volumetric']):
             order = 'Scene Reconstruction'
+        elif _any(t, ['shape ', '3d shape', 'shape recovery', 'shape from',
+                      'shape correspondence', 'shape analysis', 'shape match',
+                      'shape retriev', 'shape descriptor', 'shape model',
+                      'morphable model', '3dmm']):
+            order = '3D Shape Analysis'
+        elif _any(t, ['augmented reality', 'mixed reality', ' vr ',
+                      'virtual reality', 'ar/vr', 'ar headset', 'vr headset']):
+            order = 'AR/VR Scene Understanding'
         else:
-            order = '3D Scene Understanding'
+            order = 'General 3D Vision'
         return ('3. 3D Vision & Reconstruction', '3D Scene Understanding', order)
 
     # ------------------------------------------------------------------
@@ -1529,21 +1524,30 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     # ------------------------------------------------------------------
 
     # 4a. Diffusion
+    # Order is split by *modality* (Image / Video / 3D / Audio / Medical).
+    # Method/conditioning variants (Text-to-Image, Image Editing, Latent
+    # Diffusion, Score / Flow Matching, Unconditional, Fast Sampling, ...) are
+    # demoted to the Genus level inside genus_rules.py so the same variant name
+    # cannot appear at both Order and Genus rings of the visualization tree.
+    # Note: the catch-all "Image Diffusion" replaces the earlier Order
+    # "Diffusion Models" — that name clashed with the Class name.
     if _any(t, DIFFUSION):
-        if _any(t, TEXTTOIMAG):
-            order = 'Text-to-Image Generation'
-        elif _any(t, VIDEO_GEN):
-            order = 'Video Diffusion Generation'
-        elif _any(t, IMG_EDIT):
-            order = 'Diffusion-based Image Editing'
-        elif _any(t, ['3d', 'point cloud', 'shape generat', 'mol']):
-            order = '3D Diffusion Generation'
-        elif _any(t, ['audio', 'speech', 'sound']):
+        if _any(t, ['video', 'temporal', 'text-to-video', 'text to video',
+                    'video diffusion', 'video editing', 'video generation diffusion']):
+            order = 'Video Diffusion'
+        elif _any(t, ['3d diffusion', '3d shape diffusion', 'point cloud diffusion',
+                      'shape generat', 'scene generation 3d', '3d generation diffusion',
+                      'molecular diffusion', 'protein diffusion']):
+            order = '3D Diffusion'
+        elif _any(t, ['audio diffusion', 'speech diffusion', 'sound diffusion',
+                      'music diffusion', 'audio generation diffusion']):
             order = 'Audio Diffusion'
-        elif _any(t, ['medical', ' mri ', 'ct scan', 'pathology']):
+        elif _any(t, ['medical diffusion', ' mri diffusion', 'ct scan diffusion',
+                      'pathology diffusion', 'medical image diffusion',
+                      'clinical diffusion']):
             order = 'Medical Diffusion'
         else:
-            order = 'Diffusion Models'
+            order = 'Image Diffusion'
         return ('6. Generative Models & Synthesis', 'Diffusion Models', order)
 
     # 4b. Text-to-Image (non-diffusion)
@@ -1563,12 +1567,12 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['image editing', 'image manipulat', 'controllable']):
             order = 'GAN-based Image Editing'
         else:
-            order = 'Generative Adversarial Networks'
+            order = 'General GAN'
         return ('6. Generative Models & Synthesis', 'Generative Adversarial Networks', order)
 
     # 4d. VAE
     if _any(t, VAE_KW):
-        return ('6. Generative Models & Synthesis', 'Variational Autoencoders', 'Variational Autoencoders')
+        return ('6. Generative Models & Synthesis', 'Variational Autoencoders', 'General VAE')
 
     # 4d2. EBM / Energy-based
     if _any(t, EBM_KW):
@@ -1586,7 +1590,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     # 4f. Video Generation
     if _any(t, VIDEO_GEN):
-        return ('6. Generative Models & Synthesis', 'Video Generation', 'Video Generation')
+        return ('6. Generative Models & Synthesis', 'Video Generation', 'General Video Generation')
 
     # ------------------------------------------------------------------
     # 4.5 Early Domain Adaptation check (before Segmentation)
@@ -1623,6 +1627,8 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         return ('2. Segmentation', 'Video Segmentation', order)
 
     # 5b. Generic / Image Segmentation
+    # Catch-all Order renamed to "General Image Segmentation" so it doesn't
+    # share the same name as the parent Class.
     if _any(t, SEGMENT):
         if _any(t, ['panoptic']):
             order = 'Panoptic Segmentation'
@@ -1639,7 +1645,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['3d', 'point cloud', 'lidar']):
             order = '3D Segmentation'
         else:
-            order = 'Image Segmentation'
+            order = 'General Image Segmentation'
         return ('2. Segmentation', 'Image Segmentation', order)
 
     # ------------------------------------------------------------------
@@ -1648,7 +1654,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     # 6a. 3D Object Detection
     if _any(t, DETECT3D):
-        return ('1. Object Detection & Localization', '3D Object Detection', '3D Object Detection')
+        return ('1. Object Detection & Localization', '3D Object Detection', 'General 3D Object Detection')
 
     # 6b. Visual Grounding
     if _any(t, GROUNDING):
@@ -1656,7 +1662,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     # 6c. Salient Object Detection
     if _any(t, SALIENT):
-        return ('1. Object Detection & Localization', 'Salient Object Detection', 'Salient Object Detection')
+        return ('1. Object Detection & Localization', 'Salient Object Detection', 'General Salient Object Detection')
 
     # 6c-extra. 6D Pose Estimation
     if _any(t, POSE6D_KW):
@@ -1695,7 +1701,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['super-resol', 'restor', 'enhance', 'hallucin', 'reconstruct']):
             order = 'Face Restoration & Enhancement'
         else:
-            order = 'Face Analysis'
+            order = 'General Face Analysis'
         return ('10. Human-centric Vision', 'Face Analysis', order)
 
     if _any(t, FACE_GEN):
@@ -1726,7 +1732,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['text', 'language']):
             order = 'Text-to-Person ReID'
         else:
-            order = 'Person Re-Identification'
+            order = 'General Person Re-Identification'
         return ('10. Human-centric Vision', 'Person Re-Identification', order)
 
     # 7d. Gesture & Hand
@@ -1776,7 +1782,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['pretrain', 'foundation', 'large-scale']):
             order = 'Vision-Language Pretraining'
         else:
-            order = 'Large Vision-Language Models'
+            order = 'General Large Vision-Language Models'
         return ('8. Vision-Language & Multimodal', 'Large Vision-Language Models', order)
 
     if _any(t, VQA):
@@ -1785,7 +1791,9 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['knowledge', 'commonsense', 'reasoning']):
             order = 'Knowledge-based VQA'
         else:
-            order = 'Visual Question Answering'
+            # Renamed from "Visual Question Answering" to avoid the
+            # Class==Order naming clash.
+            order = 'General VQA'
         return ('8. Vision-Language & Multimodal', 'Visual Question Answering', order)
 
     if _any(t, CAPTION):
@@ -1854,12 +1862,14 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         return ('5. Video & Motion Understanding', 'Temporal Action Analysis', 'Temporal Action Detection')
 
     if _any(t, ACTION_RECOG):
+        # "Few-shot Action Recognition" demoted to a Genus under
+        # "Video Action Recognition" — same task, just label-efficient.
+        # Skeleton-based and Egocentric stay as Orders because they're
+        # paradigm-defined (different input modality / viewpoint).
         if _any(t, ['skeleton', 'graph', 'bone', 'joint']):
             order = 'Skeleton-based Action Recognition'
         elif _any(t, ['first-person', 'egocentric', 'ego ']):
             order = 'Egocentric Action Recognition'
-        elif _any(t, ['few-shot', 'zero-shot']):
-            order = 'Few-shot Action Recognition'
         else:
             order = 'Video Action Recognition'
         return ('5. Video & Motion Understanding', 'Action Recognition', order)
@@ -1879,11 +1889,11 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     # Generic video
     if _any(t, ['video ', ' video', 'temporal ']):
         if _any(t, ['understand', 'analyz', 'retrieval', 'search', 'localiz']):
-            return ('5. Video & Motion Understanding', 'Video Understanding', 'Video Understanding')
+            return ('5. Video & Motion Understanding', 'Video Understanding', 'General Video Understanding')
         elif _any(t, ['object', 'detect', 'track', 'segment']):
-            return ('5. Video & Motion Understanding', 'Video Object Analysis', 'Video Object Analysis')
+            return ('5. Video & Motion Understanding', 'Video Object Analysis', 'General Video Object Analysis')
         elif _any(t, ['represent', 'pretrain', 'self-supervised']):
-            return ('5. Video & Motion Understanding', 'Video Representation Learning', 'Video Representation Learning')
+            return ('5. Video & Motion Understanding', 'Video Representation Learning', 'General Video Representation Learning')
 
     # ------------------------------------------------------------------
     # 10. Low-level Vision
@@ -1914,7 +1924,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['all-in-one', 'unified restor', 'adverse weather']):
             order = 'All-in-one Image Restoration'
         else:
-            order = 'Image Restoration'
+            order = 'General Image Restoration'
         return ('9. Low-level Vision', 'Image Restoration', order)
 
     if _any(t, ENHANCE):
@@ -1925,7 +1935,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['color', 'colour']):
             order = 'Image Colorization & Color Enhancement'
         else:
-            order = 'Image Enhancement'
+            order = 'General Image Enhancement'
         return ('9. Low-level Vision', 'Image Enhancement', order)
 
     if _any(t, IMG_COMPRESS):
@@ -1935,7 +1945,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         return ('9. Low-level Vision', 'Image Quality Assessment', 'No-reference Image Quality Assessment')
 
     if _any(t, COMP_PHOTO):
-        return ('9. Low-level Vision', 'Computational Photography', 'Computational Photography')
+        return ('9. Low-level Vision', 'Computational Photography', 'General Computational Photography')
 
     # ------------------------------------------------------------------
     # 11. Representation Learning
@@ -1949,9 +1959,11 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         return ('7. Representation Learning', 'Masked Image Modeling', order)
 
     if _any(t, SSL):
-        if _any(t, ['video', 'temporal']):
-            order = 'Video Self-supervised Learning'
-        elif _any(t, ['medical', 'pathology', 'clinical']):
+        # "Video Self-supervised Learning" demoted to a Genus under
+        # "Contrastive Self-supervised Learning" — it's the same SSL family
+        # applied to video, not a distinct Order. Medical SSL stays as a
+        # separate Order (different domain, different evaluation).
+        if _any(t, ['medical', 'pathology', 'clinical']):
             order = 'Medical Self-supervised Learning'
         else:
             order = 'Contrastive Self-supervised Learning'
@@ -1976,7 +1988,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['fine-tuning', 'fine-tune']):
             order = 'Fine-tuning Pretrained Models'
         else:
-            order = 'Transfer Learning'
+            order = 'General Transfer Learning'
         return ('7. Representation Learning', 'Transfer Learning', order)
 
     if _any(t, FEW_SHOT_REP):
@@ -2016,25 +2028,30 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         return ('11. Deep Learning Architecture', 'State Space Models', 'Vision State Space Models (Mamba)')
 
     if _any(t, VIT_ARCH):
+        # "Efficient Vision Transformers" was previously a separate Order,
+        # but it's a variant of plain ViT (same architecture, just compressed/
+        # accelerated). Demoted to a Genus under "Vision Transformers (ViT)"
+        # in genus_rules.py. Hierarchical ViTs (Swin/PVT) stay as a separate
+        # Order because they are architecturally distinct.
         if _any(t, ['swin', 'pyramid', 'hierarchical']):
             order = 'Hierarchical Vision Transformers'
-        elif _any(t, ['efficient', 'lightweight', 'mobile vit']):
-            order = 'Efficient Vision Transformers'
         else:
             order = 'Vision Transformers (ViT)'
         return ('11. Deep Learning Architecture', 'Vision Transformers', order)
 
     if _any(t, GNN_ARCH):
-        if _any(t, ['spatial-temporal', 'st-gcn', 'dynamic graph']):
-            order = 'Spatial-Temporal Graph Networks'
-        elif _any(t, ['heterogeneous', 'knowledge graph']):
+        # "Spatial-Temporal Graph Networks" demoted to a Genus under
+        # "Graph Neural Networks" — same backbone with a temporal axis,
+        # not a distinct Order. Heterogeneous Graph Networks stay as their
+        # own Order because they are a structurally different formulation.
+        if _any(t, ['heterogeneous', 'knowledge graph']):
             order = 'Heterogeneous Graph Networks'
         else:
-            order = 'Graph Neural Networks'
+            order = 'General Graph Neural Networks'
         return ('11. Deep Learning Architecture', 'Graph Neural Networks', order)
 
     if _any(t, NAS):
-        return ('11. Deep Learning Architecture', 'Neural Architecture Search', 'Neural Architecture Search')
+        return ('11. Deep Learning Architecture', 'Neural Architecture Search', 'General Neural Architecture Search')
 
     if _any(t, ATTENTION):
         return ('11. Deep Learning Architecture', 'Attention Mechanisms', 'Attention Mechanisms in Deep Learning')
@@ -2071,7 +2088,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['sketch', 'sbir']):
             order = 'Sketch-based Image Retrieval'
         else:
-            order = 'Image Retrieval'
+            order = 'General Image Retrieval'
         return ('4. Image Recognition & Retrieval', 'Image Retrieval', order)
 
     if _any(t, METRIC):
@@ -2091,7 +2108,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['long-tail', 'imbalanced', 'class imbalance']):
             order = 'Long-tail Classification'
         else:
-            order = 'Image Classification'
+            order = 'General Image Classification'
         return ('4. Image Recognition & Retrieval', 'Image Classification', order)
 
     # ------------------------------------------------------------------
@@ -2104,7 +2121,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['online', 'mutual learn', 'born again']):
             order = 'Online Knowledge Distillation'
         else:
-            order = 'Knowledge Distillation'
+            order = 'General Knowledge Distillation'
         return ('12. Training Strategies', 'Knowledge Distillation', order)
 
     if _any(t, DATASET_DISTILL):
@@ -2128,7 +2145,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['classif', 'recogni']):
             order = 'Semi-supervised Classification'
         else:
-            order = 'Semi-supervised Learning'
+            order = 'General Semi-supervised Learning'
         return ('12. Training Strategies', 'Semi-supervised Learning', order)
 
     if _any(t, WEAKLY):
@@ -2137,7 +2154,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         elif _any(t, ['detect', 'localiz']):
             order = 'Weakly Supervised Detection'
         else:
-            order = 'Weakly Supervised Learning'
+            order = 'General Weakly Supervised Learning'
         return ('12. Training Strategies', 'Weakly Supervised Learning', order)
 
     if _any(t, AUGMENT):
@@ -2168,7 +2185,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     if _any(t, STRUCTURED_PRED):
         return ('13. Optimization & Learning Theory', 'Structured Prediction',
-                'Structured Prediction')
+                'General Structured Prediction')
 
     if _any(t, KERNEL_KW):
         return ('13. Optimization & Learning Theory', 'Kernel Methods',
@@ -2303,7 +2320,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     # Segmentation (any remaining)
     if _any(t, ['segmentation', ' segment ', 'scene parsing', 'pixel-wise']):
-        return ('2. Segmentation', 'Image Segmentation', 'Image Segmentation')
+        return ('2. Segmentation', 'Image Segmentation', 'General Image Segmentation')
 
     # Detection (any remaining)
     if _any(t, ['detection ', 'detector ', ' localization', 'bounding box',
@@ -2317,23 +2334,23 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     # Generation / synthesis
     if _any(t, [' generation', 'generative model', ' synthesis ', 'image synthesis',
                 'generative network', 'generating ', 'synthesizing']):
-        return ('6. Generative Models & Synthesis', 'Generative Models', 'Generative Models')
+        return ('6. Generative Models & Synthesis', 'Generative Models', 'General Generative Models')
 
     # 3D remaining
     if _any(t, [' 3d ', '3-d ', 'three-dimensional', 'depth ', 'voxel ',
                 ' 3d.', '3d:', 'shape ', ' shape.', 'mesh ',
                 'render', 'geometry']):
-        return ('3. 3D Vision & Reconstruction', '3D Scene Understanding', '3D Scene Understanding')
+        return ('3. 3D Vision & Reconstruction', '3D Scene Understanding', 'General 3D Vision')
 
     # Video remaining
     if _any(t, ['video ', ' video', 'temporal ']):
-        return ('5. Video & Motion Understanding', 'Video Understanding', 'Video Understanding')
+        return ('5. Video & Motion Understanding', 'Video Understanding', 'General Video Understanding')
 
     # Classification / recognition
     if _any(t, ['classification', 'classifier', 'categorization', ' recognition',
                 'recognition.', ' recognize', 'recogniz', ' identif',
                 'discriminat']):
-        return ('4. Image Recognition & Retrieval', 'Image Classification', 'Image Classification')
+        return ('4. Image Recognition & Retrieval', 'Image Classification', 'General Image Classification')
 
     # Representation / embedding
     if _any(t, ['representation learn', 'feature learn', 'embedding learn',
@@ -2344,7 +2361,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     # Multi-modal remaining
     if _any(t, ['multimodal', 'multi-modal', 'vision and language',
                 'language and vision', 'multi modal']):
-        return ('8. Vision-Language & Multimodal', 'Multimodal Learning', 'Multimodal Learning')
+        return ('8. Vision-Language & Multimodal', 'Multimodal Learning', 'General Multimodal Learning')
 
     # Optimization-related
     if _any(t, ['optimiz', 'minimization', 'maximization', 'minim', 'maxim',
@@ -2372,7 +2389,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     if _any(t, ['graph ', 'network analysis', 'graph-based', 'graph theoret',
                 ' nodes ', 'edges ', 'vertices', 'hypergraph']):
         return ('11. Deep Learning Architecture', 'Graph Neural Networks',
-                'Graph Neural Networks')
+                'General Graph Neural Networks')
 
     # Training / learning methods remaining
     if _any(t, ['regulariz', 'batch normaliz', 'layer normaliz', 'dropout ',
@@ -2499,7 +2516,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 if __name__ == '__main__':
     test_cases = [
         ("Deep Residual Learning for Image Recognition",
-         ('4. Image Recognition & Retrieval', 'Image Classification', 'Image Classification')),
+         ('4. Image Recognition & Retrieval', 'Image Classification', 'General Image Classification')),
         ("Attention Is All You Need",
          ('11. Deep Learning Architecture', 'Attention Mechanisms', 'Attention Mechanisms in Deep Learning')),
         ("NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis",
@@ -2515,7 +2532,7 @@ if __name__ == '__main__':
         ("3D Gaussian Splatting for Real-Time Radiance Field Rendering",
          ('3. 3D Vision & Reconstruction', 'Neural Implicit Representations', 'Gaussian Splatting')),
         ("Denoising Diffusion Probabilistic Models",
-         ('6. Generative Models & Synthesis', 'Diffusion Models', 'Diffusion Models')),
+         ('6. Generative Models & Synthesis', 'Diffusion Models', 'Image Diffusion')),
         ("Medical Image Segmentation with U-Net",
          ('16. Application Domains', 'Medical Segmentation', 'Medical Image Segmentation')),
         ("Autonomous Driving with BEV Perception",
@@ -2533,7 +2550,7 @@ if __name__ == '__main__':
         ("Point Cloud Classification via PointNet",
          ('3. 3D Vision & Reconstruction', 'Point Cloud & 3D Geometry', 'Point Cloud Classification')),
         ("Knowledge Distillation for Efficient Neural Networks",
-         ('12. Training Strategies', 'Knowledge Distillation', 'Knowledge Distillation')),
+         ('12. Training Strategies', 'Knowledge Distillation', 'General Knowledge Distillation')),
         ("Adversarial Examples in the Physical World",
          ('15. Efficient & Robust ML', 'Adversarial Robustness', 'Physical & Universal Adversarial Attacks')),
         ("CLIP: Learning Transferable Visual Models from Natural Language Supervision",

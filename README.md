@@ -78,6 +78,19 @@ CV+ML Paper Phylogenetic Taxonomy
 
 > 최대 phylum(15. Efficient & Robust ML)이 10.7% — 균형 잡힌 분포. 이전 버전에서 "12. Training & Learning Methods" 단일 phylum이 21.3%로 비대했는데, 학습 전략 / 최적화 이론 / 강화학습 셋으로 자연스럽게 분리됨.
 
+## Hierarchy 정합성 (2025-04 audit)
+
+전수조사로 같은 개념이 Order(3단)와 Genus(4단)에 중복 등장하던 케이스 28건 + 변형-Order 17건을 정리했습니다.
+
+**주요 수정:**
+- **Class==Order 자기충돌 제거 (27건)**: "Image Classification" Class 안에 "Image Classification" Order가 있는 식의 중복을 모두 `General <Class>` 형태로 개명. 예: `Image Classification` Order → `General Image Classification`. (남은 1건 `Unclassified`는 의도된 catchall이라 유지.)
+- **NeRF / Gaussian Splatting 변형을 Genus로 강등**: 이전엔 `Dynamic NeRF`, `Human NeRF`, `Efficient NeRF`, `NeRF Editing`, `Large-scale NeRF` 등이 모두 Order로 흩어져 있었고, 같은 변형이 Genus 레벨에도 또 등장(중복). 이제 Order는 `Neural Radiance Fields` 하나로 평탄화하고 변형은 모두 Genus. Gaussian Splatting 동일 처리.
+- **Diffusion Models 모달리티별 Order 재구성**: `Diffusion Models`(자기충돌), `Text-to-Image Generation`, `Diffusion-based Image Editing`을 묶어 Order = `Image Diffusion` 하나로 통합. 모달리티별 5개 Order로 정리: `Image Diffusion` / `Video Diffusion` / `3D Diffusion` / `Audio Diffusion` / `Medical Diffusion`. 텍스트 조건/편집/잠재 등은 Genus.
+- **3D Scene Understanding Class 분할**: 4,308편 catchall이던 `3D Scene Understanding` Order를 3개로 분리 — `General 3D Vision`, `3D Shape Analysis`, `AR/VR Scene Understanding`.
+- **소형 변형 Order → Genus 강등**: `Spatial-Temporal Graph Networks`, `Video Self-supervised Learning`, `Few-shot Action Recognition`, `Efficient Vision Transformers` 등 소수(< 50편) 변형 Order를 부모 Order의 Genus로 이동.
+
+**검증:** 20/20 스모크 테스트 통과. 미분류율 5.9% 유지. Phylum 분포 변동 없음.
+
 ---
 
 ## 작업 흐름 (재현 가능)

@@ -81,21 +81,22 @@
   - Visual Localization (map-based)
   - Camera Pose Estimation
 - **Neural Implicit Representations**
-  - Neural Radiance Fields (NeRF)
-  - Gaussian Splatting (3DGS)
-  - Occupancy Networks
-  - Signed Distance Functions
-  - Dynamic / Deformable NeRF
+  - Neural Radiance Fields (NeRF) ← Order is *flat*; variants live at Genus
+    - Genus: Dynamic / Human / Editing / Few-shot / Self-supervised / Indoor / Large-scale / Efficient / Semantic NeRF
+  - Gaussian Splatting (3DGS) ← same pattern
+    - Genus: Dynamic / Human / Editing / Few-shot / Large-scale / Compact / Semantic / Geometry-aware
 - **Point Cloud Processing**
   - Point Cloud Classification
   - Point Cloud Registration (ICP variants)
   - Point Cloud Completion
   - Point Cloud Generation
 - **3D Scene Understanding**
-  - 3D Scene Reconstruction
-  - Indoor Scene Understanding
-  - Outdoor/LiDAR Mapping
-  - 3D Shape Analysis & Generation
+  - Novel View Synthesis
+  - Surface Reconstruction
+  - Scene Reconstruction
+  - General 3D Vision *(catchall — was "3D Scene Understanding" before split)*
+  - 3D Shape Analysis
+  - AR/VR Scene Understanding
 
 ---
 
@@ -162,13 +163,17 @@
   - Style Transfer & Stylization
   - Video Generation (GAN)
   - 3D-aware Generation
-- **Diffusion Models**
-  - Unconditional Image Generation (Diffusion)
-  - Text-to-Image Generation (Diffusion)
-  - Image Editing with Diffusion
-  - Video Generation (Diffusion)
-  - 3D Generation (Diffusion)
-  - Audio/Multi-modal Diffusion
+- **Diffusion Models** ← Orders split by *modality*; method/conditioning at Genus level
+  - Image Diffusion *(catchall — was "Diffusion Models" before split)*
+    - Genus: Text-to-Image / Image Editing / Latent Diffusion / Score & Flow Matching / Conditional / Fast Sampling / Unconditional
+  - Video Diffusion
+    - Genus: Text-to-Video / Video Editing / Long-form / Efficient / Conditional Video
+  - 3D Diffusion
+    - Genus: Point Cloud / 3D Shape / 3D Scene / Molecular / Text-to-3D
+  - Audio Diffusion
+    - Genus: Speech / Music / Text-to-Audio
+  - Medical Diffusion
+    - Genus: MRI / CT / Pathology / Diffusion-based Segmentation
 - **VAE & Flow-based Models**
   - Variational Autoencoders
   - Normalizing Flows
