@@ -376,6 +376,8 @@
 
     <div class="help-card">
       <div class="row"><span data-en="Click node">노드 클릭</span><kbd data-en="toggle">토글</kbd></div>
+      <div class="row"><span data-en="Drag canvas">캔버스 드래그</span><kbd data-en="pan">이동</kbd></div>
+      <div class="row"><span data-en="Wheel">마우스 휠</span><kbd data-en="zoom">확대/축소</kbd></div>
       <div class="row"><span data-en="Hover (info)">호버 (정보)</span><kbd>mouse</kbd></div>
       <div class="row"><span data-en="Sibling nav">형제 이동</span><kbd>↑ ↓</kbd></div>
       <div class="row"><span data-en="Expand one step">한 단계 펼치기</span><kbd>→</kbd></div>
@@ -543,13 +545,37 @@ function update() {
   // links added during a later expand pass would be appended after
   // existing node groups and draw on top of their text — the white
   // halo can't help when the link is literally above the text element.
-  let g = svg.select('g.root');
+  // Wrapper layer for d3.zoom (drag-to-pan + wheel-to-zoom).
+  // SVG > g.zoomable (user transform) > g.root (centering offset) > layers
+  let zoomable = svg.select('g.zoomable');
+  if (zoomable.empty()) {
+    zoomable = svg.append('g').attr('class', 'zoomable');
+  }
+  let g = zoomable.select('g.root');
   if (g.empty()) {
-    g = svg.append('g').attr('class', 'root');
+    g = zoomable.append('g').attr('class', 'root');
     g.append('g').attr('class', 'links-layer');
     g.append('g').attr('class', 'nodes-layer');
   }
   g.attr('transform', `translate(${MARGIN.left},${MARGIN.top - minX})`);
+
+  // Initialise zoom behaviour exactly once.
+  if (!svg.node().__zoomInited) {
+    svg.node().__zoomInited = true;
+    svg.node().__didDrag = false;
+    const zoomBehavior = d3.zoom()
+      .scaleExtent([0.3, 5])
+      .on('start', () => { svg.node().__didDrag = false; })
+      .on('zoom', (event) => {
+        if (event.sourceEvent && event.sourceEvent.type !== 'wheel') {
+          svg.node().__didDrag = true;
+        }
+        zoomable.attr('transform', event.transform);
+      });
+    svg.call(zoomBehavior);
+    // Disable double-click zoom — leave dblclick free for future use.
+    svg.on('dblclick.zoom', null);
+  }
   const linksLayer = g.select('g.links-layer');
   const nodesLayer = g.select('g.nodes-layer');
 
@@ -636,8 +662,14 @@ function update() {
     });
   });
 
-  // Background click → reset
-  svg.on('click', resetSelection);
+  // Background click → reset (but ignore the click that follows a drag-pan)
+  svg.on('click', () => {
+    if (svg.node().__didDrag) {
+      svg.node().__didDrag = false;
+      return;
+    }
+    resetSelection();
+  });
 
   // Re-apply highlighting if a focused node exists
   if (focusedNode) selectNode(focusedNode, /*skipUpdate=*/true);
