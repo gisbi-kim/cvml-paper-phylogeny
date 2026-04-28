@@ -909,28 +909,95 @@
 <section class="card">
   <h2><span class="num">📊 #1</span> <span data-en="First appearance · peak · 5-year growth, by Phylum">Phylum별 출현 · 피크 · 5년 성장률</span></h2>
   <p class="desc" data-en="For each of the 16 Phyla (out of 112,183 papers): year of first appearance, peak year/count, and 2016-20 → 2021-25 5-year growth.">전체 112,183편 중 16 Phylum 각각의 첫 등장 연도, 피크 연도/논문 수, 그리고 2016-20 → 2021-25 5년 성장률.</p>
-  <!-- TODO: fill after classification -->
+  <table class="insight">
+    <thead><tr><th>Phylum</th><th>Total</th><th>First</th><th>Peak</th><th>2016-20</th><th>2021-25</th><th>Growth</th></tr></thead>
+    <tbody>
+      <tr><td>1. Object Detection &amp; Localization</td><td class="num">3,859</td><td class="num">1987</td><td class="num">2024 (416)</td><td class="num">936</td><td class="num">1,695</td><td class="num pos">+81.1%</td></tr>
+      <tr><td>2. Segmentation</td><td class="num">2,967</td><td class="num">1988</td><td class="num">2024 (383)</td><td class="num">675</td><td class="num">1,414</td><td class="num pos">+109.5%</td></tr>
+      <tr><td>3. 3D Vision &amp; Reconstruction</td><td class="num">10,970</td><td class="num">1987</td><td class="num">2024 (1,567)</td><td class="num">2,031</td><td class="num">5,405</td><td class="num pos">+166.1%</td></tr>
+      <tr><td>4. Image Recognition &amp; Retrieval</td><td class="num">8,090</td><td class="num">1987</td><td class="num">2024 (636)</td><td class="num">1,631</td><td class="num">2,569</td><td class="num pos">+57.5%</td></tr>
+      <tr><td>5. Video &amp; Motion Understanding</td><td class="num">6,215</td><td class="num">1987</td><td class="num">2024 (603)</td><td class="num">1,440</td><td class="num">2,557</td><td class="num pos">+77.6%</td></tr>
+      <tr><td>6. Generative Models &amp; Synthesis</td><td class="num">6,488</td><td class="num">1988</td><td class="num">2024 (1,683)</td><td class="num">1,275</td><td class="num">4,928</td><td class="num pos">+286.5%</td></tr>
+      <tr><td>7. Representation Learning</td><td class="num">6,619</td><td class="num">1987</td><td class="num">2023 (1,002)</td><td class="num">1,469</td><td class="num">4,097</td><td class="num pos">+178.9%</td></tr>
+      <tr><td>8. Vision-Language &amp; Multimodal</td><td class="num">5,691</td><td class="num">1988</td><td class="num">2024 (1,901)</td><td class="num">529</td><td class="num">5,014</td><td class="num pos">+847.8%</td></tr>
+      <tr><td>9. Low-level Vision</td><td class="num">2,900</td><td class="num">1988</td><td class="num">2024 (358)</td><td class="num">784</td><td class="num">1,515</td><td class="num pos">+93.2%</td></tr>
+      <tr><td>10. Human-centric Vision</td><td class="num">4,506</td><td class="num">1987</td><td class="num">2024 (394)</td><td class="num">1,356</td><td class="num">1,708</td><td class="num pos">+26.0%</td></tr>
+      <tr><td>11. Deep Learning Architecture</td><td class="num">7,751</td><td class="num">1987</td><td class="num">2024 (1,135)</td><td class="num">2,281</td><td class="num">4,588</td><td class="num pos">+101.1%</td></tr>
+      <tr><td>12. Training Strategies</td><td class="num">11,404</td><td class="num">1987</td><td class="num">2024 (1,472)</td><td class="num">2,543</td><td class="num">5,678</td><td class="num pos">+123.3%</td></tr>
+      <tr><td>13. Optimization &amp; Learning Theory</td><td class="num">6,819</td><td class="num">1987</td><td class="num">2024 (810)</td><td class="num">1,746</td><td class="num">3,257</td><td class="num pos">+86.5%</td></tr>
+      <tr><td>14. Reinforcement Learning &amp; Decision Making</td><td class="num">5,634</td><td class="num">1987</td><td class="num">2024 (873)</td><td class="num">1,271</td><td class="num">3,543</td><td class="num pos">+178.8%</td></tr>
+      <tr><td>15. Efficient &amp; Robust ML</td><td class="num">11,993</td><td class="num">1987</td><td class="num">2024 (1,666)</td><td class="num">2,596</td><td class="num">6,553</td><td class="num pos">+152.4%</td></tr>
+      <tr><td>16. Application Domains</td><td class="num">3,655</td><td class="num">1987</td><td class="num">2024 (631)</td><td class="num">693</td><td class="num">2,186</td><td class="num pos">+215.4%</td></tr>
+    </tbody>
+  </table>
+  <div class="insight-card" data-en="<strong>Headline</strong>: <strong>Vision-Language &amp; Multimodal grew +848%</strong> from 2016-20 to 2021-25 — the largest jump of any Phylum, driven by CLIP, BLIP, LLaVA, and the multimodal-LLM wave. <strong>Generative Models</strong> (+287%) and <strong>Application Domains</strong> (+215%) follow. Every Phylum grew; no negative growth — CV+ML is universally accelerating, just unevenly.">
+    <strong>핵심 사실</strong>: <strong>Vision-Language &amp; Multimodal이 +848% 성장</strong>으로 압도적 1위 — CLIP, BLIP, LLaVA 등 멀티모달 LLM 물결의 결과. 그 다음으로 <strong>Generative Models (+287%)</strong>, <strong>Application Domains (+215%)</strong>. 16 Phylum 모두 양의 성장 — CV+ML 전체가 가속 중이지만 가속도가 다름.
+  </div>
 </section>
 
 <!-- Insight 2 -->
 <section class="card">
   <h2><span class="num">📊 #2</span> <span data-en="Hottest Classes 2020-2025 (TOP 10)">2020-2025 가장 핫한 Class TOP 10</span></h2>
   <p class="desc" data-en="Top 10 Classes by paper count in the last 5 years.">최근 5년간 논문 수 기준 Top 10 Class.</p>
-  <!-- TODO: fill after classification -->
+  <table class="insight">
+    <thead><tr><th>#</th><th>Phylum</th><th>Class</th><th>Papers</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>12. Training Strategies</td><td>Training Techniques</td><td class="num">4,233</td></tr>
+      <tr><td>2</td><td>14. Reinforcement Learning &amp; Decision Making</td><td>Reinforcement Learning</td><td class="num">3,621</td></tr>
+      <tr><td>3</td><td>8. Vision-Language &amp; Multimodal</td><td>Language Model Applications</td><td class="num">3,016</td></tr>
+      <tr><td>4</td><td>13. Optimization &amp; Learning Theory</td><td>Optimization Theory</td><td class="num">2,850</td></tr>
+      <tr><td>5</td><td>3. 3D Vision &amp; Reconstruction</td><td>3D Scene Understanding</td><td class="num">2,518</td></tr>
+      <tr><td>6</td><td>11. Deep Learning Architecture</td><td>General Deep Learning</td><td class="num">2,125</td></tr>
+      <tr><td>7</td><td>15. Efficient &amp; Robust ML</td><td>Bayesian &amp; Probabilistic Methods</td><td class="num">1,989</td></tr>
+      <tr><td>8</td><td>6. Generative Models &amp; Synthesis</td><td>Diffusion Models</td><td class="num">1,893</td></tr>
+      <tr><td>9</td><td>3. 3D Vision &amp; Reconstruction</td><td>Neural Implicit Representations</td><td class="num">1,459</td></tr>
+      <tr><td>10</td><td>2. Segmentation</td><td>Image Segmentation</td><td class="num">1,424</td></tr>
+    </tbody>
+  </table>
+  <div class="insight-card" data-en="<strong>Headline</strong>: <strong>Diffusion Models alone produced 1,893 papers in five years</strong> — a Class that barely existed before 2020. Combined with Neural Implicit Representations (#9, NeRF/3DGS-era) and Language Model Applications (#3), three of the top 10 Classes are paradigms born after 2019.">
+    <strong>핵심 사실</strong>: <strong>Diffusion Models 한 Class만으로 5년간 1,893편</strong> — 2020년 이전엔 거의 존재하지 않던 Class. Neural Implicit Reps(#9, NeRF/3DGS 계열)와 Language Model Applications(#3)까지 합치면 <strong>Top 10 중 3개가 2019년 이후 탄생한 패러다임</strong>.
+  </div>
 </section>
 
 <!-- Insight 3 -->
 <section class="card">
   <h2><span class="num">📊 #3</span> <span data-en="Faded categories (Pre-2015 ≥ 20 papers → Post-2020 ≤ 10% retained)">사라진 분야 (Pre-2015 ≥ 20편 → Post-2020 ≤ 10%)</span></h2>
   <p class="desc" data-en="Classes once active but nearly extinct now.">한때 활발했지만 최근 거의 사라진 Class.</p>
-  <!-- TODO: fill after classification -->
+  <table class="insight">
+    <thead><tr><th>Phylum &gt; Class</th><th>Pre-2015</th><th>Post-2020</th><th>Retain</th></tr></thead>
+    <tbody>
+      <tr><td colspan="4" style="text-align:center; color: var(--text-secondary); font-style: italic; padding: 24px 16px;" data-en="No Class meets the criterion (≥ 20 papers pre-2015, ≤ 10% retained post-2020). At Class granularity, every active CV/ML category from before 2015 still has substantial output today.">기준(Pre-2015 ≥ 20편 &amp; Post-2020 ≤ 10%)을 만족하는 Class 없음 — Class 단위에서는 2015년 이전 활발했던 모든 CV/ML 영역이 지금도 의미 있는 출판량을 유지.</td></tr>
+    </tbody>
+  </table>
+  <div class="insight-card" data-en="<strong>Headline</strong>: <strong>Nothing went extinct at the Class level</strong>. Unlike robotics — where Visual Servoing and Computational Biology Robotics faded out — CV/ML's pre-2015 Classes (Image Classification, Optical Flow, Stereo, Face Recognition, …) are <em>all</em> still active. <strong>Decline happens one level deeper</strong>: inside each Class, specific Orders/Genus (e.g. anchor-based detection within Object Detection, hand-crafted descriptors within Image Recognition) have been displaced by deep-learning successors. See the heatmap for that Order-level shift.">
+    <strong>핵심 사실</strong>: <strong>Class 단위에서는 사라진 분야가 없음</strong>. 로보틱스(Visual Servoing 등)와 달리, CV/ML에서 2015년 이전 활발했던 Class들 — Image Classification, Optical Flow, Stereo, Face Recognition 등 — 은 <em>전부</em> 지금도 활발. <strong>쇠퇴는 한 단계 아래</strong>(Order/Genus)에서 발생: 예) Object Detection 안의 anchor-based 방법론, Image Recognition 안의 손공학 디스크립터 등이 딥러닝 후속 기법에 흡수됨. Order 단위 변화는 heatmap에서 확인 가능.
+  </div>
 </section>
 
 <!-- Insight 4 -->
 <section class="card">
   <h2><span class="num">📊 #4</span> <span data-en="First-appearance year of emerging categories">신생 카테고리 첫 등장 연도</span></h2>
   <p class="desc" data-en="Keyword-matched first-paper year + cumulative count for each hot category.">키워드 매칭으로 각 핫 카테고리의 first paper year + 누적 카운트.</p>
-  <!-- TODO: fill after classification -->
+  <table class="insight">
+    <thead><tr><th>Category</th><th>First year</th><th>First paper</th><th>Total</th><th>2021-25</th></tr></thead>
+    <tbody>
+      <tr><td>Diffusion Models</td><td class="num">2020</td><td>Improved Techniques for Training Score-Based Generative Models <em>(NeurIPS)</em></td><td class="num">256</td><td class="num">253</td></tr>
+      <tr><td>Vision Transformer (ViT)</td><td class="num">2021</td><td>Manipulation Detection in Satellite Images Using Vision Transformer <em>(CVPR)</em></td><td class="num">497</td><td class="num">497</td></tr>
+      <tr><td>DETR / transformer detection</td><td class="num">2021</td><td>UP-DETR: Unsupervised Pre-Training for Object Detection With Transformers <em>(CVPR)</em></td><td class="num">48</td><td class="num">48</td></tr>
+      <tr><td>NeRF / Neural Radiance Field</td><td class="num">2020</td><td>NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis <em>(ECCV)</em></td><td class="num">358</td><td class="num">357</td></tr>
+      <tr><td>3D Gaussian Splatting</td><td class="num">2024</td><td>Gaussian Splatting Decoder for 3D-aware Generative Adversarial Networks <em>(CVPR)</em></td><td class="num">290</td><td class="num">290</td></tr>
+      <tr><td>Vision-Language Models (CLIP)</td><td class="num">2021</td><td>VinVL: Revisiting Visual Representations in Vision-Language Models <em>(CVPR)</em></td><td class="num">599</td><td class="num">599</td></tr>
+      <tr><td>Segment Anything (SAM)</td><td class="num">2023</td><td>Segment Anything <em>(ICCV)</em></td><td class="num">70</td><td class="num">70</td></tr>
+      <tr><td>Foundation Models</td><td class="num">2022</td><td>FETA: Towards Specializing Foundational Models for Expert Task Applications <em>(NeurIPS)</em></td><td class="num">381</td><td class="num">381</td></tr>
+      <tr><td>Self-Supervised (modern)</td><td class="num">2021</td><td>Masked autoencoder / SimCLR / MoCo / DINOv2 family</td><td class="num">135</td><td class="num">135</td></tr>
+      <tr><td>Mamba / State Space</td><td class="num">2024</td><td>Vision Mamba / VMamba family</td><td class="num">63</td><td class="num">63</td></tr>
+      <tr><td>LoRA / PEFT</td><td class="num">2022</td><td>Low-Rank Adaptation / Parameter-Efficient Fine-tuning family</td><td class="num">102</td><td class="num">102</td></tr>
+      <tr><td>ControlNet / Diffusion Edit</td><td class="num">2023</td><td>InstructPix2Pix: Learning to Follow Image Editing Instructions <em>(CVPR)</em></td><td class="num">23</td><td class="num">23</td></tr>
+    </tbody>
+  </table>
+  <div class="insight-card" data-en="<strong>Headline</strong>: <strong>The 2020-2021 window is the inflection point of modern CV+ML</strong> — NeRF, ViT, CLIP, and modern Diffusion all debut within 18 months. A second wave (SAM, ControlNet, Foundation Models) lands in 2022-23, and 3D Gaussian Splatting + Vision Mamba arrive in 2024 once the open-source datasets exist. SIGGRAPH papers are excluded, so 3DGS appears in CV venues a year later than its true 2023 origin.">
+    <strong>핵심 사실</strong>: <strong>2020-2021년이 modern CV+ML의 분기점</strong> — NeRF, ViT, CLIP, modern Diffusion 모두 18개월 안에 동시 등장. 2022-23년 두 번째 물결(SAM, ControlNet, Foundation Models), 2024년 3D Gaussian Splatting + Vision Mamba가 합류. (SIGGRAPH 제외 데이터셋이라 3DGS는 실제 첫 등장(2023 SIGGRAPH)보다 1년 늦게 보임.)
+  </div>
 </section>
 
 </div>

@@ -1,0 +1,288 @@
+{
+  "total_papers": 112183,
+  "phylum_stats": {
+    "1. Object Detection & Localization": {
+      "total": 3859,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 416,
+      "recent_5y_2021_2025": 1695,
+      "prior_5y_2016_2020": 936,
+      "growth_pct": 81.1
+    },
+    "2. Segmentation": {
+      "total": 2967,
+      "first_year": 1988,
+      "peak_year": 2024,
+      "peak_count": 383,
+      "recent_5y_2021_2025": 1414,
+      "prior_5y_2016_2020": 675,
+      "growth_pct": 109.5
+    },
+    "3. 3D Vision & Reconstruction": {
+      "total": 10970,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 1567,
+      "recent_5y_2021_2025": 5405,
+      "prior_5y_2016_2020": 2031,
+      "growth_pct": 166.1
+    },
+    "4. Image Recognition & Retrieval": {
+      "total": 8090,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 636,
+      "recent_5y_2021_2025": 2569,
+      "prior_5y_2016_2020": 1631,
+      "growth_pct": 57.5
+    },
+    "5. Video & Motion Understanding": {
+      "total": 6215,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 603,
+      "recent_5y_2021_2025": 2557,
+      "prior_5y_2016_2020": 1440,
+      "growth_pct": 77.6
+    },
+    "6. Generative Models & Synthesis": {
+      "total": 6488,
+      "first_year": 1988,
+      "peak_year": 2024,
+      "peak_count": 1683,
+      "recent_5y_2021_2025": 4928,
+      "prior_5y_2016_2020": 1275,
+      "growth_pct": 286.5
+    },
+    "7. Representation Learning": {
+      "total": 6619,
+      "first_year": 1987,
+      "peak_year": 2023,
+      "peak_count": 1002,
+      "recent_5y_2021_2025": 4097,
+      "prior_5y_2016_2020": 1469,
+      "growth_pct": 178.9
+    },
+    "8. Vision-Language & Multimodal": {
+      "total": 5691,
+      "first_year": 1988,
+      "peak_year": 2024,
+      "peak_count": 1901,
+      "recent_5y_2021_2025": 5014,
+      "prior_5y_2016_2020": 529,
+      "growth_pct": 847.8
+    },
+    "9. Low-level Vision": {
+      "total": 2900,
+      "first_year": 1988,
+      "peak_year": 2024,
+      "peak_count": 358,
+      "recent_5y_2021_2025": 1515,
+      "prior_5y_2016_2020": 784,
+      "growth_pct": 93.2
+    },
+    "10. Human-centric Vision": {
+      "total": 4506,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 394,
+      "recent_5y_2021_2025": 1708,
+      "prior_5y_2016_2020": 1356,
+      "growth_pct": 26.0
+    },
+    "11. Deep Learning Architecture": {
+      "total": 7751,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 1135,
+      "recent_5y_2021_2025": 4588,
+      "prior_5y_2016_2020": 2281,
+      "growth_pct": 101.1
+    },
+    "12. Training Strategies": {
+      "total": 11404,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 1472,
+      "recent_5y_2021_2025": 5678,
+      "prior_5y_2016_2020": 2543,
+      "growth_pct": 123.3
+    },
+    "13. Optimization & Learning Theory": {
+      "total": 6819,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 810,
+      "recent_5y_2021_2025": 3257,
+      "prior_5y_2016_2020": 1746,
+      "growth_pct": 86.5
+    },
+    "14. Reinforcement Learning & Decision Making": {
+      "total": 5634,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 873,
+      "recent_5y_2021_2025": 3543,
+      "prior_5y_2016_2020": 1271,
+      "growth_pct": 178.8
+    },
+    "15. Efficient & Robust ML": {
+      "total": 11993,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 1666,
+      "recent_5y_2021_2025": 6553,
+      "prior_5y_2016_2020": 2596,
+      "growth_pct": 152.4
+    },
+    "16. Application Domains": {
+      "total": 3655,
+      "first_year": 1987,
+      "peak_year": 2024,
+      "peak_count": 631,
+      "recent_5y_2021_2025": 2186,
+      "prior_5y_2016_2020": 693,
+      "growth_pct": 215.4
+    }
+  },
+  "hot_classes_2020_2025": [
+    {
+      "phylum": "12. Training Strategies",
+      "class": "Training Techniques",
+      "count": 4233
+    },
+    {
+      "phylum": "14. Reinforcement Learning & Decision Making",
+      "class": "Reinforcement Learning",
+      "count": 3621
+    },
+    {
+      "phylum": "8. Vision-Language & Multimodal",
+      "class": "Language Model Applications",
+      "count": 3016
+    },
+    {
+      "phylum": "13. Optimization & Learning Theory",
+      "class": "Optimization Theory",
+      "count": 2850
+    },
+    {
+      "phylum": "3. 3D Vision & Reconstruction",
+      "class": "3D Scene Understanding",
+      "count": 2518
+    },
+    {
+      "phylum": "11. Deep Learning Architecture",
+      "class": "General Deep Learning",
+      "count": 2125
+    },
+    {
+      "phylum": "15. Efficient & Robust ML",
+      "class": "Bayesian & Probabilistic Methods",
+      "count": 1989
+    },
+    {
+      "phylum": "6. Generative Models & Synthesis",
+      "class": "Diffusion Models",
+      "count": 1893
+    },
+    {
+      "phylum": "3. 3D Vision & Reconstruction",
+      "class": "Neural Implicit Representations",
+      "count": 1459
+    },
+    {
+      "phylum": "2. Segmentation",
+      "class": "Image Segmentation",
+      "count": 1424
+    }
+  ],
+  "declined_classes": [],
+  "emerging_categories": {
+    "Diffusion Models": {
+      "first_year": 2020,
+      "first_title": "Improved Techniques for Training Score-Based Generative Models.",
+      "first_venue": "NeurIPS",
+      "total_matched": 256,
+      "cum_2021_2025": 253
+    },
+    "Vision Transformer (ViT)": {
+      "first_year": 2021,
+      "first_title": "Manipulation Detection in Satellite Images Using Vision Transformer.",
+      "first_venue": "CVPR",
+      "total_matched": 497,
+      "cum_2021_2025": 497
+    },
+    "DETR / transformer detection": {
+      "first_year": 2021,
+      "first_title": "UP-DETR: Unsupervised Pre-Training for Object Detection With Transformers.",
+      "first_venue": "CVPR",
+      "total_matched": 48,
+      "cum_2021_2025": 48
+    },
+    "NeRF / Neural Radiance Field": {
+      "first_year": 2020,
+      "first_title": "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis.",
+      "first_venue": "ECCV",
+      "total_matched": 358,
+      "cum_2021_2025": 357
+    },
+    "3D Gaussian Splatting": {
+      "first_year": 2024,
+      "first_title": "Gaussian Splatting Decoder for 3D-aware Generative Adversarial Networks.",
+      "first_venue": "CVPR",
+      "total_matched": 290,
+      "cum_2021_2025": 290
+    },
+    "Vision-Language Models (CLIP)": {
+      "first_year": 2021,
+      "first_title": "VinVL: Revisiting Visual Representations in Vision-Language Models.",
+      "first_venue": "CVPR",
+      "total_matched": 599,
+      "cum_2021_2025": 599
+    },
+    "Segment Anything (SAM)": {
+      "first_year": 2023,
+      "first_title": "Segment Anything.",
+      "first_venue": "ICCV",
+      "total_matched": 70,
+      "cum_2021_2025": 70
+    },
+    "Foundation Models": {
+      "first_year": 2022,
+      "first_title": "FETA: Towards Specializing Foundational Models for Expert Task Applications.",
+      "first_venue": "NeurIPS",
+      "total_matched": 381,
+      "cum_2021_2025": 381
+    },
+    "Self-Supervised (modern)": {
+      "first_year": 2021,
+      "first_title": "VideoMoCo: Contrastive Video Representation Learning With Temporally Adversarial Examples.",
+      "first_venue": "CVPR",
+      "total_matched": 135,
+      "cum_2021_2025": 135
+    },
+    "Mamba / State Space": {
+      "first_year": 2024,
+      "first_title": "DVMSR: Distillated Vision Mamba for Efficient Super-Resolution.",
+      "first_venue": "CVPR",
+      "total_matched": 63,
+      "cum_2021_2025": 63
+    },
+    "LoRA / PEFT": {
+      "first_year": 2022,
+      "first_title": "Few-Shot Parameter-Efficient Fine-Tuning is Better and Cheaper than In-Context Learning.",
+      "first_venue": "NeurIPS",
+      "total_matched": 102,
+      "cum_2021_2025": 102
+    },
+    "ControlNet / Diffusion Edit": {
+      "first_year": 2023,
+      "first_title": "InstructPix2Pix: Learning to Follow Image Editing Instructions.",
+      "first_venue": "CVPR",
+      "total_matched": 23,
+      "cum_2021_2025": 23
+    }
+  }
+}
