@@ -67,16 +67,16 @@ def main():
                     od_children.append({"name": gn, "value": cnt})
                     od_count += cnt
 
+                # Internal nodes get no `value` — d3.hierarchy().sum()
+                # rolls children up, so writing it here would double-count.
                 cl_children.append({
                     "name": od,
-                    "value": od_count,
                     "children": od_children,
                 })
                 cl_count += od_count
 
             ph_children.append({
                 "name": cl,
-                "value": cl_count,
                 "children": cl_children,
             })
             ph_count += cl_count
@@ -84,7 +84,6 @@ def main():
         color = PHYLUM_COLORS.get(ph, "#9e9e9e")
         root_children.append({
             "name":  ph,
-            "value": ph_count,
             "color": color,
             "children": ph_children,
         })
@@ -92,7 +91,6 @@ def main():
 
     root = {
         "name":     "CV+ML",
-        "value":    total,
         "color":    "#1a73e8",
         "children": root_children,
     }
@@ -102,9 +100,12 @@ def main():
 
     print(f"Done. {total} papers → {OUT}  ({OUT.stat().st_size/1e6:.2f} MB)")
     print("\nPhylum distribution:")
+    def _sum(node):
+        return node["value"] if "value" in node else sum(_sum(c) for c in node.get("children", []))
     for ch in root["children"]:
-        pct = ch["value"] / total * 100
-        print(f"  {ch['name']:<45} {ch['value']:>6}  {pct:5.1f}%")
+        cnt = _sum(ch)
+        pct = cnt / total * 100
+        print(f"  {ch['name']:<45} {cnt:>6}  {pct:5.1f}%")
 
 if __name__ == "__main__":
     main()
