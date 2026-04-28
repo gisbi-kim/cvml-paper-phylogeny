@@ -13,23 +13,25 @@ from pathlib import Path
 IN  = Path("data/intermediate/papers_classified.json")
 OUT = Path("tree_data.json")
 
-# Material Design 색상 (14 Phyla) — matches numbered phylum names from classify.py
+# Material Design colours (16 Phyla) — must match numbered phylum names from classify.py
 PHYLUM_COLORS = {
-    "1. Object Detection & Localization":  "#e53935",
-    "2. Segmentation":                     "#e91e63",
-    "3. 3D Vision & Reconstruction":       "#9c27b0",
-    "4. Image Recognition & Retrieval":    "#3f51b5",
-    "5. Video & Motion Understanding":     "#1976d2",
-    "6. Generative Models & Synthesis":    "#0097a7",
-    "7. Representation Learning":          "#388e3c",
-    "8. Vision-Language & Multimodal":     "#f57c00",
-    "9. Low-level Vision":                 "#795548",
-    "10. Human-centric Vision":            "#ff5722",
-    "11. Deep Learning Architecture":      "#607d8b",
-    "12. Training & Learning Methods":     "#5c6bc0",
-    "13. Efficient & Robust ML":           "#f44336",
-    "14. Application Domains":             "#00897b",
-    "Other":                               "#9e9e9e",
+    "1. Object Detection & Localization":              "#e53935",
+    "2. Segmentation":                                 "#e91e63",
+    "3. 3D Vision & Reconstruction":                   "#9c27b0",
+    "4. Image Recognition & Retrieval":                "#3f51b5",
+    "5. Video & Motion Understanding":                 "#1976d2",
+    "6. Generative Models & Synthesis":                "#0097a7",
+    "7. Representation Learning":                      "#388e3c",
+    "8. Vision-Language & Multimodal":                 "#f57c00",
+    "9. Low-level Vision":                             "#795548",
+    "10. Human-centric Vision":                        "#ff5722",
+    "11. Deep Learning Architecture":                  "#607d8b",
+    "12. Training Strategies":                         "#5c6bc0",
+    "13. Optimization & Learning Theory":              "#7e57c2",
+    "14. Reinforcement Learning & Decision Making":    "#26a69a",
+    "15. Efficient & Robust ML":                       "#f44336",
+    "16. Application Domains":                         "#00897b",
+    "Other":                                           "#9e9e9e",
 }
 
 def main():

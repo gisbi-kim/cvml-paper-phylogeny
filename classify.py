@@ -1351,7 +1351,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         else:
             cls = 'Medical Image Analysis'
             order = 'Medical Image Analysis'
-        return ('14. Application Domains', cls, order)
+        return ('16. Application Domains', cls, order)
 
     # 2b. Autonomous Driving
     if _any(t, AUTODRIVE):
@@ -1373,7 +1373,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         else:
             cls = 'Autonomous Driving Perception'
             order = 'AD General Perception'
-        return ('14. Application Domains', cls, order)
+        return ('16. Application Domains', cls, order)
 
     # 2c. Remote Sensing
     if _any(t, REMOTESENSE):
@@ -1389,7 +1389,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         else:
             cls = 'Remote Sensing Analysis'
             order = 'Remote Sensing General'
-        return ('14. Application Domains', cls, order)
+        return ('16. Application Domains', cls, order)
 
     # 2d. Document / OCR
     if _any(t, DOCUMENT):
@@ -1405,7 +1405,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         else:
             cls = 'Document Analysis'
             order = 'Document Analysis General'
-        return ('14. Application Domains', cls, order)
+        return ('16. Application Domains', cls, order)
 
     # 2e. Robotics / Embodied AI
     if _any(t, ROBOTICS):
@@ -1418,16 +1418,16 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         else:
             cls = 'Robot Perception'
             order = 'Robot Visual Perception'
-        return ('14. Application Domains', cls, order)
+        return ('16. Application Domains', cls, order)
 
     # 2f. Agriculture
     if _any(t, AGRICULTURE):
-        return ('14. Application Domains', 'Agricultural Vision',
+        return ('16. Application Domains', 'Agricultural Vision',
                 'Agricultural & Plant Imaging')
 
     # 2g. Hardware/VLSI as application
     if _any(t, HARDWARE_KW):
-        return ('14. Application Domains', 'Hardware & Systems',
+        return ('16. Application Domains', 'Hardware & Systems',
                 'VLSI & Hardware Architecture')
 
     # ------------------------------------------------------------------
@@ -1755,7 +1755,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     # 7h3. Clothing / Fashion
     if _any(t, CLOTHING_KW):
-        return ('14. Application Domains', 'Fashion & Retail', 'Fashion Image Analysis')
+        return ('16. Application Domains', 'Fashion & Retail', 'Fashion Image Analysis')
 
     # 7i. Human-Object Interaction
     if _any(t, HOI_KW):
@@ -2105,10 +2105,10 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Online Knowledge Distillation'
         else:
             order = 'Knowledge Distillation'
-        return ('12. Training & Learning Methods', 'Knowledge Distillation', order)
+        return ('12. Training Strategies', 'Knowledge Distillation', order)
 
     if _any(t, DATASET_DISTILL):
-        return ('12. Training & Learning Methods', 'Dataset Distillation',
+        return ('12. Training Strategies', 'Dataset Distillation',
                 'Dataset Distillation & Coreset Selection')
 
     if _any(t, CONTINUAL):
@@ -2118,7 +2118,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Replay-based Continual Learning'
         else:
             order = 'Continual & Incremental Learning'
-        return ('12. Training & Learning Methods', 'Continual Learning', order)
+        return ('12. Training Strategies', 'Continual Learning', order)
 
     if _any(t, SEMISUP):
         if _any(t, ['segment', 'dense predict']):
@@ -2129,7 +2129,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Semi-supervised Classification'
         else:
             order = 'Semi-supervised Learning'
-        return ('12. Training & Learning Methods', 'Semi-supervised Learning', order)
+        return ('12. Training Strategies', 'Semi-supervised Learning', order)
 
     if _any(t, WEAKLY):
         if _any(t, ['segment', 'cam']):
@@ -2138,60 +2138,60 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Weakly Supervised Detection'
         else:
             order = 'Weakly Supervised Learning'
-        return ('12. Training & Learning Methods', 'Weakly Supervised Learning', order)
+        return ('12. Training Strategies', 'Weakly Supervised Learning', order)
 
     if _any(t, AUGMENT):
-        return ('12. Training & Learning Methods', 'Data Augmentation', 'Data Augmentation Strategies')
+        return ('12. Training Strategies', 'Data Augmentation', 'Data Augmentation Strategies')
 
     if _any(t, LONGTAIL):
-        return ('12. Training & Learning Methods', 'Long-tail & Imbalanced Learning', 'Long-tail Learning')
+        return ('12. Training Strategies', 'Long-tail & Imbalanced Learning', 'Long-tail Learning')
 
     if _any(t, NOISY_LBL):
-        return ('12. Training & Learning Methods', 'Noisy Label Learning', 'Learning with Noisy Labels')
+        return ('12. Training Strategies', 'Noisy Label Learning', 'Learning with Noisy Labels')
 
     if _any(t, CURRICULUM):
-        return ('12. Training & Learning Methods', 'Curriculum Learning', 'Curriculum & Self-paced Learning')
+        return ('12. Training Strategies', 'Curriculum Learning', 'Curriculum & Self-paced Learning')
 
     if _any(t, ACTIVE):
-        return ('12. Training & Learning Methods', 'Active Learning', 'Active Learning Strategies')
+        return ('12. Training Strategies', 'Active Learning', 'Active Learning Strategies')
 
     if _any(t, OPTIM):
-        return ('12. Training & Learning Methods', 'Optimization Methods', 'Optimization & Training Dynamics')
+        return ('13. Optimization & Learning Theory', 'Optimization Methods', 'Optimization & Training Dynamics')
 
     if _any(t, BOOSTING_KW):
-        return ('12. Training & Learning Methods', 'Boosting & Ensembles',
+        return ('13. Optimization & Learning Theory', 'Boosting & Ensembles',
                 'Boosting Methods')
 
     if _any(t, ENSEMBLE_KW):
-        return ('12. Training & Learning Methods', 'Boosting & Ensembles',
+        return ('13. Optimization & Learning Theory', 'Boosting & Ensembles',
                 'Ensemble Methods & Mixture of Experts')
 
     if _any(t, STRUCTURED_PRED):
-        return ('12. Training & Learning Methods', 'Structured Prediction',
+        return ('13. Optimization & Learning Theory', 'Structured Prediction',
                 'Structured Prediction')
 
     if _any(t, KERNEL_KW):
-        return ('12. Training & Learning Methods', 'Kernel Methods',
+        return ('13. Optimization & Learning Theory', 'Kernel Methods',
                 'Kernel Methods & SVMs')
 
     if _any(t, BANDIT_KW):
-        return ('12. Training & Learning Methods', 'Reinforcement Learning',
+        return ('14. Reinforcement Learning & Decision Making', 'Reinforcement Learning',
                 'Bandit Algorithms')
 
     if _any(t, SKILL_LEARNING_KW):
-        return ('12. Training & Learning Methods', 'Reinforcement Learning',
+        return ('14. Reinforcement Learning & Decision Making', 'Reinforcement Learning',
                 'Skill & Option Discovery')
 
     if _any(t, WORLD_MODEL_KW):
-        return ('12. Training & Learning Methods', 'Reinforcement Learning',
+        return ('14. Reinforcement Learning & Decision Making', 'Reinforcement Learning',
                 'World Models & Model-based RL')
 
     if _any(t, GAME_THEORY_KW):
-        return ('12. Training & Learning Methods', 'Game Theory & Multi-agent',
+        return ('14. Reinforcement Learning & Decision Making', 'Game Theory & Multi-agent',
                 'Multi-agent & Game-theoretic Learning')
 
     if _any(t, NEURAL_PDE_KW):
-        return ('14. Application Domains', 'Scientific & Molecular ML',
+        return ('16. Application Domains', 'Scientific & Molecular ML',
                 'Neural PDE Solvers & Scientific ML')
 
     # 14-rl. Reinforcement Learning
@@ -2208,15 +2208,15 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Visual Reinforcement Learning'
         else:
             order = 'Deep Reinforcement Learning'
-        return ('12. Training & Learning Methods', 'Reinforcement Learning', order)
+        return ('14. Reinforcement Learning & Decision Making', 'Reinforcement Learning', order)
 
     # 14-theory. Optimization Theory
     if _any(t, OPTIM_THEORY):
-        return ('12. Training & Learning Methods', 'Optimization Theory', 'Optimization Theory & Convergence')
+        return ('13. Optimization & Learning Theory', 'Optimization Theory', 'Optimization Theory & Convergence')
 
     # 14-multi. Multi-task Learning
     if _any(t, MULTITASK_KW):
-        return ('12. Training & Learning Methods', 'Multi-task Learning', 'Multi-task & Joint Learning')
+        return ('12. Training Strategies', 'Multi-task Learning', 'Multi-task & Joint Learning')
 
     # ------------------------------------------------------------------
     # 15. Efficient & Robust ML
@@ -2229,10 +2229,10 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Transferable Adversarial Attacks'
         else:
             order = 'Adversarial Attacks'
-        return ('13. Efficient & Robust ML', 'Adversarial Robustness', order)
+        return ('15. Efficient & Robust ML', 'Adversarial Robustness', order)
 
     if _any(t, ADV_DEF):
-        return ('13. Efficient & Robust ML', 'Adversarial Robustness', 'Adversarial Defense & Certified Robustness')
+        return ('15. Efficient & Robust ML', 'Adversarial Robustness', 'Adversarial Defense & Certified Robustness')
 
     if _any(t, OOD):
         if _any(t, ['anomaly', 'novelty', 'outlier']):
@@ -2241,39 +2241,39 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Open-set Recognition'
         else:
             order = 'Out-of-distribution Detection'
-        return ('13. Efficient & Robust ML', 'OOD & Anomaly Detection', order)
+        return ('15. Efficient & Robust ML', 'OOD & Anomaly Detection', order)
 
     if _any(t, PRUNING):
         if _any(t, ['lottery ticket', 'sparse']):
             order = 'Sparse & Lottery Ticket Networks'
         else:
             order = 'Network Pruning'
-        return ('13. Efficient & Robust ML', 'Model Compression', 'Network Pruning')
+        return ('15. Efficient & Robust ML', 'Model Compression', 'Network Pruning')
 
     if _any(t, QUANT):
-        return ('13. Efficient & Robust ML', 'Model Compression', 'Network Quantization')
+        return ('15. Efficient & Robust ML', 'Model Compression', 'Network Quantization')
 
     if _any(t, COMPRESS_ML):
-        return ('13. Efficient & Robust ML', 'Model Compression', 'Model Compression & Efficient Inference')
+        return ('15. Efficient & Robust ML', 'Model Compression', 'Model Compression & Efficient Inference')
 
     if _any(t, UNCERTAINTY):
-        return ('13. Efficient & Robust ML', 'Uncertainty & Calibration', 'Uncertainty Estimation & Calibration')
+        return ('15. Efficient & Robust ML', 'Uncertainty & Calibration', 'Uncertainty Estimation & Calibration')
 
     if _any(t, XAI):
-        return ('13. Efficient & Robust ML', 'Explainability & Interpretability', 'Visual Explanations & Attribution')
+        return ('15. Efficient & Robust ML', 'Explainability & Interpretability', 'Visual Explanations & Attribution')
 
     if _any(t, FAIRNESS):
-        return ('13. Efficient & Robust ML', 'Fairness & Bias', 'Fairness, Bias & Debiasing')
+        return ('15. Efficient & Robust ML', 'Fairness & Bias', 'Fairness, Bias & Debiasing')
 
     if _any(t, FEDERATED):
-        return ('13. Efficient & Robust ML', 'Federated & Distributed Learning', 'Federated Learning')
+        return ('15. Efficient & Robust ML', 'Federated & Distributed Learning', 'Federated Learning')
 
     if _any(t, PRIVACY):
-        return ('13. Efficient & Robust ML', 'Privacy & Security', 'Differential Privacy & Machine Unlearning')
+        return ('15. Efficient & Robust ML', 'Privacy & Security', 'Differential Privacy & Machine Unlearning')
 
     # 15-ext. Causal Inference
     if _any(t, CAUSAL_KW):
-        return ('13. Efficient & Robust ML', 'Causal Inference', 'Causal Inference & Counterfactuals')
+        return ('15. Efficient & Robust ML', 'Causal Inference', 'Causal Inference & Counterfactuals')
 
     # 15-ext. Bayesian / Probabilistic Methods
     if _any(t, BAYES_KW):
@@ -2283,7 +2283,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Bayesian Optimization'
         else:
             order = 'Bayesian Deep Learning'
-        return ('13. Efficient & Robust ML', 'Bayesian & Probabilistic Methods', order)
+        return ('15. Efficient & Robust ML', 'Bayesian & Probabilistic Methods', order)
 
     # 15-ext. Geometric Deep Learning
     if _any(t, GEOMETRIC_KW):
@@ -2291,7 +2291,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     # 16-app. Molecular / Scientific ML
     if _any(t, MOLECULE_KW):
-        return ('14. Application Domains', 'Scientific & Molecular ML', 'Molecular Property Prediction & Drug Discovery')
+        return ('16. Application Domains', 'Scientific & Molecular ML', 'Molecular Property Prediction & Drug Discovery')
 
     # 16-nlp. Language Models / NLP
     if _any(t, NLP_VL_KW):
@@ -2351,7 +2351,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
                 'regret', 'convergence', 'gradient ', 'stochastic ',
                 'subgradient', 'proximal', 'convex', 'non-convex',
                 'saddle', 'lagrangian', 'duality']):
-        return ('12. Training & Learning Methods', 'Optimization Theory',
+        return ('13. Optimization & Learning Theory', 'Optimization Theory',
                 'Optimization Theory & Convergence')
 
     # Statistical / probabilistic / inference
@@ -2359,13 +2359,13 @@ def classify(title_orig: str) -> tuple[str, str, str]:
                 'probabilistic', 'probability', 'posterior', 'prior ',
                 'sampling', 'mcmc', 'bayes', 'distribution',
                 'random ', 'stochastic', 'monte carlo']):
-        return ('13. Efficient & Robust ML', 'Bayesian & Probabilistic Methods',
+        return ('15. Efficient & Robust ML', 'Bayesian & Probabilistic Methods',
                 'Bayesian Deep Learning')
 
     # Bandits / decision / RL fallback
     if _any(t, ['policy ', 'reward', 'agent ', 'agents ', 'environment',
                 'decision ', 'planning', 'reinforcement']):
-        return ('12. Training & Learning Methods', 'Reinforcement Learning',
+        return ('14. Reinforcement Learning & Decision Making', 'Reinforcement Learning',
                 'Deep Reinforcement Learning')
 
     # Graph / network analysis
@@ -2378,14 +2378,14 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     if _any(t, ['regulariz', 'batch normaliz', 'layer normaliz', 'dropout ',
                 'data-efficient', 'label-efficient', 'efficient train',
                 'training ', 'train ', 'loss ', 'loss.', 'loss:']):
-        return ('12. Training & Learning Methods', 'Training Techniques',
+        return ('12. Training Strategies', 'Training Techniques',
                 'Regularization & Training Techniques')
 
     # Efficient inference remaining
     if _any(t, ['inference ', 'efficient network', 'compact model', 'real-time ',
                 'real time ', 'efficient ', 'fast ', 'accelerat',
                 'lightweight', 'compress']):
-        return ('13. Efficient & Robust ML', 'Model Compression',
+        return ('15. Efficient & Robust ML', 'Model Compression',
                 'Model Compression & Efficient Inference')
 
     # General neural network / deep learning
@@ -2412,14 +2412,14 @@ def classify(title_orig: str) -> tuple[str, str, str]:
                 'equation', 'theorem', 'proof ', 'lemma',
                 'objective', 'function approxim', 'features ',
                 'feature ', 'feature.']):
-        return ('12. Training & Learning Methods', 'Training Techniques',
+        return ('12. Training Strategies', 'Training Techniques',
                 'General Learning Methods')
 
     # Learning remaining
     if _any(t, [' learning', 'machine learning', 'learn from',
                 'learning ', 'learner', 'learners',
                 'supervised', 'unsupervised']):
-        return ('12. Training & Learning Methods', 'Training Techniques',
+        return ('12. Training Strategies', 'Training Techniques',
                 'General Learning Methods')
 
     # Last-resort: any paper with "neural" or "network" -> deep learning
@@ -2464,19 +2464,19 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     # Anything about benchmarks, datasets, evaluation → eval
     if _any(t, ['benchmark', 'dataset', 'evaluat', 'metric ',
                 'metrics ', 'test set', 'protocol']):
-        return ('13. Efficient & Robust ML', 'Evaluation & Benchmarks',
+        return ('15. Efficient & Robust ML', 'Evaluation & Benchmarks',
                 'Benchmarks & Evaluation')
 
     # Anything about explanation / understanding → XAI
     if _any(t, ['explanation', 'understand', 'analysis',
                 'explanat', 'rational', 'interpret']):
-        return ('13. Efficient & Robust ML', 'Explainability & Interpretability',
+        return ('15. Efficient & Robust ML', 'Explainability & Interpretability',
                 'Visual Explanations & Attribution')
 
     # Anything about backdoor / trojan / safety → robustness
     if _any(t, ['backdoor', 'trojan', 'poison', 'attack ',
                 'robust', 'defense', 'safety ', ' safe ']):
-        return ('13. Efficient & Robust ML', 'Adversarial Robustness',
+        return ('15. Efficient & Robust ML', 'Adversarial Robustness',
                 'Adversarial Attacks')
 
     # Final super-broad fallback: anything with "computer vision" or "pattern"
@@ -2517,11 +2517,11 @@ if __name__ == '__main__':
         ("Denoising Diffusion Probabilistic Models",
          ('6. Generative Models & Synthesis', 'Diffusion Models', 'Diffusion Models')),
         ("Medical Image Segmentation with U-Net",
-         ('14. Application Domains', 'Medical Segmentation', 'Medical Image Segmentation')),
+         ('16. Application Domains', 'Medical Segmentation', 'Medical Image Segmentation')),
         ("Autonomous Driving with BEV Perception",
-         ('14. Application Domains', 'Autonomous Driving Perception', 'AD General Perception')),
+         ('16. Application Domains', 'Autonomous Driving Perception', 'AD General Perception')),
         ("Scene Text Recognition with Deep Learning",
-         ('14. Application Domains', 'Document Text Recognition', 'Scene Text Recognition & OCR')),
+         ('16. Application Domains', 'Document Text Recognition', 'Scene Text Recognition & OCR')),
         ("Human Pose Estimation via Deep Learning",
          ('10. Human-centric Vision', 'Human Pose & Body', '2D Human Pose Estimation')),
         ("Face Recognition via ArcFace",
@@ -2533,9 +2533,9 @@ if __name__ == '__main__':
         ("Point Cloud Classification via PointNet",
          ('3. 3D Vision & Reconstruction', 'Point Cloud & 3D Geometry', 'Point Cloud Classification')),
         ("Knowledge Distillation for Efficient Neural Networks",
-         ('12. Training & Learning Methods', 'Knowledge Distillation', 'Knowledge Distillation')),
+         ('12. Training Strategies', 'Knowledge Distillation', 'Knowledge Distillation')),
         ("Adversarial Examples in the Physical World",
-         ('13. Efficient & Robust ML', 'Adversarial Robustness', 'Physical & Universal Adversarial Attacks')),
+         ('15. Efficient & Robust ML', 'Adversarial Robustness', 'Physical & Universal Adversarial Attacks')),
         ("CLIP: Learning Transferable Visual Models from Natural Language Supervision",
          ('8. Vision-Language & Multimodal', 'Contrastive Vision-Language', 'CLIP & Language-Image Pretraining')),
     ]

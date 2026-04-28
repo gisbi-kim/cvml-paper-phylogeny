@@ -3,470 +3,7 @@
   "color": "#1a73e8",
   "children": [
     {
-      "name": "12. Training & Learning Methods",
-      "color": "#5c6bc0",
-      "children": [
-        {
-          "name": "Training Techniques",
-          "children": [
-            {
-              "name": "General Learning Methods",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 7135
-                }
-              ]
-            },
-            {
-              "name": "Regularization & Training Techniques",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 1126
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Reinforcement Learning",
-          "children": [
-            {
-              "name": "Deep Reinforcement Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 3446
-                }
-              ]
-            },
-            {
-              "name": "Bandit Algorithms",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 894
-                }
-              ]
-            },
-            {
-              "name": "Imitation & Inverse RL",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 229
-                }
-              ]
-            },
-            {
-              "name": "Offline Reinforcement Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 203
-                }
-              ]
-            },
-            {
-              "name": "World Models & Model-based RL",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 142
-                }
-              ]
-            },
-            {
-              "name": "Model-based RL",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 117
-                }
-              ]
-            },
-            {
-              "name": "Visual Reinforcement Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 60
-                }
-              ]
-            },
-            {
-              "name": "Skill & Option Discovery",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 28
-                }
-              ]
-            },
-            {
-              "name": "Multi-agent RL",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Optimization Theory",
-          "children": [
-            {
-              "name": "Optimization Theory & Convergence",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 4913
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Optimization Methods",
-          "children": [
-            {
-              "name": "Optimization & Training Dynamics",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 719
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Active Learning",
-          "children": [
-            {
-              "name": "Active Learning Strategies",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 667
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Continual Learning",
-          "children": [
-            {
-              "name": "Continual & Incremental Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 441
-                }
-              ]
-            },
-            {
-              "name": "Replay-based Continual Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 104
-                }
-              ]
-            },
-            {
-              "name": "Class/Task-incremental Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 86
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Boosting & Ensembles",
-          "children": [
-            {
-              "name": "Boosting Methods",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 298
-                }
-              ]
-            },
-            {
-              "name": "Ensemble Methods & Mixture of Experts",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 237
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Game Theory & Multi-agent",
-          "children": [
-            {
-              "name": "Multi-agent & Game-theoretic Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 509
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Semi-supervised Learning",
-          "children": [
-            {
-              "name": "Semi-supervised Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 413
-                }
-              ]
-            },
-            {
-              "name": "Semi-supervised Classification",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 40
-                }
-              ]
-            },
-            {
-              "name": "Semi-supervised Segmentation",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 19
-                }
-              ]
-            },
-            {
-              "name": "Semi-supervised Detection",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 18
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Kernel Methods",
-          "children": [
-            {
-              "name": "Kernel Methods & SVMs",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 484
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Weakly Supervised Learning",
-          "children": [
-            {
-              "name": "Weakly Supervised Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 212
-                }
-              ]
-            },
-            {
-              "name": "Weakly Supervised Detection",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 59
-                }
-              ]
-            },
-            {
-              "name": "Weakly Supervised Segmentation",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 24
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Knowledge Distillation",
-          "children": [
-            {
-              "name": "Knowledge Distillation",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 153
-                },
-                {
-                  "name": "KD for Dense Prediction",
-                  "value": 12
-                },
-                {
-                  "name": "Data-free KD",
-                  "value": 11
-                },
-                {
-                  "name": "Contrastive / Relational KD",
-                  "value": 3
-                },
-                {
-                  "name": "Online KD",
-                  "value": 3
-                },
-                {
-                  "name": "LLM / VLM Knowledge Distillation",
-                  "value": 1
-                }
-              ]
-            },
-            {
-              "name": "Feature-based Knowledge Distillation",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 17
-                }
-              ]
-            },
-            {
-              "name": "Online Knowledge Distillation",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 16
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Data Augmentation",
-          "children": [
-            {
-              "name": "Data Augmentation Strategies",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 215
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Multi-task Learning",
-          "children": [
-            {
-              "name": "Multi-task & Joint Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 206
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Structured Prediction",
-          "children": [
-            {
-              "name": "Structured Prediction",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 168
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Noisy Label Learning",
-          "children": [
-            {
-              "name": "Learning with Noisy Labels",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 166
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Long-tail & Imbalanced Learning",
-          "children": [
-            {
-              "name": "Long-tail Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 126
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Dataset Distillation",
-          "children": [
-            {
-              "name": "Dataset Distillation & Coreset Selection",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 84
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Curriculum Learning",
-          "children": [
-            {
-              "name": "Curriculum & Self-paced Learning",
-              "children": [
-                {
-                  "name": "(general)",
-                  "value": 47
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "13. Efficient & Robust ML",
+      "name": "15. Efficient & Robust ML",
       "color": "#f44336",
       "children": [
         {
@@ -731,6 +268,290 @@
                 {
                   "name": "(general)",
                   "value": 211
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "12. Training Strategies",
+      "color": "#5c6bc0",
+      "children": [
+        {
+          "name": "Training Techniques",
+          "children": [
+            {
+              "name": "General Learning Methods",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 7135
+                }
+              ]
+            },
+            {
+              "name": "Regularization & Training Techniques",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 1126
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Active Learning",
+          "children": [
+            {
+              "name": "Active Learning Strategies",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 667
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Continual Learning",
+          "children": [
+            {
+              "name": "Continual & Incremental Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 441
+                }
+              ]
+            },
+            {
+              "name": "Replay-based Continual Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 104
+                }
+              ]
+            },
+            {
+              "name": "Class/Task-incremental Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 86
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Semi-supervised Learning",
+          "children": [
+            {
+              "name": "Semi-supervised Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 413
+                }
+              ]
+            },
+            {
+              "name": "Semi-supervised Classification",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 40
+                }
+              ]
+            },
+            {
+              "name": "Semi-supervised Segmentation",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 19
+                }
+              ]
+            },
+            {
+              "name": "Semi-supervised Detection",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 18
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weakly Supervised Learning",
+          "children": [
+            {
+              "name": "Weakly Supervised Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 212
+                }
+              ]
+            },
+            {
+              "name": "Weakly Supervised Detection",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 59
+                }
+              ]
+            },
+            {
+              "name": "Weakly Supervised Segmentation",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 24
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Knowledge Distillation",
+          "children": [
+            {
+              "name": "Knowledge Distillation",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 153
+                },
+                {
+                  "name": "KD for Dense Prediction",
+                  "value": 12
+                },
+                {
+                  "name": "Data-free KD",
+                  "value": 11
+                },
+                {
+                  "name": "Contrastive / Relational KD",
+                  "value": 3
+                },
+                {
+                  "name": "Online KD",
+                  "value": 3
+                },
+                {
+                  "name": "LLM / VLM Knowledge Distillation",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Feature-based Knowledge Distillation",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 17
+                }
+              ]
+            },
+            {
+              "name": "Online Knowledge Distillation",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 16
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data Augmentation",
+          "children": [
+            {
+              "name": "Data Augmentation Strategies",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 215
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Multi-task Learning",
+          "children": [
+            {
+              "name": "Multi-task & Joint Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 206
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Noisy Label Learning",
+          "children": [
+            {
+              "name": "Learning with Noisy Labels",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 166
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Long-tail & Imbalanced Learning",
+          "children": [
+            {
+              "name": "Long-tail Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 126
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Dataset Distillation",
+          "children": [
+            {
+              "name": "Dataset Distillation & Coreset Selection",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 84
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Curriculum Learning",
+          "children": [
+            {
+              "name": "Curriculum & Self-paced Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 47
                 }
               ]
             }
@@ -1611,6 +1432,91 @@
                 {
                   "name": "(general)",
                   "value": 15
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "13. Optimization & Learning Theory",
+      "color": "#7e57c2",
+      "children": [
+        {
+          "name": "Optimization Theory",
+          "children": [
+            {
+              "name": "Optimization Theory & Convergence",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 4913
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Optimization Methods",
+          "children": [
+            {
+              "name": "Optimization & Training Dynamics",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 719
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Boosting & Ensembles",
+          "children": [
+            {
+              "name": "Boosting Methods",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 298
+                }
+              ]
+            },
+            {
+              "name": "Ensemble Methods & Mixture of Experts",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 237
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Kernel Methods",
+          "children": [
+            {
+              "name": "Kernel Methods & SVMs",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 484
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Structured Prediction",
+          "children": [
+            {
+              "name": "Structured Prediction",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 168
                 }
               ]
             }
@@ -2765,6 +2671,112 @@
       ]
     },
     {
+      "name": "14. Reinforcement Learning & Decision Making",
+      "color": "#26a69a",
+      "children": [
+        {
+          "name": "Reinforcement Learning",
+          "children": [
+            {
+              "name": "Deep Reinforcement Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 3446
+                }
+              ]
+            },
+            {
+              "name": "Bandit Algorithms",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 894
+                }
+              ]
+            },
+            {
+              "name": "Imitation & Inverse RL",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 229
+                }
+              ]
+            },
+            {
+              "name": "Offline Reinforcement Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 203
+                }
+              ]
+            },
+            {
+              "name": "World Models & Model-based RL",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 142
+                }
+              ]
+            },
+            {
+              "name": "Model-based RL",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 117
+                }
+              ]
+            },
+            {
+              "name": "Visual Reinforcement Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 60
+                }
+              ]
+            },
+            {
+              "name": "Skill & Option Discovery",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 28
+                }
+              ]
+            },
+            {
+              "name": "Multi-agent RL",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Game Theory & Multi-agent",
+          "children": [
+            {
+              "name": "Multi-agent & Game-theoretic Learning",
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 509
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "10. Human-centric Vision",
       "color": "#ff5722",
       "children": [
@@ -3271,7 +3283,7 @@
       ]
     },
     {
-      "name": "14. Application Domains",
+      "name": "16. Application Domains",
       "color": "#00897b",
       "children": [
         {

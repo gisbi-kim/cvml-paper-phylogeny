@@ -24,7 +24,7 @@ CV+ML Paper Phylogenetic Taxonomy
 | 파일 | 설명 |
 |-----|------|
 | **`cvml_taxonomy.xlsx`** | 메인 결과 — 3 시트 (Papers / Taxonomy_Tree / Stats) |
-| [`TAXONOMY.md`](TAXONOMY.md) | 14 Phylum × ~110 Class × ~380 Order 전체 트리 |
+| [`TAXONOMY.md`](TAXONOMY.md) | 16 Phylum × ~120 Class × ~400 Order 전체 트리 |
 | [`TAXONOMY_CHANGES.md`](TAXONOMY_CHANGES.md) | 초안 vs 최종 비교 |
 | [`classify.py`](classify.py) | 1~3 단계 분류기 (Phylum/Class/Order) |
 | [`genus_rules.py`](genus_rules.py) | 4단계 분류기 (Genus) |
@@ -37,9 +37,9 @@ CV+ML Paper Phylogenetic Taxonomy
 
 ---
 
-## 14 Phylum 번호 순서의 함의
+## 16 Phylum 번호 순서의 함의
 
-번호(1~14)는 **느슨한 컨셉 그룹핑**이지 우선순위/논문 수/연대와 무관합니다. "픽셀 → 의미 → 학습 → 응용"이라는 연구 스택을 따라 내려가게 배치:
+번호(1~16)는 **느슨한 컨셉 그룹핑**이지 우선순위/논문 수/연대와 무관합니다. "픽셀 → 의미 → 학습 → 응용"이라는 연구 스택을 따라 내려가게 배치:
 
 | 번호 | 그룹 | 의도 |
 |---|---|---|
@@ -47,8 +47,8 @@ CV+ML Paper Phylogenetic Taxonomy
 | **3~5** | Visual understanding | 더 풍부한 시각 정보: 3D 기하, 카테고리 인식, 시간(영상) |
 | **6~8** | Modeling & synthesis | 무엇을 만들고 무엇을 배울까: 생성, 표현, 비전-언어 |
 | **9~10** | Specialized vision | 픽셀 레벨 처리(Low-level)와 사람 중심(Human) 특수화 |
-| **11~13** | ML methodology | 어떻게 학습/배포할까: 아키텍처, 학습법, 효율·견고성 |
-| **14** | Application | 의료/자율주행/원격탐사/문서 등 실세계 도메인 |
+| **11~15** | ML methodology | 어떻게 표현·학습·결정·배포할까: 아키텍처, 학습 전략, 최적화 이론, 강화학습, 효율·견고성 |
+| **16** | Application | 의료/자율주행/원격탐사/문서 등 실세계 도메인 |
 
 > 따라서 "1번이 가장 중요"가 아니라 "1번은 가장 입력에 가까운 task". 실제 논문 수로 정렬한 분포는 아래.
 
@@ -56,25 +56,27 @@ CV+ML Paper Phylogenetic Taxonomy
 
 | Phylum | 논문 수 | % |
 |---|---:|---:|
-| 12. Training & Learning Methods | 23,857 | 21.3% |
-| 13. Efficient & Robust ML | 11,993 | 10.7% |
+| 15. Efficient & Robust ML | 11,993 | 10.7% |
+| 12. Training Strategies | 11,404 | 10.2% |
 | 3. 3D Vision & Reconstruction | 10,970 | 9.8% |
 | 4. Image Recognition & Retrieval | 8,090 | 7.2% |
 | 11. Deep Learning Architecture | 7,751 | 6.9% |
+| 13. Optimization & Learning Theory | 6,819 | 6.1% |
 | 7. Representation Learning | 6,619 | 5.9% |
 | 6. Generative Models & Synthesis | 6,488 | 5.8% |
 | 5. Video & Motion Understanding | 6,215 | 5.5% |
 | 8. Vision-Language & Multimodal | 5,691 | 5.1% |
+| 14. Reinforcement Learning & Decision Making | 5,634 | 5.0% |
 | 10. Human-centric Vision | 4,506 | 4.0% |
 | 1. Object Detection & Localization | 3,859 | 3.4% |
-| 14. Application Domains | 3,655 | 3.3% |
+| 16. Application Domains | 3,655 | 3.3% |
 | 2. Segmentation | 2,967 | 2.6% |
 | 9. Low-level Vision | 2,900 | 2.6% |
 | Other / Unclassified | 6,225 | 5.5% |
 | Other / Editorial | 397 | 0.4% |
 | **합계** | **112,183** | **100.0%** |
 
-> Training & Learning Methods가 1위인 이유: NeurIPS/ICML/ICLR이 데이터셋의 큰 비중을 차지하고, 이 학회들은 vision-specific task보다 학습 방법론·이론 논문이 더 많기 때문.
+> 최대 phylum(15. Efficient & Robust ML)이 10.7% — 균형 잡힌 분포. 이전 버전에서 "12. Training & Learning Methods" 단일 phylum이 21.3%로 비대했는데, 학습 전략 / 최적화 이론 / 강화학습 셋으로 자연스럽게 분리됨.
 
 ---
 

@@ -1,13 +1,13 @@
 # CV+ML Paper Phylogenetic Taxonomy
 
 4-level hierarchy: **Phylum > Class > Order > Genus**  
-14 Phyla · ~110 Classes · ~380 Orders · Genus (~50% specific coverage)
+16 Phyla · ~120 Classes · ~400 Orders · Genus (~50% specific coverage)
 
 ---
 
 ## Phylum 번호 순서가 의미하는 것
 
-번호 1~14는 우선순위/중요도/논문 수가 **아닙니다**. "입력에 가까운 perception task → 시각 이해 → 모델링 → ML 방법론 → 실세계 응용"이라는 연구 스택을 따라 배치한 **컨셉 그룹핑**입니다.
+번호 1~16은 우선순위/중요도/논문 수가 **아닙니다**. "입력에 가까운 perception task → 시각 이해 → 모델링 → ML 방법론 → 실세계 응용"이라는 연구 스택을 따라 배치한 **컨셉 그룹핑**입니다.
 
 | 범위 | 그룹 | 핵심 질문 |
 |------|------|----------|
@@ -15,8 +15,8 @@
 | 3, 4, 5 | **Visual understanding** | "그게 뭐고, 어떻게 생겼고, 어떻게 움직이나?" (3D / Recognition / Video) |
 | 6, 7, 8 | **Modeling & synthesis** | "어떻게 만들고, 어떻게 표현하고, 어떻게 언어와 잇나?" (Generative / Representation / Vision-Language) |
 | 9, 10 | **Specialized vision** | 픽셀 레벨 처리(Low-level)와 사람 중심(Human) 도메인의 특수화 |
-| 11, 12, 13 | **ML methodology** | "어떤 모델로, 어떻게 학습시키고, 어떻게 배포·견고화하나?" (Architecture / Training / Efficient·Robust) |
-| 14 | **Application** | 의료/자율주행/원격탐사/문서 등 도메인 응용 |
+| 11, 12, 13, 14, 15 | **ML methodology** | 모델(Architecture) → 학습 전략(Training) → 최적화·이론(Optimization Theory) → 결정·강화(RL) → 효율·견고(Efficient·Robust) |
+| 16 | **Application** | 의료/자율주행/원격탐사/문서 등 도메인 응용 |
 
 분류 우선순위(specificity ordering)는 별개 — 분류기는 가장 specific한 키워드부터 매칭하므로 번호 순서가 아니라 [맨 아래 우선순위 섹션](#분류-우선순위-specificity-ordering)을 따릅니다.
 
@@ -324,19 +324,16 @@
 
 ---
 
-## 12. Training & Learning Methods
+## 12. Training Strategies
 
-- **Optimization**
-  - Gradient Descent & Adaptive Optimizers
-  - Loss Function Design
-  - Second-order Optimization
-  - Learning Rate Scheduling
+라벨 효율성·증강·증류·기타 학습 운영. *어떻게 데이터를 잘 쓰고, 어떻게 모델을 가르칠까?*
+
 - **Data Augmentation**
   - Classical Augmentation (Flip, Crop, Color)
   - Mixup / CutMix / Mosaic
   - AutoAugment & RandAugment
   - Synthetic Data Generation
-- **Supervised Learning Strategies**
+- **Supervised Learning Strategies (label-efficient)**
   - Label Smoothing & Regularization
   - Long-tail / Class-imbalanced Learning
   - Noisy Label Learning
@@ -346,24 +343,74 @@
   - Weakly-supervised Learning
   - Active Learning
   - Label-efficient Learning
-- **Few-shot & Meta-learning**
-  - Few-shot Classification
-  - Meta-learning (MAML, Prototypical)
-  - In-context Learning
-  - Prompt-based Few-shot
 - **Knowledge Distillation**
   - Offline Knowledge Distillation
   - Online / Mutual Distillation
   - Feature-based Distillation
 - **Continual & Lifelong Learning**
   - Catastrophic Forgetting Mitigation
-  - Class-incremental Learning
-  - Task-incremental Learning
+  - Class-incremental / Task-incremental
   - Replay-based Methods
+- **Multi-task & Dataset-level**
+  - Multi-task & Joint Learning
+  - Dataset Distillation & Coreset Selection
+  - General Training Techniques (regularization, normalization)
 
 ---
 
-## 13. Efficient & Robust ML
+## 13. Optimization & Learning Theory
+
+이론·수렴·고전 ML. *왜·언제 작동하는가?*
+
+- **Optimization Methods**
+  - Gradient Descent & Adaptive Optimizers
+  - Second-order / Newton-style
+  - Learning Rate Scheduling
+  - Loss Function Design
+- **Optimization Theory & Convergence**
+  - Convergence rate / regret bound
+  - Generalization bounds (PAC, Rademacher)
+  - Loss landscape, NTK, double descent
+  - Stochastic / non-convex / minimax
+- **Kernel Methods**
+  - Kernel Machines & SVM
+  - Random Features / RKHS
+  - Gaussian Processes (also under Bayesian)
+- **Boosting & Ensembles**
+  - Gradient Boosting / AdaBoost
+  - Mixture of Experts
+  - Ensemble Methods
+- **Structured Prediction**
+  - CRF / Structured Output
+  - Energy-based formulations
+
+---
+
+## 14. Reinforcement Learning & Decision Making
+
+순차 결정·게임·탐색. *행동을 어떻게 배울까?*
+
+- **Deep RL**
+  - Policy Gradient / Actor-Critic
+  - Q-learning / DQN-family
+  - Visual / Pixel-based RL
+- **Offline & Model-based RL**
+  - Offline RL / Batch RL
+  - World Models / Dyna-style
+- **Multi-agent & Game Theory**
+  - Cooperative / Competitive Multi-agent
+  - Game-theoretic Learning
+  - Mechanism Design / Markets
+- **Bandits**
+  - Stochastic Bandits / Thompson Sampling
+  - Contextual Bandits
+- **Imitation & Inverse RL**
+  - Behavior Cloning
+  - Inverse Reinforcement Learning
+
+---
+
+## 15. Efficient & Robust ML
 
 - **Model Compression**
   - Network Pruning (structured, unstructured)
@@ -386,6 +433,13 @@
   - Anomaly Detection
   - Fairness & Bias Mitigation
   - Explainability & Interpretability (Grad-CAM, LIME)
+- **Bayesian & Probabilistic Methods**
+  - Bayesian Deep Learning
+  - Variational Inference
+  - Gaussian Processes
+- **Causal Inference**
+  - Counterfactuals & Interventions
+  - Instrumental Variables
 - **Privacy & Federated Learning**
   - Federated Learning
   - Differential Privacy
@@ -394,7 +448,7 @@
 
 ---
 
-## 14. Application Domains
+## 16. Application Domains
 
 - **Medical & Clinical Imaging**
   - Medical Image Segmentation
