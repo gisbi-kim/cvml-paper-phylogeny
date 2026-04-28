@@ -47,6 +47,7 @@ NERF = [
     'implicit surface', 'neural 3d', 'neural render',
     'volumetric render', 'differentiable render', 'inverse render',
     'neural scene', 'scene neural',
+    'implicit function', 'implicit representation',
 ]
 GAUSSIAN_SPLAT = [
     'gaussian splatting', '3d gaussian', 'gaussian splat',
@@ -61,12 +62,13 @@ STEREO_KW = [
     'stereo matching', 'stereo vision', 'stereo depth',
     'disparity estimation', 'binocular', 'stereo network',
     'stereo correspondence', 'active stereo', 'structured light',
-    'time-of-flight', 'tof depth',
+    'time-of-flight', 'tof depth', 'two-view', 'two view stereo',
 ]
 POINT_CLOUD = [
     'point cloud', 'pointcloud', 'point-cloud',
     'lidar', '3d point', 'range scan', 'range image',
     'point set', 'point-based', 'sparse 3d',
+    'kpconv', 'pointnet', 'point convolut', 'kernel point convolut',
 ]
 SFM = [
     'structure from motion', 'sfm', 'multi-view stereo',
@@ -77,6 +79,9 @@ SFM = [
     'camera calibrat', 'camera model', 'epipolar',
     'homography', 'fundamental matrix', 'essential matrix',
     'from-motion', 'ego-motion', 'egomotion',
+    'vanishing point', 'imaging model', 'imaging models',
+    'minimal solver', 'minimal solutions', 'rotation averaging',
+    'translation estimation', 'pose graph',
 ]
 SCENE_3D = [
     'scene reconstruction', '3d reconstruction', '3d scene',
@@ -91,6 +96,15 @@ SCENE_3D = [
     '3d morphable', '3dmm', 'morphable model', 'surface normal',
     '3d avatar', 'human avatar 3d', 'augmented reality',
     'mixed reality', 'virtual reality 3d',
+    'shape recovery', 'shape from shading', 'shape from',
+    'shape correspondence', 'shape analysis', 'shape match',
+    'shape retriev', 'shape descriptor', 'shape model',
+    '3d human reconstruct', 'clothed human', 'human body reconstruct',
+    'mesh recovery', 'mesh generation', 'mesh reconstruct',
+    'view selection', 'canonical region', 'silhouette',
+    'event camera', 'event-based vision', 'event-based stereo',
+    'event stream', 'dvs camera', 'event vision',
+    'projector-camera', 'projector camera',
 ]
 
 # ---------------------------------------------------------------------------
@@ -112,6 +126,9 @@ DIFFUSION = [
     'stable diffusion', 'latent diffusion', 'rectified flow',
     'consistency model', 'stochastic differential equation',
     'sde-based', 'classifier-free guidance', 'cfg guidance',
+    'diffusion prob', 'diffuser', 'diffusion field',
+    'continuous flow', 'constant acceleration flow',
+    'beta diffusion',
 ]
 TEXTTOIMAG = [
     'text-to-image', 'text to image', 'text-driven image',
@@ -123,12 +140,21 @@ VAE_KW = [
     'variational inference', 'latent variable model',
     'discrete vae', 'codebook',
 ]
+EBM_KW = [
+    'energy-based model', 'energy based model', ' ebm ', 'ebm:',
+    'score function', 'score-based generative', 'noise contrastive',
+]
+NORMFLOW_KW = [
+    'normalizing flow', 'normalising flow', 'invertible neural',
+    'glow ', 'realnvp', 'nice flow', 'autoregressive flow',
+]
 IMG_EDIT = [
     'image editing', 'image manipulation', 'image inpainting',
     'image outpainting', 'image completion', 'image blending',
     'image harmonization', 'visual editing', 'photo editing',
     'drag-based edit', 'instructpix2pix', 'instruct-pix2pix',
     'instructed image', 'instruction-based edit',
+    'inpainting', 'outpainting',
 ]
 VIDEO_GEN = [
     'video diffusion', 'video generation', 'text-to-video',
@@ -172,6 +198,8 @@ DETECT = [
     'one-stage detect', 'two-stage detect',
     'open-set detect', 'open-vocabulary detect',
     'weakly supervised detect', 'semi-supervised detect',
+    'click supervision', 'one-to-few label', 'label assignment',
+    'dense detection', 'dense detector',
 ]
 DETECT3D = [
     '3d object detect', 'lidar detect', 'point cloud detect',
@@ -205,6 +233,10 @@ FACE = [
     'age estimat', 'age prediction', 'apparent age',
     'face shape', 'face 3d', '3d face',
     'face in the wild', 'face under', 'face network',
+    'face landmark', 'facial landmark', 'facial feature',
+    'face embedding', 'face template', 'face foundation',
+    'face reconstruction', 'facial gesture', 'face mesh',
+    'face perspective', 'face from face',
 ]
 FACE_GEN = [
     'face synthesis', 'face generation', 'face swap',
@@ -216,7 +248,8 @@ POSE = [
     'skeleton estimat', 'body keypoint', 'human body model',
     'smpl ', 'human mesh', 'mocap', 'multi-person pose',
     'whole-body pose', 'expressive body', 'human body estimat',
-    'hand-object interact',
+    'hand-object interact', 'pose transformer', 'human motion predict',
+    'motion capture', 'imu motion', 'inertial pose',
 ]
 REID = [
     'person re-identif', 'person reid', 'pedestrian re-id',
@@ -236,6 +269,7 @@ CROWD = [
 EMOTION = [
     'emotion recogni', 'facial expression', 'affect recogni',
     'sentiment recogni', 'facial action unit', 'expression recogni',
+    'expression inference', 'affect guided',
 ]
 GAZE = [
     'gaze estimat', 'eye gaze', 'gaze predict',
@@ -244,6 +278,14 @@ GAZE = [
 ACTIVITY = [
     'human activity', 'skeletal action', 'skeleton-based action',
     'graph-based action', 'human interaction recogni',
+]
+PEDESTRIAN_ANALYSIS = [
+    'pedestrian analysis', 'pedestrian attribute',
+    'hydraplus',
+]
+CLOTHING_KW = [
+    'clothing photo', 'street clothing', 'fashion image',
+    'clothing retriev', 'clothing match',
 ]
 
 # ---------------------------------------------------------------------------
@@ -272,6 +314,7 @@ VLM = [
     'multimodal language model', 'multimodal large language',
     'flamingo', 'minigpt', 'qwen-vl', 'intern vl',
     'visual chat', 'vision chat',
+    'multilingual vision', 'multilingual diversity',
 ]
 CROSSMODAL = [
     'cross-modal', 'image-text', 'text-image retrieval',
@@ -282,10 +325,36 @@ CROSSMODAL = [
     'sentence matching', 'image and sentence', 'vision and language',
     'language and vision', 'visual language', 'language navigation',
     'visual navigation instruction', 'vision-language navigation',
+    'modality reconcilement', 'modality representation',
+    'modality fusion', 'cross modal',
 ]
 GROUNDING_VL = [
     'text-guided detect', 'open-vocabulary', 'language-guided',
     'visual grounding language',
+]
+
+# ---------------------------------------------------------------------------
+# LLM Alignment / RLHF / NLP
+# ---------------------------------------------------------------------------
+
+LLM_ALIGN_KW = [
+    'rlhf', 'reinforcement learning from human feedback',
+    'reward model', 'reward modeling', 'preference alignment',
+    'preference optimization', 'direct preference', 'dpo ',
+    'preference learning', 'preference data',
+    'llm alignment', 'language model alignment',
+    'human preference', 'process enhanced preferences',
+    'preference rank',
+]
+LLM_KW = [
+    'large language model', 'llm ', ' llms ', 'llms:', 'llm:',
+    'gpt-2', 'gpt-3', 'gpt-4', 'gpt 4', 'chatgpt',
+    'language model', 'foundation language',
+    'pretrained language model', 'instruction tun',
+    'in-context learn', 'chain-of-thought', 'chain of thought',
+    'prompt engineer', 'text-to-sql', 'sql generation',
+    'mathematical web text', 'math text', 'math dataset',
+    'reasoning over', 'chatbot arena', 'chatbot',
 ]
 
 # ---------------------------------------------------------------------------
@@ -302,6 +371,7 @@ ACTION_DETECT = [
     'temporal action', 'action detect', 'action segment',
     'activity detect', 'event detect', 'action localiz',
     'temporal grounding', 'moment retrieval', 'natural language grounding video',
+    'early action predict', 'action anticipat',
 ]
 OPTFLOW = [
     'optical flow', 'motion estimat', 'scene flow',
@@ -311,6 +381,7 @@ OPTFLOW = [
 VIDEO_PREDICT = [
     'video predict', 'future frame', 'video forecast',
     'temporal predict', 'video extrapolat', 'video anticip',
+    'frame interpolat',
 ]
 TRACKING = [
     'object track', 'visual track', 'single object track',
@@ -320,6 +391,7 @@ TRACKING = [
     'multi-pedestrian track', 'point track',
     'multi object track', 'object tracker', 'online track',
     'track every', 'track anything', 'tracker ',
+    'lgtracker', 'enhanced adaptive coupled-layer',
 ]
 VIDEO_REPR = [
     'video represent', 'video self-supervised', 'video pretrain',
@@ -330,7 +402,11 @@ TRAJECTORY = [
     'trajectory predict', 'trajectory forecast', 'trajectory estimat',
     'motion forecast', 'future trajectory', 'path predict',
     'pedestrian trajectory', 'vehicle trajectory', 'agent trajectory',
-    'trajectory plan', 'trajectory model',
+    'trajectory plan', 'trajectory model', 'gps trajectory',
+]
+MULTI_LAYER_DECOMP = [
+    'multi-layered decomposition', 'recurrent scenes',
+    'video scene decomp',
 ]
 
 # ---------------------------------------------------------------------------
@@ -362,6 +438,8 @@ ENHANCE = [
     'low light', 'dark image', 'nighttime image',
     'image illuminat', 'image color', 'underwater image',
     'color constancy', 'white balance',
+    'shedding light', 'weather enhance',
+    'precipitation nowcasting', 'weather predict',
 ]
 IMG_COMPRESS = [
     'image compress', 'learned compress', 'neural compress',
@@ -377,7 +455,7 @@ COMP_PHOTO = [
     'image mosaic', 'panorama', 'image fusion', 'exposure fusion',
     'bokeh', 'lens flare', 'reflection remov', 'demosaic', 'raw image',
     'image formation', 'point spread function', 'psf ', 'deconvolut',
-    'blind deconvolut',
+    'blind deconvolut', 'reflective flare', 'flare removal',
 ]
 
 # ---------------------------------------------------------------------------
@@ -401,7 +479,7 @@ DOMAIN_ADAPT = [
     'domain adaptation', 'domain shift', 'domain generaliz',
     'unsupervised domain', 'covariate shift', 'source-free adapt',
     'test-time adapt', 'tta ', 'domain randomiz', 'domain augment',
-    'adversarial domain adapt',
+    'adversarial domain adapt', 'domain adaptive',
 ]
 TRANSFER = [
     'transfer learning', 'pre-trained model', 'pretrained model',
@@ -429,11 +507,18 @@ SPARSE_REPR = [
     'matrix factorization', 'tensor decomposit', 'tensor factori',
     'dimensionality reduc', 'principal component', ' pca ',
     'manifold embed', 'manifold repres', 'spectral embed',
+    'random projection', 'sparse modular', 'modular activation',
+    'sparse word representation', 'sparse estimation',
 ]
 CLUSTERING_KW = [
     'deep clustering', 'image clustering', 'visual clustering',
     'contrastive cluster', 'prototype cluster', 'unsupervised cluster',
     ' k-means', 'spectral cluster', 'cluster assign',
+    'clustering with', 'sets clustering', 'hyperedge cluster',
+    'hypergraph cluster', 'subspace clustering',
+    'gaussian mixture', 'mixture model', 'hierarchical cluster',
+    'agglomerative cluster', 'similarity component',
+    'constrained clustering', 'mixed integer cluster',
 ]
 
 # ---------------------------------------------------------------------------
@@ -450,6 +535,9 @@ CLASSIF = [
     'object classif', 'shape classif',
     'deep classif', 'classif network',
     'visual category', 'category recogni',
+    'classifying ', 'classifier ',
+    'risk minimization', 'cost-sensitive',
+    'binary classif', 'classification of',
 ]
 FINEGRAINED = [
     'fine-grained recogni', 'fine-grained classif',
@@ -462,23 +550,36 @@ RETRIEVAL = [
     'hash-based retrieval', 'hashing ', 'compact represent',
     'content-based retrieval', 'cbir', 'instance retrieval',
     'place retrieval', 'cross-modal retrieval',
+    'object retrieval', 'similarity retrieval',
+    'sign random projection', 'similar image',
+    'feature hash', 'fehash', 'hash for face',
+    'compact feature', 'hash code',
 ]
 METRIC = [
     'metric learning', 'distance metric', 'embedding learning',
     'siamese network', 'triplet loss', 'contrastive loss',
     'proxy loss', 'n-pair loss', 'deep metric',
     'embedding space', 'margin-based loss',
+    'similarity learning', 'distance function',
+    'euclidean distance', 'similarity component',
 ]
 FEAT_MATCH = [
     'feature matching', 'keypoint match', 'local feature',
     'sift ', ' orb ', 'superpoint', 'superglue',
     'image match', 'descriptor match', 'loftr',
     'feature descriptor', 'patch descriptor',
+    'kaze feature', 'kaze ', 'akaze',
+    'edge detector', 'edge detection',
+    'scale-space', 'corner detect', 'blob detect',
+    'object matching', 'affine-invariant', 'affine invariant',
+    'object shape recovery', 'creaseness', 'level set',
+    'scale free',
 ]
 SCENE_RECOG = [
     'scene recogni', 'scene classif', 'scene understand',
     'place recogni', 'geo-locali', 'geo-localization',
     'geolocali', 'indoor scene', 'room type',
+    'osaka scene', 'scene text dataset',
 ]
 
 # ---------------------------------------------------------------------------
@@ -491,6 +592,9 @@ CNN_ARCH = [
     'efficientnet', 'inception network', 'squeezenet', 'shufflenet',
     'inverted residual', 'strided convol', 'deformable convol',
     'dynamic convol',
+    'skip connection', 'kernel point convol',
+    'covariance pooling', 'global covariance',
+    'pooling network', 'global pool',
 ]
 VIT_ARCH = [
     'vision transformer', ' vit ', 'deit ', 'swin transformer',
@@ -504,6 +608,9 @@ GNN_ARCH = [
     'graph network', 'point-gnn', 'dynamic graph',
     'heterogeneous graph', 'knowledge graph network',
     'graph transformer', 'spatial-temporal graph',
+    'graph external', 'gnn-based', 'gnns ',
+    'graph representation', 'graph homomorph',
+    'expectation-complete graph',
 ]
 NAS = [
     'neural architecture search', ' nas ', 'differentiable nas',
@@ -520,6 +627,7 @@ ATTENTION = [
     'attention is all you need', 'transformer attention',
     'cross-attention', 'co-attention',
     'non-local neural', 'non-local block',
+    'dual attention', 'attentive deep',
 ]
 MLP_ARCH = [
     'mlp-mixer', 'mlp mixer', ' gmlp ', 'vision mlp',
@@ -528,6 +636,7 @@ MLP_ARCH = [
 STATE_SPACE = [
     'state space model', 'mamba ', 'selective state',
     ' ssm ', 'linear recurrent', 'hippo ', 's4 model',
+    'sequence modeling', 'sequence model',
 ]
 TRANSFORMER_GEN = [
     'transformer architecture', 'transformer for vision',
@@ -536,6 +645,10 @@ TRANSFORMER_GEN = [
     'recurrent neural', 'lstm ', ' rnn ', 'gru ',
     'encoder decoder', 'encoder-decoder network',
     'generative model',
+    'transformer-based world model', 'world model transform',
+    'spike-driven transformer', 'spiking neural', 'spiking transformer',
+    'small transformer', 'efficient diffusion', 'parameter sharing',
+    'autoregressive transform',
 ]
 
 # ---------------------------------------------------------------------------
@@ -571,11 +684,13 @@ SEMISUP = [
 WEAKLY = [
     'weakly supervised', 'weak supervision', 'image-level label',
     'weakly-labeled', 'incomplete label', 'partial label',
-    'multiple instance learn',
+    'multiple instance learn', 'multiple-instance',
+    'multi-instance', 'mil ', 'unsupervised label',
 ]
 CURRICULUM = [
     'curriculum learn', 'self-paced learn', 'easy-to-hard',
     'progressive learn', 'difficulty-aware',
+    'automated curriculum', 'curriculum strategy',
 ]
 CONTINUAL = [
     'continual learn', 'incremental learn', 'catastrophic forget',
@@ -586,12 +701,83 @@ CONTINUAL = [
 ACTIVE = [
     'active learn', 'query strateg', 'sample select', 'core-set',
     'informative sample', 'uncertainty sampling',
+    'subset selection', 'sampling strategy', 'subset select',
+    'submodular', 'data selection', 'data influence',
+    'data pruning', 'coreset', 'core set',
 ]
 KD = [
     'knowledge distill', 'teacher-student', 'model distill',
     'offline distill', 'online distill', 'feature distill',
     'response-based distill', 'relation-based distill',
     'born again network', 'self-distil',
+]
+DATASET_DISTILL = [
+    'dataset distillation', 'dataset condens', 'data distillat',
+    'condensed dataset', 'distilling dataset',
+    'distilling morphology', 'efficient dataset',
+]
+BOOSTING_KW = [
+    'boosting ', ' boost ', 'boost ', 'gradient boost',
+    'adaboost', 'xgboost', 'lightgbm', 'reconboost',
+    'boosting can', 'ensemble boost',
+]
+ENSEMBLE_KW = [
+    'ensemble method', 'ensemble learning', 'ensemble model',
+    'random forest', 'bagging', 'stacked ensemble',
+    'deep ensemble', 'ensembles of', 'low-rank expert',
+    'mixture of experts', 'expert adapter', 'mixture of',
+    'low-rank adapter', 'expert retrieval',
+    'stochastic ensemble', 'bayesian posterior approxim',
+]
+STRUCTURED_PRED = [
+    'structured prediction', 'structured output', 'crf ',
+    'conditional random field', 'structured learn',
+    'structured svm', 'structure matching',
+    'adversarial structure', 'structured regress',
+    'structured loss',
+]
+KERNEL_KW = [
+    'kernel method', 'kernel machine', 'kernel function',
+    'kernel network', 'kernel learning', 'kernel embedding',
+    ' svm ', 'support vector', 'kernel density',
+    'kernel ridge', 'gaussian kernel', 'polynomial kernel',
+    'nystrom', 'random feature', 'random fourier',
+    'reproducing kernel', 'rkhs ',
+    'fisher discriminant', 'fisher kernel',
+    'kernel-based', 'kernel-weighted',
+    'kernel completely random',
+]
+BANDIT_KW = [
+    'bandit', 'thompson sampling', 'multi-armed',
+    'contextual bandit', 'stochastic bandit', 'linear bandit',
+    'arm selection', 'regret minim', 'exploration-exploitation',
+    'ucb ', 'upper confidence bound',
+]
+WORLD_MODEL_KW = [
+    'world model', 'episodic reachability', 'imagination model',
+    'environment model', 'dreamer', 'planet model',
+]
+GAME_THEORY_KW = [
+    'multi-agent', 'cooperative agent', 'cooperative intelligence',
+    'team formation', 'ad hoc teamwork', 'teammate',
+    'game-theoretic', 'social preference', 'social dilemma',
+    'cooperative ai', 'competitive game',
+    'hamiltonian gradient', 'minimax optim',
+    'minimax-nonconcave', 'nonconvex-nonconcave',
+    'saddle point optim', 'saddle-point',
+    'melting pot', 'cooperative learn',
+]
+SKILL_LEARNING_KW = [
+    'skill discovery', 'skill learning', 'unsupervised skill',
+    'option discovery', 'option-critic',
+]
+NEURAL_PDE_KW = [
+    'pde solver', 'neural pde', 'partial differential',
+    'differential equation solv', 'mesh mover',
+    'data-free mesh', 'turbulence model',
+    'simulator for', 'learned simulator',
+    'physics-inform', 'pinn ', 'neural ode',
+    'differential equations',
 ]
 
 # ---------------------------------------------------------------------------
@@ -602,27 +788,33 @@ PRUNING = [
     'network pruning', 'weight pruning', 'filter pruning',
     'unstructured pruning', 'structured pruning', 'lottery ticket',
     'sparse network', 'dynamic sparse', 'magnitude pruning',
+    'channel pruning', 'feature boosting and suppression',
 ]
 QUANT = [
     'network quantiz', 'model quantiz', 'post-training quantiz',
     'quantization-aware', 'binary neural', 'low-bit',
     'mixed-precision', 'weight quantiz', 'activation quantiz',
-    'integer quantiz',
+    'integer quantiz', 'distance-aware quantiz', 'quantization',
 ]
 COMPRESS_ML = [
     'model compress', 'efficient inference', 'lightweight model',
     'efficient deep learn', 'network compress',
     'mobile deploy', 'edge deploy', 'hardware-aware',
+    'training acceleration', 'training efficiency',
+    'efficient training', 'accelerat training',
+    'network expansion', 'practical training',
 ]
 ADV = [
     'adversarial example', 'adversarial attack', 'adversarial perturbat',
     'adversarial robust', 'adversarial training', 'pgd attack', ' fgsm ',
     'universal adversarial', 'physical adversarial', 'patch attack',
-    'autoattack',
+    'autoattack', 'adversarial camouflage', 'adversarial colorization',
+    'colorfool', 'adversarial inpaint', 'attention suppression',
 ]
 ADV_DEF = [
     'adversarial defense', 'certified robust', 'certified defense',
     'randomized smooth', 'input purif', 'adversarial purif',
+    'feature desensitiz', 'adversarial feature',
 ]
 OOD = [
     'out-of-distribution', 'ood detect', 'distribution shift',
@@ -634,25 +826,36 @@ UNCERTAINTY = [
     'epistemic uncertainty', 'aleatoric uncertainty',
     'confidence calibrat', 'calibration', 'bayesian deep',
     'monte carlo dropout', 'deep ensemble',
+    'conformal predict', 'conformal infer', 'coverage guarantee',
+    'false coverage', 'coverage proportion',
+    'confidence estimat', 'confidence interval',
+    'valid prediction', 'valid conformal',
 ]
 FAIRNESS = [
     'fairness', ' bias ', 'debiasing', 'demographic parity',
     'equalized odds', 'algorithmic fairness', 'shortcut learn',
     'spurious correlat', 'dataset bias',
+    'fair training', 'fair and robust',
+    'mutual information-based fair',
 ]
 FEDERATED = [
     'federated learn', 'federated optim', 'communication-efficient',
     'distributed learn across', 'heterogeneous client',
     'federated aggregat', 'split learn',
+    'distributed optim', 'decentralized optim',
+    'decentralized learn', 'decentralized cross-entropy',
 ]
 XAI = [
     'explainab', 'interpretab', 'saliency map', 'grad-cam',
     'visual explanation', 'attribution method', 'feature importance',
     'class activation', 'lime ', 'shap ', 'network interpret',
+    'data-faithful', 'feature attribution',
+    'instrumental variable', 'instrumental var',
 ]
 PRIVACY = [
     'differential privacy', 'privacy-preserv', 'data privacy',
     'machine unlearn', 'membership inference', 'model inversion',
+    'locally private', 'private estimation',
 ]
 
 # ---------------------------------------------------------------------------
@@ -670,6 +873,33 @@ MEDICAL = [
     'liver segment', 'kidney segment', 'prostate segment',
     'nuclei segmenta', 'whole slide image', 'digital pathology',
     'oct segmenta', 'optical coherence tomograph',
+    'ehr ', 'electronic health record', 'clinical note',
+    'clinical prediction', 'patient outcome', 'patient data',
+    'clinical text', 'clinical predict', 'clinical decision',
+    'icu prediction', 'comorbidity', 'comorbidity predict',
+    'hiv care', 'patient risk', 'health record',
+    'survival risk', 'prognostic gene',
+    'cancer patient', 'cancer prediction',
+    'tumor classif', 'tumor segment', 'disease progression',
+    'disease predict', 'disease classif',
+    'mci prediction', 'alzheim', 'parkinson',
+    'brain network', 'brain mri', 'neuroimaging',
+    'brain analysis', 'fmri', ' fmri', 'brain imag',
+    'eeg ', 'electroencephalo', 'ecg ', 'electrocardio',
+    'medical record', 'medical data',
+    'biomedical', 'health prediction', 'mortality predict',
+    'drug repurpos', 'drug-drug', 'drug interaction',
+    'vaccine target', 'immunogenicity', 'immunology',
+    'protein-protein', 'docking', 'protein dock',
+    'peptide design', 'peptide gen',
+    'neural progenitor', 'neuron', 'cell prolif',
+    'genomic', 'gene predict', 'gene express',
+    'cancer drug', 'biomarker', 'pharmacology',
+    'phenotyping', 'phenotype',
+    'anatomical', 'anatomy', 'anatomical brain',
+    'pose model brain', 'longitudinal data',
+    'sasaki metric', 'health data', 'health monit',
+    'ehr data', 'electronic medical',
 ]
 AUTODRIVE = [
     'autonomous driv', 'self-driving', 'autonomous vehicle',
@@ -679,6 +909,7 @@ AUTODRIVE = [
     'traffic sign', 'drivable area', 'road detect',
     'driving perception', 'end-to-end driv', 'motion plann driv',
     'lidar camera fusion', 'sensor fusion driv',
+    'lane marker', 'labeled lane',
 ]
 REMOTESENSE = [
     'remote sensing', 'satellite imag', 'aerial imag',
@@ -687,6 +918,7 @@ REMOTESENSE = [
     'aerial scene', 'drone scene', 'uav imag',
     'geospatial', 'land cover classif', 'land use classif',
     'remote sensing classif',
+    'aerial survey', 'arctic environment', 'aerial seal',
 ]
 DOCUMENT = [
     'document understand', 'document image', ' ocr ', 'text recogni',
@@ -702,10 +934,21 @@ ROBOTICS = [
     'embodied navigat', 'robot perception', 'affordance detect',
     'manipulation policy', 'dexterous manipulat',
     'sim-to-real', 'manipulation planning',
+    'habitat ', 'co-habitat', 'morphology control',
+    'morphology condition', 'humanoid', 'avatar control',
+    'sokoban', 'planning instances', 'planning instance',
+    'environment discovery', 'range sensing', 'tool for range',
 ]
 SPORTS = [
     'sports analyt', 'athlete track', 'ball track',
     'game analyt', 'sport action',
+]
+AGRICULTURE = [
+    'agricultural', 'agriculture', 'crop ',
+    'plant disease', 'plant pheno', 'plant species',
+    'leaf segment', 'leaf classif', 'fruit detect',
+    'root gap', 'phenotyping', 'field phenotyping',
+    'precision agricult', 'farming',
 ]
 
 # ---------------------------------------------------------------------------
@@ -723,6 +966,12 @@ RL_KW = [
     'curiosity-driven', 'intrinsic motivat', 'exploration exploit',
     'reward maximiz', 'policy learn', 'reward signal', 'environment model',
     'mujoco', 'atari game', 'game playing', 'game agent',
+    'random network distillation', 'exploration by random',
+    'curriculum strategy', 'reachability',
+    'reliable decision', 'decision-making',
+    'monte carlo tree search', ' mcts ',
+    'context-stationary', 'piecewise stable',
+    'non-stationary environment',
 ]
 
 # ---------------------------------------------------------------------------
@@ -741,6 +990,45 @@ OPTIM_THEORY = [
     'stochastic approximat', 'mirror descent', 'proximal gradient',
     'variance reduction', 'momentum method', 'acceleration method',
     'gradient norm', 'gradient clipping',
+    'algorithmic stability', 'uniform generalization',
+    'rademacher', 'rademacher average',
+    'two-layer generalization', 'generalization analysis',
+    'lower bound', 'oracle complexity',
+    'subgradient method', 'switching subgradient',
+    'primal-dual', 'primal dual', 'stochastic primal-dual',
+    'empirical risk minim', 'erm ',
+    'spider:', ' spider ', 'path-integrated',
+    'stochastic path-integrated', 'differential estimator',
+    'doubly reparameterized', 'gradient estimator',
+    'reparameterized gradient', 'pathwise gradient',
+    'newton-type', 'proximal newton', 'newton method',
+    'estimating the error', 'randomized newton',
+    'bootstrap approach', 'multiple-source cross-validation',
+    'multiple-testing', 'multiple testing',
+    'compressed regression', 'sparse regression',
+    'robust regression', 'robust sparse',
+    'non-convex optim', 'nonconvex optim', 'non convex',
+    'stochastic optim', 'distributed optim',
+    'second-order similar', 'average second-order',
+    'finding local minima', 'local minima',
+    'iterative matrix', 'matrix square root',
+    'iterative algorithm', 'first-order method',
+    'lp relaxation', 'linear program relax',
+    'coarse partition', 'partitioning algorithm',
+    'reduction from', 'lower bound estim',
+    'k-center', 'data reduction', 'k-means++',
+    'approximation algorithm', 'approximate algorithm',
+    'pareto-frontier', 'pareto frontier', 'multi-objective',
+    'entropy search', 'information-theoretic',
+    'information theoretic', 'information capacity',
+    'submodular function', 'spectral analysis',
+    'analytic gradient', 'gradient estimat',
+    'monte-carlo', 'monte carlo', 'quasi-monte carlo',
+    'stratification', 'stratified sampling',
+    'rank-1 lattice', 'lattice quasi',
+    'risk minim', 'probability elicit',
+    'algorithmic approach', 'algorithm approach',
+    'monte-carlo integ',
 ]
 
 # ---------------------------------------------------------------------------
@@ -752,6 +1040,12 @@ CAUSAL_KW = [
     'counterfactual', 'causal represent', 'structural causal',
     'interventional distribut', 'do-calculus', 'causal effect',
     'causal graph', 'causal mechanism',
+    'causal dag', 'weighted causal',
+    'unobserved confound', 'confounder', 'confounding',
+    'type confound', 'instance-wise teammate',
+    'higher-order causal', 'message passing',
+    'experimentation with', 'complex interference',
+    'experimental design',
 ]
 
 # ---------------------------------------------------------------------------
@@ -766,6 +1060,35 @@ BAYES_KW = [
     'stochastic variational', 'approximate inference',
     'latent dirichlet', 'dirichlet process', 'bayesian nonparametric',
     'expectation maximiz', 'em algorithm', 'variational em',
+    'bayesian binning', 'binning ', 'beats approximate',
+    'bayes rule', 'bayesian computation',
+    'approximate bayesian', 'syntactic topic',
+    'topic model', 'topic discover',
+    'graphical model', 'probabilistic graph',
+    'posterior approxim', 'bayesian posterior',
+    'hawkes process', 'point process',
+    'hidden markov', 'markov random',
+    'nonparametric density', 'density estim',
+    'density-ratio', 'density ratio',
+    'syntactic topic', 'lda topic',
+    'extended kalman', 'unscented kalman', 'kalman filter',
+    'kitchen sink', 'random kitchen',
+    'mixture of gaussians', 'mixture of input',
+    'hidden markov model', 'state space',
+    'preferential attachment', 'graph statistical',
+    'graph statistics', 'random graph',
+    'ranking using', 'two-layer ranking',
+    'slice sampling', 'sampling normalized',
+    'gaussian mixtures', 'approximate gaussian',
+    'nonparametric algorithm', 'sq lower',
+    'bingham distribution', 'random measure',
+    'probability weighted', 'probabilistic field',
+    'bayes for density', 'matrix density',
+    'density matrices', 'state-reification',
+    'gaussian component analysis', 'non-gaussian',
+    'piecewise constant', 'mean-approximation',
+    'homogeneous partit', 'online allocation',
+    'energy edge', 'point process bayes',
 ]
 
 # ---------------------------------------------------------------------------
@@ -779,6 +1102,10 @@ GEOMETRIC_KW = [
     'hyperbolic neural', 'hyperbolic embedding', 'hyperbolic space',
     'e(3)-equivariant', 'se(3)-equivariant', 'so(3)',
     'equivariant represent',
+    'scale-equivariant', 'scale equivariant',
+    'fourier layer', 'fourier neural',
+    'invariant network', 'invariance',
+    'geometric perceptron', 'embed me',
 ]
 
 # ---------------------------------------------------------------------------
@@ -792,6 +1119,24 @@ MOLECULE_KW = [
     'binding affinity', 'protein folding', 'protein design',
     'drug design', 'molecular graph', 'chemical property',
     'molecular dynamics', 'quantum chemistry', 'material property',
+    'autoregressive extension', 'fragment auto',
+    'drug-drug interaction', 'subgraph selection',
+]
+
+# ---------------------------------------------------------------------------
+# Network / Computer Systems / Hardware
+# ---------------------------------------------------------------------------
+
+HARDWARE_KW = [
+    'vlsi architecture', 'vlsi processing', 'vlsi',
+    'fpga', 'gpu architecture', 'tpu architecture',
+    'event-based stereo', 'event-based hardware',
+    'hi-space', 'projector-camera interface',
+    'high throughput', 'hardware architecture',
+    'stochastic vlsi', 'mixed-signal vlsi',
+    'high-dimensional kernel machine',
+    'fully event-based', 'low power',
+    'computational architecture',
 ]
 
 # ---------------------------------------------------------------------------
@@ -820,6 +1165,7 @@ MULTITASK_KW = [
     'multi-task learn', 'multitask learn', 'task-agnostic',
     'auxiliary task', 'unified model for', 'universal model',
     'one model', 'one network for', 'solving multiple',
+    'multi-level framework',
 ]
 
 # ---------------------------------------------------------------------------
@@ -845,6 +1191,93 @@ EDITORIAL_KW = [
     'ieee conference', 'workshop on', 'tutorial on',
     'erratum', 'correction to', 'author index',
     'table of contents', 'foreword', 'preface',
+    'cvpr workshops', 'cvpr 19', 'cvpr 20', 'cvpr19', 'cvpr20',
+    'eccv 19', 'eccv 20', 'iccv 19', 'iccv 20',
+    'ieee computer society conference',
+    'european conference on computer vision',
+    'computer vision - eccv', 'computer vision - iccv',
+    'pattern recognition,', 'pattern recognition -',
+]
+
+# ---------------------------------------------------------------------------
+# Classical CV / Geometry / Image Processing primitives
+# ---------------------------------------------------------------------------
+
+CLASSICAL_CV_KW = [
+    'rectilinearity', 'foreshortening', 'photometric stereo',
+    'binary morpholog', 'morphological', 'mathematical morphology',
+    'fourier coefficients', 'fourier descriptor', 'fourier transform',
+    'projective invariant', 'projective geometry', 'projective transform',
+    'projective foreshorten', 'projection invariant',
+    'isotropic texture', 'texture autocorrel', 'texture analysis',
+    'texture classif', 'texture synth', 'texture descript',
+    'geometric properties', 'geometric primitive', 'shape primitive',
+    'planar curve', 'curvature', 'evolution propert',
+    'curvature scale', 'medial axis', 'skeleton extract',
+    'connected component', 'component labeling',
+    'binary consistency', 'consistency check',
+    'polyhedra', 'polygon', 'polytope',
+    'inverse perspective', 'perspective view',
+    'rotational motion', 'rotation interpolat',
+    'spherical object', 'sphere detect',
+    'fuzzy focus', 'focus of expansion',
+    'collision-free', 'collision avoid',
+    'autonomous fixation', 'autonomous navigation',
+    'specularit', 'specular reflect', 'photometric',
+    'photometric calibrat', 'photometric stereo',
+    'mosaicing', 'mosaic ', 'panoramic mosaic',
+    'tone reproduction', 'tone mapping',
+    'luminance', 'illuminance',
+    'color metric', 'color space', 'color model',
+    'wide baseline', 'baseline stereo', 'baseline match',
+    'dynamic stereo', 'wide-baseline',
+    'point correspondence', 'rigid object motion',
+    'weak perspective', 'orthographic',
+    'cartesian robot', 'robot calibrat',
+    'eye-on-hand', 'hand-eye',
+    'range finder', 'range sensor',
+    'translational motion', 'motion blur',
+    'shape from texture', 'shape from shading',
+    'shape from motion', 'shape from focus',
+    'shape from contour',
+    'generalized cone', 'generalized cylinder',
+    'multidimensional scaling', ' mds ',
+    'leadframe', 'inspect ', 'visual inspection',
+    'industrial inspection', 'defect detect',
+    'defect classif', 'wafer inspect',
+    'iu parallel', 'parallel processing benchmark',
+    'binding in external memory', 'external memory',
+    'symbol bind', 'symbolic represent',
+    'manifold relevance', 'relevance determinat',
+    'lexicon of parts', 'part lexicon',
+    'gaze target', 'eye interaction',
+    'aerial photograph', 'aerial detect',
+    'seismic horizon', 'geophysics',
+    'horizon detect', 'sky detect',
+    'digital straight', 'straight line',
+    'parameter space', 'noisy linear constraint',
+    'searching parameter', 'parameter search',
+    'pyramid array', 'lisp-processor',
+    'quadtree', 'octree', 'kd-tree',
+    'polymorphic torus', 'torus architect',
+    'cascaded ring', 'flexible linkage',
+    'tell right from left', 'chirality',
+    'gradients for retinotectal', 'retinotectal',
+    'mapping', 'topographic map', 'self-organizing map',
+]
+
+CONFERENCE_PROC_KW = [
+    'cvpr 1', 'cvpr 2', 'eccv 1', 'eccv 2',
+    'iccv 1', 'iccv 2', ', cvpr ', ', eccv ', ', iccv ',
+    'workshops 19', 'workshops 20',
+    'pattern recognition, cvpr', 'pattern recognition workshop',
+    'salt lake city', 'long beach', 'seattle',
+    'pittsburgh', 'minneapolis', 'columbus',
+    'anchorage', 'kauai', 'hawaii, usa', 'usa, june',
+    'usa, july', 'czech republic', 'graz', 'crete',
+    'prague', 'rio de janeiro', 'beijing', 'kyoto',
+    'munich', 'glasgow', 'amsterdam', 'tel aviv',
+    'jerusalem',
 ]
 
 
@@ -872,7 +1305,9 @@ def classify(title_orig: str) -> tuple[str, str, str]:
      13. Deep Learning Architecture
      14. Training & Learning Methods
      15. Efficient & Robust ML
-     16. Fallback
+     16. Theory / Bayes / Causal / Geometric
+     17. Aggressive generic fallbacks
+     18. Final 'Other'
     """
     t = t_low(title_orig)
 
@@ -881,6 +1316,18 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     # ------------------------------------------------------------------
     if _any(t, EDITORIAL_KW):
         return ('Other', 'Editorial', 'Editorial / Proceedings')
+
+    # 1b. Conference proceedings entries (e.g. "CVPR 2018, Salt Lake City...")
+    if _any(t, CONFERENCE_PROC_KW):
+        # Only flag as proceedings if title looks like a venue listing
+        # (contains year + location keywords)
+        if any(yr in t for yr in [' 19', ' 20', ', 19', ', 20']) and \
+           any(loc in t for loc in ['usa', 'china', 'germany', 'france',
+                                     'italy', 'spain', 'japan', 'korea',
+                                     'singapore', 'austria', 'czech',
+                                     'israel', 'canada', 'uk,', 'u.k.',
+                                     'netherlands', 'greece', 'belgium']):
+            return ('Other', 'Editorial', 'Editorial / Proceedings')
 
     # ------------------------------------------------------------------
     # 2. Application Domains
@@ -892,7 +1339,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         if _any(t, ['segment', 'delineat', 'contour']):
             cls = 'Medical Segmentation'
             order = 'Medical Image Segmentation'
-        elif _any(t, ['detect', 'recogni', 'screen', 'diagnos', 'classif']):
+        elif _any(t, ['detect', 'recogni', 'screen', 'diagnos', 'classif', 'predict']):
             cls = 'Medical Detection & Diagnosis'
             order = 'Medical Image Diagnosis'
         elif _any(t, ['super-resol', 'enhance', 'restor', 'reconstruct', 'denois', 'synthesis']):
@@ -973,6 +1420,16 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Robot Visual Perception'
         return ('14. Application Domains', cls, order)
 
+    # 2f. Agriculture
+    if _any(t, AGRICULTURE):
+        return ('14. Application Domains', 'Agricultural Vision',
+                'Agricultural & Plant Imaging')
+
+    # 2g. Hardware/VLSI as application
+    if _any(t, HARDWARE_KW):
+        return ('14. Application Domains', 'Hardware & Systems',
+                'VLSI & Hardware Architecture')
+
     # ------------------------------------------------------------------
     # 3. 3D Vision & Reconstruction
     # ------------------------------------------------------------------
@@ -997,7 +1454,7 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'NeRF Editing'
         elif _any(t, ['large-scale', 'outdoor', 'unbounded', 'city']):
             order = 'Large-scale NeRF'
-        elif _any(t, ['avatar', 'human', 'body', 'face']):
+        elif _any(t, ['avatar', 'human', 'body', 'face', 'cloth', 'sifu']):
             order = 'Human NeRF'
         elif _any(t, ['compress', 'efficien', 'fast', 'accelerat', 'real-time']):
             order = 'Efficient NeRF'
@@ -1113,6 +1570,16 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     if _any(t, VAE_KW):
         return ('6. Generative Models & Synthesis', 'Variational Autoencoders', 'Variational Autoencoders')
 
+    # 4d2. EBM / Energy-based
+    if _any(t, EBM_KW):
+        return ('6. Generative Models & Synthesis', 'Energy-based Models',
+                'Energy-based Generative Models')
+
+    # 4d3. Normalizing Flows
+    if _any(t, NORMFLOW_KW):
+        return ('6. Generative Models & Synthesis', 'Normalizing Flows',
+                'Normalizing Flow Models')
+
     # 4e. Image Editing (non-GAN/diffusion)
     if _any(t, IMG_EDIT):
         return ('6. Generative Models & Synthesis', 'Image Editing & Manipulation', 'Image Editing')
@@ -1135,6 +1602,8 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Domain Adaptive Segmentation'
         elif _any(t, ['object detect', 'domain adaptive detect']):
             order = 'Domain Adaptive Detection'
+        elif _any(t, ['retrieval']):
+            order = 'Domain Adaptive Retrieval'
         else:
             order = 'Domain Adaptation'
         return ('7. Representation Learning', 'Domain Adaptation & Generalization', order)
@@ -1219,11 +1688,11 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     if _any(t, FACE):
         if _any(t, ['recogni', 'verif', 'identif', 'anti-spoof', 'liveness', 'deepfake detect']):
             order = 'Face Recognition & Verification'
-        elif _any(t, ['detect', 'localiz', 'align']):
+        elif _any(t, ['detect', 'localiz', 'align', 'landmark']):
             order = 'Face Detection & Alignment'
         elif _any(t, ['age', 'attribute', 'expression']):
             order = 'Face Attribute Analysis'
-        elif _any(t, ['super-resol', 'restor', 'enhance', 'hallucin']):
+        elif _any(t, ['super-resol', 'restor', 'enhance', 'hallucin', 'reconstruct']):
             order = 'Face Restoration & Enhancement'
         else:
             order = 'Face Analysis'
@@ -1280,6 +1749,14 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     if _any(t, ACTIVITY):
         return ('10. Human-centric Vision', 'Human Activity Recognition', 'Skeleton-based Action Recognition')
 
+    # 7h2. Pedestrian Analysis
+    if _any(t, PEDESTRIAN_ANALYSIS):
+        return ('10. Human-centric Vision', 'Pedestrian Analysis', 'Pedestrian Attribute Analysis')
+
+    # 7h3. Clothing / Fashion
+    if _any(t, CLOTHING_KW):
+        return ('14. Application Domains', 'Fashion & Retail', 'Fashion Image Analysis')
+
     # 7i. Human-Object Interaction
     if _any(t, HOI_KW):
         return ('10. Human-centric Vision', 'Human-Object Interaction', 'Human-Object Interaction Detection')
@@ -1287,6 +1764,11 @@ def classify(title_orig: str) -> tuple[str, str, str]:
     # ------------------------------------------------------------------
     # 8. Vision-Language & Multimodal
     # ------------------------------------------------------------------
+
+    # 8.0 LLM Alignment / RLHF (specific NLP/LLM patterns)
+    if _any(t, LLM_ALIGN_KW):
+        return ('8. Vision-Language & Multimodal', 'Language Model Applications',
+                'LLM Alignment & RLHF')
 
     if _any(t, VLM):
         if _any(t, ['instruct', 'instruction follow', 'chat']):
@@ -1326,6 +1808,22 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         else:
             order = 'Multimodal Fusion'
         return ('8. Vision-Language & Multimodal', 'Cross-modal Learning', order)
+
+    # 8x LLMs/Language tasks (generic)
+    if _any(t, LLM_KW):
+        if _any(t, ['alignment', 'rlhf', 'preference', 'reward model']):
+            order = 'LLM Alignment & RLHF'
+        elif _any(t, ['evaluat', 'benchmark', 'arena']):
+            order = 'LLM Evaluation & Benchmarks'
+        elif _any(t, ['reasoning', 'logic', 'cot ', 'chain-of-thought']):
+            order = 'LLM Reasoning'
+        elif _any(t, ['pretrain', 'training', 'data', 'web text']):
+            order = 'LLM Pretraining & Data'
+        elif _any(t, ['sql', 'code', 'tool']):
+            order = 'LLM Tool Use & Code'
+        else:
+            order = 'Language Models & NLP'
+        return ('8. Vision-Language & Multimodal', 'Language Model Applications', order)
 
     # ------------------------------------------------------------------
     # 9. Video & Motion Understanding
@@ -1374,6 +1872,9 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     if _any(t, TRAJECTORY):
         return ('5. Video & Motion Understanding', 'Trajectory Prediction', 'Trajectory Prediction & Forecasting')
+
+    if _any(t, MULTI_LAYER_DECOMP):
+        return ('5. Video & Motion Understanding', 'Video Understanding', 'Video Scene Decomposition')
 
     # Generic video
     if _any(t, ['video ', ' video', 'temporal ']):
@@ -1606,6 +2107,10 @@ def classify(title_orig: str) -> tuple[str, str, str]:
             order = 'Knowledge Distillation'
         return ('12. Training & Learning Methods', 'Knowledge Distillation', order)
 
+    if _any(t, DATASET_DISTILL):
+        return ('12. Training & Learning Methods', 'Dataset Distillation',
+                'Dataset Distillation & Coreset Selection')
+
     if _any(t, CONTINUAL):
         if _any(t, ['class-incremental', 'task-incremental']):
             order = 'Class/Task-incremental Learning'
@@ -1652,6 +2157,42 @@ def classify(title_orig: str) -> tuple[str, str, str]:
 
     if _any(t, OPTIM):
         return ('12. Training & Learning Methods', 'Optimization Methods', 'Optimization & Training Dynamics')
+
+    if _any(t, BOOSTING_KW):
+        return ('12. Training & Learning Methods', 'Boosting & Ensembles',
+                'Boosting Methods')
+
+    if _any(t, ENSEMBLE_KW):
+        return ('12. Training & Learning Methods', 'Boosting & Ensembles',
+                'Ensemble Methods & Mixture of Experts')
+
+    if _any(t, STRUCTURED_PRED):
+        return ('12. Training & Learning Methods', 'Structured Prediction',
+                'Structured Prediction')
+
+    if _any(t, KERNEL_KW):
+        return ('12. Training & Learning Methods', 'Kernel Methods',
+                'Kernel Methods & SVMs')
+
+    if _any(t, BANDIT_KW):
+        return ('12. Training & Learning Methods', 'Reinforcement Learning',
+                'Bandit Algorithms')
+
+    if _any(t, SKILL_LEARNING_KW):
+        return ('12. Training & Learning Methods', 'Reinforcement Learning',
+                'Skill & Option Discovery')
+
+    if _any(t, WORLD_MODEL_KW):
+        return ('12. Training & Learning Methods', 'Reinforcement Learning',
+                'World Models & Model-based RL')
+
+    if _any(t, GAME_THEORY_KW):
+        return ('12. Training & Learning Methods', 'Game Theory & Multi-agent',
+                'Multi-agent & Game-theoretic Learning')
+
+    if _any(t, NEURAL_PDE_KW):
+        return ('14. Application Domains', 'Scientific & Molecular ML',
+                'Neural PDE Solvers & Scientific ML')
 
     # 14-rl. Reinforcement Learning
     if _any(t, RL_KW):
@@ -1765,19 +2306,23 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         return ('2. Segmentation', 'Image Segmentation', 'Image Segmentation')
 
     # Detection (any remaining)
-    if _any(t, ['detection ', 'detector ', ' localization', 'bounding box']):
+    if _any(t, ['detection ', 'detector ', ' localization', 'bounding box',
+                'detect ', ' detect.', 'detecting']):
         return ('1. Object Detection & Localization', '2D Object Detection', 'Generic Object Detection')
 
     # Tracking
-    if _any(t, ['tracking ', ' tracking', 'visual tracker']):
+    if _any(t, ['tracking ', ' tracking', 'visual tracker', 'tracker ', 'tracking.']):
         return ('5. Video & Motion Understanding', 'Object Tracking', 'Visual Object Tracking')
 
     # Generation / synthesis
-    if _any(t, [' generation', 'generative model', ' synthesis ', 'image synthesis']):
+    if _any(t, [' generation', 'generative model', ' synthesis ', 'image synthesis',
+                'generative network', 'generating ', 'synthesizing']):
         return ('6. Generative Models & Synthesis', 'Generative Models', 'Generative Models')
 
     # 3D remaining
-    if _any(t, [' 3d ', '3-d ', 'three-dimensional', 'depth ', 'voxel ']):
+    if _any(t, [' 3d ', '3-d ', 'three-dimensional', 'depth ', 'voxel ',
+                ' 3d.', '3d:', 'shape ', ' shape.', 'mesh ',
+                'render', 'geometry']):
         return ('3. 3D Vision & Reconstruction', '3D Scene Understanding', '3D Scene Understanding')
 
     # Video remaining
@@ -1785,38 +2330,161 @@ def classify(title_orig: str) -> tuple[str, str, str]:
         return ('5. Video & Motion Understanding', 'Video Understanding', 'Video Understanding')
 
     # Classification / recognition
-    if _any(t, ['classification', 'classifier', 'categorization', ' recognition']):
+    if _any(t, ['classification', 'classifier', 'categorization', ' recognition',
+                'recognition.', ' recognize', 'recogniz', ' identif',
+                'discriminat']):
         return ('4. Image Recognition & Retrieval', 'Image Classification', 'Image Classification')
 
     # Representation / embedding
-    if _any(t, ['representation learn', 'feature learn', 'embedding learn', 'visual feature']):
+    if _any(t, ['representation learn', 'feature learn', 'embedding learn',
+                'visual feature', 'representation ', 'embedding ',
+                'encoder ', 'encoding ']):
         return ('7. Representation Learning', 'Representation Learning', 'General Representation Learning')
 
     # Multi-modal remaining
-    if _any(t, ['multimodal', 'multi-modal', 'vision and language', 'language and vision']):
+    if _any(t, ['multimodal', 'multi-modal', 'vision and language',
+                'language and vision', 'multi modal']):
         return ('8. Vision-Language & Multimodal', 'Multimodal Learning', 'Multimodal Learning')
+
+    # Optimization-related
+    if _any(t, ['optimiz', 'minimization', 'maximization', 'minim', 'maxim',
+                'regret', 'convergence', 'gradient ', 'stochastic ',
+                'subgradient', 'proximal', 'convex', 'non-convex',
+                'saddle', 'lagrangian', 'duality']):
+        return ('12. Training & Learning Methods', 'Optimization Theory',
+                'Optimization Theory & Convergence')
+
+    # Statistical / probabilistic / inference
+    if _any(t, ['estimation', 'estimator', 'estimat ', 'inference ',
+                'probabilistic', 'probability', 'posterior', 'prior ',
+                'sampling', 'mcmc', 'bayes', 'distribution',
+                'random ', 'stochastic', 'monte carlo']):
+        return ('13. Efficient & Robust ML', 'Bayesian & Probabilistic Methods',
+                'Bayesian Deep Learning')
+
+    # Bandits / decision / RL fallback
+    if _any(t, ['policy ', 'reward', 'agent ', 'agents ', 'environment',
+                'decision ', 'planning', 'reinforcement']):
+        return ('12. Training & Learning Methods', 'Reinforcement Learning',
+                'Deep Reinforcement Learning')
+
+    # Graph / network analysis
+    if _any(t, ['graph ', 'network analysis', 'graph-based', 'graph theoret',
+                ' nodes ', 'edges ', 'vertices', 'hypergraph']):
+        return ('11. Deep Learning Architecture', 'Graph Neural Networks',
+                'Graph Neural Networks')
 
     # Training / learning methods remaining
     if _any(t, ['regulariz', 'batch normaliz', 'layer normaliz', 'dropout ',
-                'data-efficient', 'label-efficient', 'efficient train']):
-        return ('12. Training & Learning Methods', 'Training Techniques', 'Regularization & Training Techniques')
+                'data-efficient', 'label-efficient', 'efficient train',
+                'training ', 'train ', 'loss ', 'loss.', 'loss:']):
+        return ('12. Training & Learning Methods', 'Training Techniques',
+                'Regularization & Training Techniques')
 
     # Efficient inference remaining
-    if _any(t, ['inference ', 'efficient network', 'compact model', 'real-time ']):
-        return ('13. Efficient & Robust ML', 'Model Compression', 'Model Compression & Efficient Inference')
+    if _any(t, ['inference ', 'efficient network', 'compact model', 'real-time ',
+                'real time ', 'efficient ', 'fast ', 'accelerat',
+                'lightweight', 'compress']):
+        return ('13. Efficient & Robust ML', 'Model Compression',
+                'Model Compression & Efficient Inference')
 
     # General neural network / deep learning
-    if _any(t, ['deep learning', 'deep neural', 'neural network', 'convolutional network',
-                'deep model', 'deep architecture']):
-        return ('11. Deep Learning Architecture', 'General Deep Learning', 'Deep Neural Networks')
+    if _any(t, ['deep learning', 'deep neural', 'neural network',
+                'convolutional network', 'deep model', 'deep architecture',
+                'neural net', 'feedforward', 'recurrent',
+                'transformer', 'attention']):
+        return ('11. Deep Learning Architecture', 'General Deep Learning',
+                'Deep Neural Networks')
 
     # Image remaining
-    if _any(t, ['image ', ' image', 'visual ', 'vision ', 'photo ', 'pixel']):
-        return ('4. Image Recognition & Retrieval', 'Visual Analysis', 'General Visual Analysis')
+    if _any(t, ['image ', ' image', 'visual ', 'vision ', 'photo ',
+                'pixel', 'imaging', 'imag.']):
+        return ('4. Image Recognition & Retrieval', 'Visual Analysis',
+                'General Visual Analysis')
+
+    # Algorithm / method / approach / model fallback
+    if _any(t, ['algorithm', 'method', 'approach', 'framework',
+                'system ', 'systems ', 'system.', 'model ', 'models ',
+                'model.', 'model:', 'analysis ', 'analytic',
+                'predict', 'forecast', 'simulat', 'computation',
+                'numerical', 'matrix', 'tensor', 'vector',
+                'function ', 'function.', ' function:',
+                'equation', 'theorem', 'proof ', 'lemma',
+                'objective', 'function approxim', 'features ',
+                'feature ', 'feature.']):
+        return ('12. Training & Learning Methods', 'Training Techniques',
+                'General Learning Methods')
 
     # Learning remaining
-    if _any(t, [' learning', 'machine learning', 'learn from']):
-        return ('12. Training & Learning Methods', 'Training Techniques', 'General Learning Methods')
+    if _any(t, [' learning', 'machine learning', 'learn from',
+                'learning ', 'learner', 'learners',
+                'supervised', 'unsupervised']):
+        return ('12. Training & Learning Methods', 'Training Techniques',
+                'General Learning Methods')
+
+    # Last-resort: any paper with "neural" or "network" -> deep learning
+    if _any(t, ['neural', 'network', 'networks', 'net ', 'nets ',
+                'layer ', 'layers ', 'deep ', 'shallow']):
+        return ('11. Deep Learning Architecture', 'General Deep Learning',
+                'Deep Neural Networks')
+
+    # Classical CV / image processing primitives (older papers, geometry-heavy)
+    if _any(t, CLASSICAL_CV_KW):
+        return ('4. Image Recognition & Retrieval', 'Visual Analysis',
+                'Classical Computer Vision')
+
+    # Anything mentioning camera, motion, geometry → 3D Vision
+    if _any(t, ['camera ', 'motion ', 'geometry', 'geometric',
+                'projection', 'stereo', 'reconstruction',
+                'rotation', 'translation', 'rigid', 'non-rigid',
+                'orientation', 'calibration', 'localiz']):
+        return ('3. 3D Vision & Reconstruction', '3D Scene Understanding',
+                'Classical 3D Vision')
+
+    # Anything about texture, color, edges → low-level vision
+    if _any(t, ['texture', 'color ', 'colour', 'edge ', 'edges',
+                'corner', 'gradient', 'filter ', 'filtering',
+                'morpholog', 'binary image', 'grayscale',
+                'pixel ', 'subpixel']):
+        return ('9. Low-level Vision', 'Image Processing',
+                'Classical Image Processing')
+
+    # Anything about humans (face/eye/hand/body) → human-centric
+    if _any(t, ['face ', 'facial', 'eye ', 'hand ', 'body ',
+                'human ', 'people ', 'person ', 'pedestrian']):
+        return ('10. Human-centric Vision', 'Face Analysis',
+                'Human-centric Vision')
+
+    # Anything about objects, parts, shapes → recognition
+    if _any(t, ['object ', 'objects ', 'part ', 'parts ',
+                'shape ', 'shapes ', 'pattern ', 'patterns']):
+        return ('4. Image Recognition & Retrieval', 'Visual Analysis',
+                'Object & Pattern Analysis')
+
+    # Anything about benchmarks, datasets, evaluation → eval
+    if _any(t, ['benchmark', 'dataset', 'evaluat', 'metric ',
+                'metrics ', 'test set', 'protocol']):
+        return ('13. Efficient & Robust ML', 'Evaluation & Benchmarks',
+                'Benchmarks & Evaluation')
+
+    # Anything about explanation / understanding → XAI
+    if _any(t, ['explanation', 'understand', 'analysis',
+                'explanat', 'rational', 'interpret']):
+        return ('13. Efficient & Robust ML', 'Explainability & Interpretability',
+                'Visual Explanations & Attribution')
+
+    # Anything about backdoor / trojan / safety → robustness
+    if _any(t, ['backdoor', 'trojan', 'poison', 'attack ',
+                'robust', 'defense', 'safety ', ' safe ']):
+        return ('13. Efficient & Robust ML', 'Adversarial Robustness',
+                'Adversarial Attacks')
+
+    # Final super-broad fallback: anything with "computer vision" or "pattern"
+    if _any(t, ['computer vision', 'pattern recogni', 'machine vision',
+                'visual ', 'visual.', 'view ', 'views ',
+                'imag', 'photo']):
+        return ('4. Image Recognition & Retrieval', 'Visual Analysis',
+                'General Visual Analysis')
 
     # ------------------------------------------------------------------
     # 17. Final fallback
