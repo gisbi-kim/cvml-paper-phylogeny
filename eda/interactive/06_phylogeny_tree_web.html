@@ -433,7 +433,7 @@ const depthHeader = d3.select('#depth-header');
 let root, focusedNode = null;
 let totalPapers = 0;
 
-d3.json('tree_data.json').then(data => {
+d3.json('../../tree_data.json').then(data => {
   root = d3.hierarchy(data)
     .sum(d => d.value || 0)
     .sort((a, b) => b.value - a.value);
@@ -816,7 +816,7 @@ function escapeHTML(s) {
 
 let papers = [];
 
-d3.json('papers.json')
+d3.json('../../papers.json')
   .then(arr => {
     papers = Array.isArray(arr) ? arr : [];
     // If the user already has a node focused, swap in the now-enabled

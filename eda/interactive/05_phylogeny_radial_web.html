@@ -882,7 +882,7 @@ let focusedNode = null;
 let papers = [];
 let papersByPath = null;  // lazy-built index, see filterPapers()
 
-d3.json('papers.json')
+d3.json('../../papers.json')
   .then(arr => {
     papers = Array.isArray(arr) ? arr : [];
     // Re-render the focused card if a node is already selected so the
@@ -899,7 +899,7 @@ d3.json('papers.json')
     console.warn('papers.json not loaded — paper list disabled', err);
   });
 
-d3.json('tree_data.json').then(data => {
+d3.json('../../tree_data.json').then(data => {
   root = d3.hierarchy(data)
     .sum(d => d.value || 0)
     .sort((a, b) => b.value - a.value);
