@@ -26,6 +26,9 @@ CV+ML Paper Phylogenetic Taxonomy
 | **`cvml_taxonomy.xlsx`** | 메인 결과 — 3 시트 (Papers / Taxonomy_Tree / Stats) |
 | [`TAXONOMY.md`](TAXONOMY.md) | 16 Phylum × ~120 Class × ~400 Order 전체 트리 |
 | [`TAXONOMY_CHANGES.md`](TAXONOMY_CHANGES.md) | 초안 vs 최종 비교 |
+| [`REFRESH.md`](REFRESH.md) | **데이터/택소노미 갱신 가이드** — 1년 뒤 새 논문 들어오면 어떻게 할지 |
+| [`slides/cvml_phylogeny.pdf`](slides/cvml_phylogeny.pdf) | **31-frame Beamer 슬라이드** (한국어, 38년 cohort wall + paradigm shift) |
+| [`slides/build_slides.py`](slides/build_slides.py) | 슬라이드 LaTeX 자동 생성 스크립트 |
 | [`classify.py`](classify.py) | 1~3 단계 분류기 (Phylum/Class/Order) |
 | [`genus_rules.py`](genus_rules.py) | 4단계 분류기 (Genus) |
 | [`parse_atlas.py`](parse_atlas.py) | 원본 데이터 파싱 |

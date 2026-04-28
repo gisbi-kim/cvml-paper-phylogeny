@@ -5,3 +5,12 @@ __pycache__/
 *.pyc
 .DS_Store
 cvml_taxonomy.xlsx
+
+# LaTeX build artefacts (slide source + PDF are committed; everything else is ignored)
+slides/*.aux
+slides/*.log
+slides/*.nav
+slides/*.out
+slides/*.snm
+slides/*.toc
+slides/*.synctex.gz
