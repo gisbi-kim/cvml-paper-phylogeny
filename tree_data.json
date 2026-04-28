@@ -1,0 +1,4154 @@
+{
+  "name": "CV+ML",
+  "value": 112183,
+  "color": "#1a73e8",
+  "children": [
+    {
+      "name": "Other",
+      "value": 30193,
+      "color": "#9e9e9e",
+      "children": [
+        {
+          "name": "Unclassified",
+          "value": 29947,
+          "children": [
+            {
+              "name": "Unclassified",
+              "value": 29947,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 29947
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Editorial",
+          "value": 246,
+          "children": [
+            {
+              "name": "Editorial / Proceedings",
+              "value": 246,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 246
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "12. Training & Learning Methods",
+      "value": 14297,
+      "color": "#5c6bc0",
+      "children": [
+        {
+          "name": "Training Techniques",
+          "value": 6383,
+          "children": [
+            {
+              "name": "General Learning Methods",
+              "value": 5667,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 5667
+                }
+              ]
+            },
+            {
+              "name": "Regularization & Training Techniques",
+              "value": 716,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 716
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Reinforcement Learning",
+          "value": 3407,
+          "children": [
+            {
+              "name": "Deep Reinforcement Learning",
+              "value": 2539,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 2539
+                }
+              ]
+            },
+            {
+              "name": "Imitation & Inverse RL",
+              "value": 246,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 246
+                }
+              ]
+            },
+            {
+              "name": "Multi-agent RL",
+              "value": 221,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 221
+                }
+              ]
+            },
+            {
+              "name": "Offline Reinforcement Learning",
+              "value": 218,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 218
+                }
+              ]
+            },
+            {
+              "name": "Model-based RL",
+              "value": 122,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 122
+                }
+              ]
+            },
+            {
+              "name": "Visual Reinforcement Learning",
+              "value": 61,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 61
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Optimization Theory",
+          "value": 963,
+          "children": [
+            {
+              "name": "Optimization Theory & Convergence",
+              "value": 963,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 963
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Optimization Methods",
+          "value": 746,
+          "children": [
+            {
+              "name": "Optimization & Training Dynamics",
+              "value": 746,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 746
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Continual Learning",
+          "value": 661,
+          "children": [
+            {
+              "name": "Continual & Incremental Learning",
+              "value": 466,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 466
+                }
+              ]
+            },
+            {
+              "name": "Replay-based Continual Learning",
+              "value": 105,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 105
+                }
+              ]
+            },
+            {
+              "name": "Class/Task-incremental Learning",
+              "value": 90,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 90
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Semi-supervised Learning",
+          "value": 520,
+          "children": [
+            {
+              "name": "Semi-supervised Learning",
+              "value": 436,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 436
+                }
+              ]
+            },
+            {
+              "name": "Semi-supervised Classification",
+              "value": 44,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 44
+                }
+              ]
+            },
+            {
+              "name": "Semi-supervised Segmentation",
+              "value": 21,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 21
+                }
+              ]
+            },
+            {
+              "name": "Semi-supervised Detection",
+              "value": 19,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 19
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Active Learning",
+          "value": 321,
+          "children": [
+            {
+              "name": "Active Learning Strategies",
+              "value": 321,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 321
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weakly Supervised Learning",
+          "value": 260,
+          "children": [
+            {
+              "name": "Weakly Supervised Learning",
+              "value": 181,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 181
+                }
+              ]
+            },
+            {
+              "name": "Weakly Supervised Detection",
+              "value": 58,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 58
+                }
+              ]
+            },
+            {
+              "name": "Weakly Supervised Segmentation",
+              "value": 21,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 21
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Knowledge Distillation",
+          "value": 235,
+          "children": [
+            {
+              "name": "Knowledge Distillation",
+              "value": 201,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 167
+                },
+                {
+                  "name": "KD for Dense Prediction",
+                  "value": 12
+                },
+                {
+                  "name": "Data-free KD",
+                  "value": 11
+                },
+                {
+                  "name": "LLM / VLM Knowledge Distillation",
+                  "value": 5
+                },
+                {
+                  "name": "Contrastive / Relational KD",
+                  "value": 3
+                },
+                {
+                  "name": "Online KD",
+                  "value": 3
+                }
+              ]
+            },
+            {
+              "name": "Feature-based Knowledge Distillation",
+              "value": 18,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 18
+                }
+              ]
+            },
+            {
+              "name": "Online Knowledge Distillation",
+              "value": 16,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 16
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data Augmentation",
+          "value": 225,
+          "children": [
+            {
+              "name": "Data Augmentation Strategies",
+              "value": 225,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 225
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Multi-task Learning",
+          "value": 222,
+          "children": [
+            {
+              "name": "Multi-task & Joint Learning",
+              "value": 222,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 222
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Noisy Label Learning",
+          "value": 171,
+          "children": [
+            {
+              "name": "Learning with Noisy Labels",
+              "value": 171,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 171
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Long-tail & Imbalanced Learning",
+          "value": 136,
+          "children": [
+            {
+              "name": "Long-tail Learning",
+              "value": 136,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 136
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Curriculum Learning",
+          "value": 47,
+          "children": [
+            {
+              "name": "Curriculum & Self-paced Learning",
+              "value": 47,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 47
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. 3D Vision & Reconstruction",
+      "value": 8777,
+      "color": "#9c27b0",
+      "children": [
+        {
+          "name": "3D Scene Understanding",
+          "value": 3533,
+          "children": [
+            {
+              "name": "3D Scene Understanding",
+              "value": 3003,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 3003
+                }
+              ]
+            },
+            {
+              "name": "Novel View Synthesis",
+              "value": 285,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 285
+                }
+              ]
+            },
+            {
+              "name": "Surface Reconstruction",
+              "value": 144,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 144
+                }
+              ]
+            },
+            {
+              "name": "Scene Reconstruction",
+              "value": 101,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 101
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Point Cloud & 3D Geometry",
+          "value": 1603,
+          "children": [
+            {
+              "name": "Point Cloud Processing",
+              "value": 708,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 708
+                }
+              ]
+            },
+            {
+              "name": "Point Cloud Segmentation",
+              "value": 240,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 240
+                }
+              ]
+            },
+            {
+              "name": "Point Cloud Registration",
+              "value": 182,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 182
+                }
+              ]
+            },
+            {
+              "name": "Point Cloud Object Detection",
+              "value": 174,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 153
+                },
+                {
+                  "name": "Transformer-based 3D Detection",
+                  "value": 11
+                },
+                {
+                  "name": "Multi-modal 3D Detection",
+                  "value": 5
+                },
+                {
+                  "name": "Label-efficient 3D Detection",
+                  "value": 3
+                },
+                {
+                  "name": "BEV-based 3D Detection",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "name": "Point Cloud Completion & Reconstruction",
+              "value": 160,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 160
+                }
+              ]
+            },
+            {
+              "name": "Point Cloud Classification",
+              "value": 91,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 82
+                },
+                {
+                  "name": "Few-shot Point Cloud Recognition",
+                  "value": 4
+                },
+                {
+                  "name": "Transformer-based Point Cloud Classification",
+                  "value": 4
+                },
+                {
+                  "name": "Self-supervised Point Cloud Learning",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Point Cloud Flow Estimation",
+              "value": 48,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 48
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Neural Implicit Representations",
+          "value": 1455,
+          "children": [
+            {
+              "name": "Neural Radiance Fields",
+              "value": 751,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 644
+                },
+                {
+                  "name": "Few-shot / Generalizable NeRF",
+                  "value": 42
+                },
+                {
+                  "name": "Self-supervised NeRF",
+                  "value": 27
+                },
+                {
+                  "name": "Semantic NeRF",
+                  "value": 18
+                },
+                {
+                  "name": "Indoor Scene NeRF",
+                  "value": 11
+                },
+                {
+                  "name": "Large-scale Outdoor NeRF",
+                  "value": 5
+                },
+                {
+                  "name": "Efficient NeRF",
+                  "value": 4
+                }
+              ]
+            },
+            {
+              "name": "Gaussian Splatting",
+              "value": 273,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 165
+                },
+                {
+                  "name": "Few-shot Gaussian Splatting",
+                  "value": 43
+                },
+                {
+                  "name": "Compact Gaussian Splatting",
+                  "value": 28
+                },
+                {
+                  "name": "Large-scale Gaussian Splatting",
+                  "value": 15
+                },
+                {
+                  "name": "Geometry-aware Gaussian Splatting",
+                  "value": 12
+                },
+                {
+                  "name": "Semantic Gaussian Splatting",
+                  "value": 10
+                }
+              ]
+            },
+            {
+              "name": "Human NeRF",
+              "value": 121,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 121
+                }
+              ]
+            },
+            {
+              "name": "Dynamic NeRF",
+              "value": 80,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 80
+                }
+              ]
+            },
+            {
+              "name": "Efficient NeRF",
+              "value": 77,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 77
+                }
+              ]
+            },
+            {
+              "name": "Dynamic Gaussian Splatting",
+              "value": 45,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 45
+                }
+              ]
+            },
+            {
+              "name": "NeRF Editing",
+              "value": 42,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 42
+                }
+              ]
+            },
+            {
+              "name": "Human Gaussian Splatting",
+              "value": 28,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 28
+                }
+              ]
+            },
+            {
+              "name": "Large-scale NeRF",
+              "value": 23,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 23
+                }
+              ]
+            },
+            {
+              "name": "Gaussian Splatting Editing",
+              "value": 15,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SfM, SLAM & Localization",
+          "value": 1094,
+          "children": [
+            {
+              "name": "Structure from Motion",
+              "value": 665,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 665
+                }
+              ]
+            },
+            {
+              "name": "SLAM & Mapping",
+              "value": 130,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 130
+                }
+              ]
+            },
+            {
+              "name": "Visual Localization",
+              "value": 129,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 129
+                }
+              ]
+            },
+            {
+              "name": "Multi-view Stereo",
+              "value": 104,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 104
+                }
+              ]
+            },
+            {
+              "name": "Camera Pose Estimation",
+              "value": 66,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 66
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Depth & Stereo",
+          "value": 1092,
+          "children": [
+            {
+              "name": "Stereo Matching",
+              "value": 455,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 455
+                }
+              ]
+            },
+            {
+              "name": "Monocular Depth Estimation",
+              "value": 431,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 391
+                },
+                {
+                  "name": "Transformer-based Depth",
+                  "value": 12
+                },
+                {
+                  "name": "Indoor Depth Estimation",
+                  "value": 12
+                },
+                {
+                  "name": "Probabilistic Depth Estimation",
+                  "value": 8
+                },
+                {
+                  "name": "Metric Depth Estimation",
+                  "value": 6
+                },
+                {
+                  "name": "Outdoor Depth Estimation",
+                  "value": 1
+                },
+                {
+                  "name": "Foundation Model Depth",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Self-supervised Depth Estimation",
+              "value": 107,
+              "children": [
+                {
+                  "name": "Self-supervised Depth",
+                  "value": 107
+                }
+              ]
+            },
+            {
+              "name": "Depth Completion",
+              "value": 60,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 50
+                },
+                {
+                  "name": "Probabilistic Depth Estimation",
+                  "value": 4
+                },
+                {
+                  "name": "Transformer-based Depth",
+                  "value": 3
+                },
+                {
+                  "name": "Indoor Depth Estimation",
+                  "value": 2
+                },
+                {
+                  "name": "Foundation Model Depth",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Video Depth Estimation",
+              "value": 35,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 33
+                },
+                {
+                  "name": "Foundation Model Depth",
+                  "value": 1
+                },
+                {
+                  "name": "Transformer-based Depth",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Foundation Model Depth",
+              "value": 4,
+              "children": [
+                {
+                  "name": "Foundation Model Depth",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. Image Recognition & Retrieval",
+      "value": 7785,
+      "color": "#3f51b5",
+      "children": [
+        {
+          "name": "Visual Analysis",
+          "value": 3864,
+          "children": [
+            {
+              "name": "General Visual Analysis",
+              "value": 3864,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 3864
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Image Classification",
+          "value": 2734,
+          "children": [
+            {
+              "name": "Image Classification",
+              "value": 2598,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 2343
+                },
+                {
+                  "name": "Efficient Image Classifiers",
+                  "value": 94
+                },
+                {
+                  "name": "Transformer-based Classification",
+                  "value": 49
+                },
+                {
+                  "name": "Large-scale Classification (ImageNet)",
+                  "value": 46
+                },
+                {
+                  "name": "Robust Classification",
+                  "value": 31
+                },
+                {
+                  "name": "Long-tail Classification",
+                  "value": 19
+                },
+                {
+                  "name": "Multi-label Classification",
+                  "value": 14
+                },
+                {
+                  "name": "Noisy-label Classification",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "name": "Multi-label Classification",
+              "value": 115,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 115
+                }
+              ]
+            },
+            {
+              "name": "Long-tail Classification",
+              "value": 19,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 19
+                }
+              ]
+            },
+            {
+              "name": "Medical Image Classification",
+              "value": 2,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Image Retrieval",
+          "value": 385,
+          "children": [
+            {
+              "name": "Image Retrieval",
+              "value": 247,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 247
+                }
+              ]
+            },
+            {
+              "name": "Hashing-based Retrieval",
+              "value": 110,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 110
+                }
+              ]
+            },
+            {
+              "name": "Sketch-based Image Retrieval",
+              "value": 28,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Metric Learning",
+          "value": 293,
+          "children": [
+            {
+              "name": "Deep Metric Learning",
+              "value": 293,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 293
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Scene Recognition",
+          "value": 233,
+          "children": [
+            {
+              "name": "Scene & Place Recognition",
+              "value": 233,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 233
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Feature Matching",
+          "value": 190,
+          "children": [
+            {
+              "name": "Local Feature Matching",
+              "value": 190,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 190
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fine-grained Recognition",
+          "value": 86,
+          "children": [
+            {
+              "name": "Fine-grained Visual Categorization",
+              "value": 86,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 86
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. Video & Motion Understanding",
+      "value": 6596,
+      "color": "#1976d2",
+      "children": [
+        {
+          "name": "Video Understanding",
+          "value": 2059,
+          "children": [
+            {
+              "name": "Video Understanding",
+              "value": 2059,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 2059
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Object Tracking",
+          "value": 1600,
+          "children": [
+            {
+              "name": "Visual Object Tracking",
+              "value": 1251,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 1251
+                }
+              ]
+            },
+            {
+              "name": "Single Object Tracking",
+              "value": 203,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 159
+                },
+                {
+                  "name": "Efficient SOT",
+                  "value": 18
+                },
+                {
+                  "name": "Siamese Network Tracking",
+                  "value": 17
+                },
+                {
+                  "name": "Transformer-based SOT",
+                  "value": 6
+                },
+                {
+                  "name": "Long-term Tracking",
+                  "value": 2
+                },
+                {
+                  "name": "Multi-modal SOT",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Multi-Object Tracking",
+              "value": 125,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 94
+                },
+                {
+                  "name": "Online MOT",
+                  "value": 21
+                },
+                {
+                  "name": "Association-based MOT",
+                  "value": 6
+                },
+                {
+                  "name": "Transformer-based MOT",
+                  "value": 4
+                }
+              ]
+            },
+            {
+              "name": "Dense Point Tracking",
+              "value": 21,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 21
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Action Recognition",
+          "value": 808,
+          "children": [
+            {
+              "name": "Video Action Recognition",
+              "value": 673,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 527
+                },
+                {
+                  "name": "Transformer-based Action Recognition",
+                  "value": 117
+                },
+                {
+                  "name": "Two-stream Action Recognition",
+                  "value": 15
+                },
+                {
+                  "name": "Self-supervised Action Recognition",
+                  "value": 9
+                },
+                {
+                  "name": "Egocentric Action Recognition",
+                  "value": 3
+                },
+                {
+                  "name": "Sports Action Recognition",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "name": "Skeleton-based Action Recognition",
+              "value": 65,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 65
+                }
+              ]
+            },
+            {
+              "name": "Few-shot Action Recognition",
+              "value": 39,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 39
+                }
+              ]
+            },
+            {
+              "name": "Egocentric Action Recognition",
+              "value": 31,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 31
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Video Object Analysis",
+          "value": 572,
+          "children": [
+            {
+              "name": "Video Object Analysis",
+              "value": 572,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 572
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Optical Flow & Motion",
+          "value": 525,
+          "children": [
+            {
+              "name": "Optical Flow Estimation",
+              "value": 479,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 392
+                },
+                {
+                  "name": "Efficient Optical Flow",
+                  "value": 34
+                },
+                {
+                  "name": "Event-based Optical Flow",
+                  "value": 19
+                },
+                {
+                  "name": "Self-supervised Optical Flow",
+                  "value": 16
+                },
+                {
+                  "name": "Large-displacement Flow",
+                  "value": 11
+                },
+                {
+                  "name": "Iterative / Transformer Flow",
+                  "value": 7
+                }
+              ]
+            },
+            {
+              "name": "Scene Flow Estimation",
+              "value": 46,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 46
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Temporal Action Analysis",
+          "value": 411,
+          "children": [
+            {
+              "name": "Temporal Action Detection",
+              "value": 411,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 411
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Video Representation Learning",
+          "value": 326,
+          "children": [
+            {
+              "name": "Video Representation Learning",
+              "value": 182,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 182
+                }
+              ]
+            },
+            {
+              "name": "Video Self-supervised Learning",
+              "value": 144,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 144
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Trajectory Prediction",
+          "value": 214,
+          "children": [
+            {
+              "name": "Trajectory Prediction & Forecasting",
+              "value": 214,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 214
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Video Prediction",
+          "value": 81,
+          "children": [
+            {
+              "name": "Video Prediction & Synthesis",
+              "value": 81,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 81
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "13. Efficient & Robust ML",
+      "value": 6383,
+      "color": "#f44336",
+      "children": [
+        {
+          "name": "Bayesian & Probabilistic Methods",
+          "value": 1117,
+          "children": [
+            {
+              "name": "Bayesian Deep Learning",
+              "value": 548,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 548
+                }
+              ]
+            },
+            {
+              "name": "Gaussian Processes",
+              "value": 357,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 357
+                }
+              ]
+            },
+            {
+              "name": "Bayesian Optimization",
+              "value": 212,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 212
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Model Compression",
+          "value": 1040,
+          "children": [
+            {
+              "name": "Model Compression & Efficient Inference",
+              "value": 780,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 780
+                }
+              ]
+            },
+            {
+              "name": "Network Quantization",
+              "value": 151,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 151
+                }
+              ]
+            },
+            {
+              "name": "Network Pruning",
+              "value": 109,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 109
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Adversarial Robustness",
+          "value": 786,
+          "children": [
+            {
+              "name": "Adversarial Attacks",
+              "value": 586,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 535
+                },
+                {
+                  "name": "White-box Gradient Attacks",
+                  "value": 26
+                },
+                {
+                  "name": "Adversarial Attacks on Dense Tasks",
+                  "value": 14
+                },
+                {
+                  "name": "Semantic Adversarial Attacks",
+                  "value": 9
+                },
+                {
+                  "name": "Transferable / Black-box Attacks",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "name": "Adversarial Defense & Certified Robustness",
+              "value": 93,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 93
+                }
+              ]
+            },
+            {
+              "name": "Transferable Adversarial Attacks",
+              "value": 70,
+              "children": [
+                {
+                  "name": "Transferable / Black-box Attacks",
+                  "value": 70
+                }
+              ]
+            },
+            {
+              "name": "Physical & Universal Adversarial Attacks",
+              "value": 37,
+              "children": [
+                {
+                  "name": "Universal Adversarial Perturbations",
+                  "value": 21
+                },
+                {
+                  "name": "Physical Adversarial Attacks",
+                  "value": 15
+                },
+                {
+                  "name": "(general)",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "OOD & Anomaly Detection",
+          "value": 683,
+          "children": [
+            {
+              "name": "Out-of-distribution Detection",
+              "value": 383,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 383
+                }
+              ]
+            },
+            {
+              "name": "Anomaly & Novelty Detection",
+              "value": 284,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 284
+                }
+              ]
+            },
+            {
+              "name": "Open-set Recognition",
+              "value": 16,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 16
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fairness & Bias",
+          "value": 544,
+          "children": [
+            {
+              "name": "Fairness, Bias & Debiasing",
+              "value": 544,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 544
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Uncertainty & Calibration",
+          "value": 532,
+          "children": [
+            {
+              "name": "Uncertainty Estimation & Calibration",
+              "value": 532,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 532
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Federated & Distributed Learning",
+          "value": 513,
+          "children": [
+            {
+              "name": "Federated Learning",
+              "value": 513,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 513
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Explainability & Interpretability",
+          "value": 482,
+          "children": [
+            {
+              "name": "Visual Explanations & Attribution",
+              "value": 482,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 482
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Causal Inference",
+          "value": 461,
+          "children": [
+            {
+              "name": "Causal Inference & Counterfactuals",
+              "value": 461,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 461
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Privacy & Security",
+          "value": 225,
+          "children": [
+            {
+              "name": "Differential Privacy & Machine Unlearning",
+              "value": 225,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 225
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "6. Generative Models & Synthesis",
+      "value": 6091,
+      "color": "#0097a7",
+      "children": [
+        {
+          "name": "Diffusion Models",
+          "value": 1883,
+          "children": [
+            {
+              "name": "Diffusion Models",
+              "value": 1495,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 1119
+                },
+                {
+                  "name": "Conditional Diffusion",
+                  "value": 140
+                },
+                {
+                  "name": "Fast Sampling / Distillation",
+                  "value": 111
+                },
+                {
+                  "name": "Video Diffusion",
+                  "value": 47
+                },
+                {
+                  "name": "Diffusion-based Image Editing",
+                  "value": 37
+                },
+                {
+                  "name": "Medical Diffusion",
+                  "value": 35
+                },
+                {
+                  "name": "3D Diffusion",
+                  "value": 6
+                }
+              ]
+            },
+            {
+              "name": "Text-to-Image Generation",
+              "value": 140,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 140
+                }
+              ]
+            },
+            {
+              "name": "Video Diffusion Generation",
+              "value": 96,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 96
+                }
+              ]
+            },
+            {
+              "name": "3D Diffusion Generation",
+              "value": 91,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 91
+                }
+              ]
+            },
+            {
+              "name": "Diffusion-based Image Editing",
+              "value": 30,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 30
+                }
+              ]
+            },
+            {
+              "name": "Audio Diffusion",
+              "value": 25,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 25
+                }
+              ]
+            },
+            {
+              "name": "Medical Diffusion",
+              "value": 6,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generative Adversarial Networks",
+          "value": 1648,
+          "children": [
+            {
+              "name": "Generative Adversarial Networks",
+              "value": 1017,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 1017
+                }
+              ]
+            },
+            {
+              "name": "Image-to-Image Translation",
+              "value": 248,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 248
+                }
+              ]
+            },
+            {
+              "name": "Video Generation (GAN)",
+              "value": 182,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 182
+                }
+              ]
+            },
+            {
+              "name": "Face Generation & Manipulation",
+              "value": 110,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 110
+                }
+              ]
+            },
+            {
+              "name": "3D-aware GAN",
+              "value": 57,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 57
+                }
+              ]
+            },
+            {
+              "name": "GAN-based Image Editing",
+              "value": 34,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 34
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generative Models",
+          "value": 1234,
+          "children": [
+            {
+              "name": "Generative Models",
+              "value": 1234,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 1234
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Variational Autoencoders",
+          "value": 536,
+          "children": [
+            {
+              "name": "Variational Autoencoders",
+              "value": 536,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 536
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Text-conditioned Generation",
+          "value": 436,
+          "children": [
+            {
+              "name": "Text-to-Image Generation",
+              "value": 436,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 436
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Image Editing & Manipulation",
+          "value": 237,
+          "children": [
+            {
+              "name": "Image Editing",
+              "value": 237,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 237
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Video Generation",
+          "value": 117,
+          "children": [
+            {
+              "name": "Video Generation",
+              "value": 117,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 117
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "7. Representation Learning",
+      "value": 5923,
+      "color": "#388e3c",
+      "children": [
+        {
+          "name": "Domain Adaptation & Generalization",
+          "value": 1214,
+          "children": [
+            {
+              "name": "Domain Adaptation",
+              "value": 900,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 780
+                },
+                {
+                  "name": "Adversarial Domain Adaptation",
+                  "value": 54
+                },
+                {
+                  "name": "Multi-source DA",
+                  "value": 31
+                },
+                {
+                  "name": "DA for Segmentation",
+                  "value": 17
+                },
+                {
+                  "name": "DA for Detection",
+                  "value": 15
+                },
+                {
+                  "name": "Source-free DA",
+                  "value": 3
+                }
+              ]
+            },
+            {
+              "name": "Test-time Adaptation",
+              "value": 159,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 159
+                }
+              ]
+            },
+            {
+              "name": "Domain Adaptive Segmentation",
+              "value": 69,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 69
+                }
+              ]
+            },
+            {
+              "name": "Source-free Domain Adaptation",
+              "value": 56,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 56
+                }
+              ]
+            },
+            {
+              "name": "Domain Adaptive Detection",
+              "value": 30,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 30
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Self-supervised Learning",
+          "value": 1068,
+          "children": [
+            {
+              "name": "Contrastive Self-supervised Learning",
+              "value": 1045,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 955
+                },
+                {
+                  "name": "DINO / Self-distillation",
+                  "value": 29
+                },
+                {
+                  "name": "Non-contrastive SSL",
+                  "value": 19
+                },
+                {
+                  "name": "Multimodal Contrastive Learning",
+                  "value": 17
+                },
+                {
+                  "name": "Dense / Pixel-level Contrastive",
+                  "value": 11
+                },
+                {
+                  "name": "MoCo Family",
+                  "value": 7
+                },
+                {
+                  "name": "Redundancy-reduction SSL",
+                  "value": 6
+                },
+                {
+                  "name": "SimCLR Family",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Medical Self-supervised Learning",
+              "value": 12,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 12
+                }
+              ]
+            },
+            {
+              "name": "Video Self-supervised Learning",
+              "value": 11,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sparse & Dictionary Representations",
+          "value": 942,
+          "children": [
+            {
+              "name": "Sparse Coding & Dictionary Learning",
+              "value": 629,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 629
+                }
+              ]
+            },
+            {
+              "name": "Dimensionality Reduction",
+              "value": 261,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 261
+                }
+              ]
+            },
+            {
+              "name": "Compressed Sensing",
+              "value": 52,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 52
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Transfer Learning",
+          "value": 787,
+          "children": [
+            {
+              "name": "Transfer Learning",
+              "value": 362,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 362
+                }
+              ]
+            },
+            {
+              "name": "Fine-tuning Pretrained Models",
+              "value": 337,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 337
+                }
+              ]
+            },
+            {
+              "name": "Parameter-efficient Fine-tuning",
+              "value": 88,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Few-shot & Meta-learning",
+          "value": 779,
+          "children": [
+            {
+              "name": "Meta-learning",
+              "value": 363,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 363
+                }
+              ]
+            },
+            {
+              "name": "Few-shot Learning",
+              "value": 252,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 174
+                },
+                {
+                  "name": "Meta-learning Methods",
+                  "value": 24
+                },
+                {
+                  "name": "Cross-domain Few-shot",
+                  "value": 22
+                },
+                {
+                  "name": "Prototypical Networks",
+                  "value": 18
+                },
+                {
+                  "name": "Transductive Few-shot Learning",
+                  "value": 11
+                },
+                {
+                  "name": "Generalized Few-shot Learning",
+                  "value": 2
+                },
+                {
+                  "name": "Pretrained Model Few-shot",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Zero-shot Learning",
+              "value": 164,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 164
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Representation Learning",
+          "value": 532,
+          "children": [
+            {
+              "name": "General Representation Learning",
+              "value": 532,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 532
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Knowledge & Relational Learning",
+          "value": 308,
+          "children": [
+            {
+              "name": "Scene Graph Generation",
+              "value": 176,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 176
+                }
+              ]
+            },
+            {
+              "name": "Knowledge Graph Embedding",
+              "value": 132,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 132
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Unsupervised Clustering",
+          "value": 208,
+          "children": [
+            {
+              "name": "Deep Clustering",
+              "value": 208,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 208
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Masked Image Modeling",
+          "value": 85,
+          "children": [
+            {
+              "name": "Masked Autoencoders (MAE)",
+              "value": 83,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 72
+                },
+                {
+                  "name": "Efficient MAE",
+                  "value": 7
+                },
+                {
+                  "name": "Discrete Token Prediction (BEiT)",
+                  "value": 3
+                },
+                {
+                  "name": "Multimodal MAE",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Video Masked Autoencoding",
+              "value": 2,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "11. Deep Learning Architecture",
+      "value": 5522,
+      "color": "#607d8b",
+      "children": [
+        {
+          "name": "General Deep Learning",
+          "value": 2188,
+          "children": [
+            {
+              "name": "Deep Neural Networks",
+              "value": 2188,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 2188
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Transformer Architectures",
+          "value": 825,
+          "children": [
+            {
+              "name": "Transformer Architectures for Vision",
+              "value": 825,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 825
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Graph Neural Networks",
+          "value": 812,
+          "children": [
+            {
+              "name": "Graph Neural Networks",
+              "value": 765,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 765
+                }
+              ]
+            },
+            {
+              "name": "Spatial-Temporal Graph Networks",
+              "value": 32,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 32
+                }
+              ]
+            },
+            {
+              "name": "Heterogeneous Graph Networks",
+              "value": 15,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Convolutional Networks",
+          "value": 493,
+          "children": [
+            {
+              "name": "Convolutional Neural Network Architectures",
+              "value": 359,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 359
+                }
+              ]
+            },
+            {
+              "name": "Residual & Dense Networks",
+              "value": 87,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 87
+                }
+              ]
+            },
+            {
+              "name": "Deformable & Dynamic Convolutions",
+              "value": 26,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 26
+                }
+              ]
+            },
+            {
+              "name": "Lightweight CNN Architectures",
+              "value": 21,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 21
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vision Transformers",
+          "value": 393,
+          "children": [
+            {
+              "name": "Vision Transformers (ViT)",
+              "value": 323,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 252
+                },
+                {
+                  "name": "Token / Patch Design",
+                  "value": 48
+                },
+                {
+                  "name": "Scaling ViT",
+                  "value": 18
+                },
+                {
+                  "name": "ViT Training & Distillation",
+                  "value": 2
+                },
+                {
+                  "name": "Positional Encoding in ViT",
+                  "value": 2
+                },
+                {
+                  "name": "Efficient ViT",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Efficient Vision Transformers",
+              "value": 48,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 48
+                }
+              ]
+            },
+            {
+              "name": "Hierarchical Vision Transformers",
+              "value": 22,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 12
+                },
+                {
+                  "name": "Swin Transformer",
+                  "value": 9
+                },
+                {
+                  "name": "Efficient Hierarchical ViT",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Neural Architecture Search",
+          "value": 311,
+          "children": [
+            {
+              "name": "Neural Architecture Search",
+              "value": 311,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 311
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Attention Mechanisms",
+          "value": 202,
+          "children": [
+            {
+              "name": "Attention Mechanisms in Deep Learning",
+              "value": 202,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 202
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Geometric Deep Learning",
+          "value": 158,
+          "children": [
+            {
+              "name": "Equivariant & Geometric Neural Networks",
+              "value": 158,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 158
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "State Space Models",
+          "value": 124,
+          "children": [
+            {
+              "name": "Vision State Space Models (Mamba)",
+              "value": 124,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 124
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MLP-based Architectures",
+          "value": 16,
+          "children": [
+            {
+              "name": "MLP-Mixer & Vision MLP",
+              "value": 16,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "8. Vision-Language & Multimodal",
+      "value": 4639,
+      "color": "#f57c00",
+      "children": [
+        {
+          "name": "Language Model Applications",
+          "value": 1946,
+          "children": [
+            {
+              "name": "Language Models & NLP",
+              "value": 1946,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 1946
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Cross-modal Learning",
+          "value": 781,
+          "children": [
+            {
+              "name": "Multimodal Fusion",
+              "value": 371,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 371
+                }
+              ]
+            },
+            {
+              "name": "Audio-Visual Learning",
+              "value": 184,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 184
+                }
+              ]
+            },
+            {
+              "name": "Video-Language Learning",
+              "value": 169,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 169
+                }
+              ]
+            },
+            {
+              "name": "Cross-modal Retrieval",
+              "value": 57,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 57
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Multimodal Learning",
+          "value": 599,
+          "children": [
+            {
+              "name": "Multimodal Learning",
+              "value": 599,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 599
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Large Vision-Language Models",
+          "value": 555,
+          "children": [
+            {
+              "name": "Large Vision-Language Models",
+              "value": 488,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 488
+                }
+              ]
+            },
+            {
+              "name": "Vision-Language Pretraining",
+              "value": 38,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 38
+                }
+              ]
+            },
+            {
+              "name": "Visual Instruction Tuning",
+              "value": 29,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 29
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Visual Question Answering",
+          "value": 286,
+          "children": [
+            {
+              "name": "Visual Question Answering",
+              "value": 172,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 172
+                }
+              ]
+            },
+            {
+              "name": "Knowledge-based VQA",
+              "value": 107,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 107
+                }
+              ]
+            },
+            {
+              "name": "Video Question Answering",
+              "value": 7,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 7
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Image & Video Captioning",
+          "value": 270,
+          "children": [
+            {
+              "name": "Image Captioning",
+              "value": 196,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 196
+                }
+              ]
+            },
+            {
+              "name": "Dense & Video Captioning",
+              "value": 74,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 74
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Contrastive Vision-Language",
+          "value": 202,
+          "children": [
+            {
+              "name": "CLIP & Language-Image Pretraining",
+              "value": 202,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 202
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "10. Human-centric Vision",
+      "value": 3966,
+      "color": "#ff5722",
+      "children": [
+        {
+          "name": "Face Analysis",
+          "value": 1247,
+          "children": [
+            {
+              "name": "Face Recognition & Verification",
+              "value": 777,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 608
+                },
+                {
+                  "name": "Face Anti-spoofing & Liveness",
+                  "value": 60
+                },
+                {
+                  "name": "Deepfake Detection",
+                  "value": 56
+                },
+                {
+                  "name": "Occluded Face Recognition",
+                  "value": 24
+                },
+                {
+                  "name": "Low-resolution Face Recognition",
+                  "value": 11
+                },
+                {
+                  "name": "Privacy-preserving Face Recognition",
+                  "value": 10
+                },
+                {
+                  "name": "Margin-based Face Recognition",
+                  "value": 8
+                }
+              ]
+            },
+            {
+              "name": "Face Detection & Alignment",
+              "value": 197,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 197
+                }
+              ]
+            },
+            {
+              "name": "Face Attribute Analysis",
+              "value": 153,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 153
+                }
+              ]
+            },
+            {
+              "name": "Face Analysis",
+              "value": 77,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 77
+                }
+              ]
+            },
+            {
+              "name": "Face Restoration & Enhancement",
+              "value": 43,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 43
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Human Pose & Body",
+          "value": 1026,
+          "children": [
+            {
+              "name": "2D Human Pose Estimation",
+              "value": 442,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 400
+                },
+                {
+                  "name": "Transformer-based Pose Estimation",
+                  "value": 27
+                },
+                {
+                  "name": "Animal Pose Estimation",
+                  "value": 6
+                },
+                {
+                  "name": "Bottom-up Multi-person Pose",
+                  "value": 5
+                },
+                {
+                  "name": "Top-down Single-person Pose",
+                  "value": 4
+                }
+              ]
+            },
+            {
+              "name": "3D Human Pose & Shape Estimation",
+              "value": 402,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 263
+                },
+                {
+                  "name": "Human Mesh Recovery",
+                  "value": 65
+                },
+                {
+                  "name": "Video 3D Pose Estimation",
+                  "value": 51
+                },
+                {
+                  "name": "In-the-wild 3D Pose",
+                  "value": 14
+                },
+                {
+                  "name": "Expressive Whole-body Estimation",
+                  "value": 5
+                },
+                {
+                  "name": "Few-shot 3D Pose",
+                  "value": 4
+                }
+              ]
+            },
+            {
+              "name": "Hand Pose Estimation",
+              "value": 96,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 96
+                }
+              ]
+            },
+            {
+              "name": "Multi-person Pose Estimation",
+              "value": 45,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 45
+                }
+              ]
+            },
+            {
+              "name": "Video Human Pose Estimation",
+              "value": 41,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 41
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Person Re-Identification",
+          "value": 493,
+          "children": [
+            {
+              "name": "Person Re-Identification",
+              "value": 403,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 333
+                },
+                {
+                  "name": "Unsupervised Person ReID",
+                  "value": 47
+                },
+                {
+                  "name": "3D-aware ReID",
+                  "value": 13
+                },
+                {
+                  "name": "Domain Adaptive ReID",
+                  "value": 10
+                }
+              ]
+            },
+            {
+              "name": "Vehicle ReID",
+              "value": 56,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 56
+                }
+              ]
+            },
+            {
+              "name": "Text-to-Person ReID",
+              "value": 13,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 13
+                }
+              ]
+            },
+            {
+              "name": "Occluded Person ReID",
+              "value": 13,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 13
+                }
+              ]
+            },
+            {
+              "name": "Cloth-changing ReID",
+              "value": 8,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Emotion & Expression",
+          "value": 342,
+          "children": [
+            {
+              "name": "Facial Expression & Emotion Recognition",
+              "value": 342,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 342
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Gesture & Hand Analysis",
+          "value": 319,
+          "children": [
+            {
+              "name": "Gesture & Sign Language Recognition",
+              "value": 319,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 319
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Crowd Analysis",
+          "value": 210,
+          "children": [
+            {
+              "name": "Crowd Counting & Density Estimation",
+              "value": 210,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 210
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Human-Object Interaction",
+          "value": 143,
+          "children": [
+            {
+              "name": "Human-Object Interaction Detection",
+              "value": 143,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 143
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Human Activity Recognition",
+          "value": 89,
+          "children": [
+            {
+              "name": "Skeleton-based Action Recognition",
+              "value": 89,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 89
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Gaze Analysis",
+          "value": 71,
+          "children": [
+            {
+              "name": "Gaze Estimation",
+              "value": 71,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 71
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Face Generation",
+          "value": 26,
+          "children": [
+            {
+              "name": "Face Generation & Manipulation",
+              "value": 26,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 26
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1. Object Detection & Localization",
+      "value": 3826,
+      "color": "#e53935",
+      "children": [
+        {
+          "name": "2D Object Detection",
+          "value": 2963,
+          "children": [
+            {
+              "name": "Generic Object Detection",
+              "value": 2741,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 2160
+                },
+                {
+                  "name": "Real-time Detection",
+                  "value": 353
+                },
+                {
+                  "name": "Few/Zero-shot Detection",
+                  "value": 87
+                },
+                {
+                  "name": "Weakly/Semi-supervised Detection",
+                  "value": 80
+                },
+                {
+                  "name": "Multi-modality Detection",
+                  "value": 33
+                },
+                {
+                  "name": "Aerial/Remote-sensing Detection",
+                  "value": 28
+                }
+              ]
+            },
+            {
+              "name": "Transformer-based Detection",
+              "value": 78,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 55
+                },
+                {
+                  "name": "Efficient DETR",
+                  "value": 10
+                },
+                {
+                  "name": "End-to-end Transformer Detection",
+                  "value": 6
+                },
+                {
+                  "name": "Open-vocabulary Transformer Detection",
+                  "value": 4
+                },
+                {
+                  "name": "Deformable DETR Family",
+                  "value": 3
+                }
+              ]
+            },
+            {
+              "name": "Video Object Detection",
+              "value": 68,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 68
+                }
+              ]
+            },
+            {
+              "name": "Open-Vocabulary Detection",
+              "value": 47,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 47
+                }
+              ]
+            },
+            {
+              "name": "Anchor-free Detection",
+              "value": 21,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 21
+                }
+              ]
+            },
+            {
+              "name": "Pedestrian Detection",
+              "value": 8,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3D Object Detection",
+          "value": 269,
+          "children": [
+            {
+              "name": "3D Object Detection",
+              "value": 269,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 269
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Salient Object Detection",
+          "value": 249,
+          "children": [
+            {
+              "name": "Salient Object Detection",
+              "value": 249,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 249
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "6D Pose Estimation",
+          "value": 190,
+          "children": [
+            {
+              "name": "6D Object Pose Estimation",
+              "value": 190,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 190
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Visual Grounding",
+          "value": 155,
+          "children": [
+            {
+              "name": "Visual Grounding & Referring",
+              "value": 155,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 155
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Segmentation",
+      "value": 3133,
+      "color": "#e91e63",
+      "children": [
+        {
+          "name": "Image Segmentation",
+          "value": 2824,
+          "children": [
+            {
+              "name": "Image Segmentation",
+              "value": 1457,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 1457
+                }
+              ]
+            },
+            {
+              "name": "Semantic Segmentation",
+              "value": 863,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 480
+                },
+                {
+                  "name": "Weakly/Semi-supervised Segmentation",
+                  "value": 131
+                },
+                {
+                  "name": "Open-vocabulary Segmentation",
+                  "value": 69
+                },
+                {
+                  "name": "Real-time Semantic Segmentation",
+                  "value": 53
+                },
+                {
+                  "name": "Transformer-based Segmentation",
+                  "value": 42
+                },
+                {
+                  "name": "Domain Adaptive Segmentation",
+                  "value": 41
+                },
+                {
+                  "name": "3D Semantic Segmentation",
+                  "value": 29
+                },
+                {
+                  "name": "Urban Scene Parsing",
+                  "value": 18
+                }
+              ]
+            },
+            {
+              "name": "Instance Segmentation",
+              "value": 256,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 183
+                },
+                {
+                  "name": "3D Instance Segmentation",
+                  "value": 29
+                },
+                {
+                  "name": "Open-vocabulary Instance Segmentation",
+                  "value": 15
+                },
+                {
+                  "name": "Real-time Instance Segmentation",
+                  "value": 14
+                },
+                {
+                  "name": "Transformer-based Instance Segmentation",
+                  "value": 11
+                },
+                {
+                  "name": "Few-shot Instance Segmentation",
+                  "value": 4
+                }
+              ]
+            },
+            {
+              "name": "Interactive Segmentation",
+              "value": 116,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 116
+                }
+              ]
+            },
+            {
+              "name": "Panoptic Segmentation",
+              "value": 63,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 63
+                }
+              ]
+            },
+            {
+              "name": "Open-Vocabulary Segmentation",
+              "value": 53,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 53
+                }
+              ]
+            },
+            {
+              "name": "Weakly/Semi-supervised Segmentation",
+              "value": 9,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 9
+                }
+              ]
+            },
+            {
+              "name": "3D Segmentation",
+              "value": 7,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 7
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Video Segmentation",
+          "value": 309,
+          "children": [
+            {
+              "name": "Video Object Segmentation",
+              "value": 231,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 231
+                }
+              ]
+            },
+            {
+              "name": "Video Instance Segmentation",
+              "value": 65,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 65
+                }
+              ]
+            },
+            {
+              "name": "Semi-supervised Video Object Segmentation",
+              "value": 13,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 13
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "9. Low-level Vision",
+      "value": 2637,
+      "color": "#795548",
+      "children": [
+        {
+          "name": "Image Restoration",
+          "value": 1010,
+          "children": [
+            {
+              "name": "Image Denoising",
+              "value": 369,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 369
+                }
+              ]
+            },
+            {
+              "name": "Image Restoration",
+              "value": 225,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 160
+                },
+                {
+                  "name": "Blind Image Restoration",
+                  "value": 26
+                },
+                {
+                  "name": "Transformer-based Restoration",
+                  "value": 19
+                },
+                {
+                  "name": "Diffusion-based Restoration",
+                  "value": 12
+                },
+                {
+                  "name": "All-in-one Restoration",
+                  "value": 6
+                },
+                {
+                  "name": "Real-world Image Restoration",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "name": "Image Deblurring",
+              "value": 223,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 223
+                }
+              ]
+            },
+            {
+              "name": "Image Dehazing",
+              "value": 86,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 86
+                }
+              ]
+            },
+            {
+              "name": "Image Deraining",
+              "value": 78,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 78
+                }
+              ]
+            },
+            {
+              "name": "All-in-one Image Restoration",
+              "value": 17,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 17
+                }
+              ]
+            },
+            {
+              "name": "Image Artifact Removal",
+              "value": 12,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 12
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Image Super-Resolution",
+          "value": 717,
+          "children": [
+            {
+              "name": "Single Image Super-Resolution",
+              "value": 542,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 384
+                },
+                {
+                  "name": "Lightweight SR",
+                  "value": 94
+                },
+                {
+                  "name": "Transformer-based SR",
+                  "value": 32
+                },
+                {
+                  "name": "Perceptual / GAN-based SR",
+                  "value": 17
+                },
+                {
+                  "name": "Diffusion-based SR",
+                  "value": 9
+                },
+                {
+                  "name": "Implicit / Arbitrary-scale SR",
+                  "value": 6
+                }
+              ]
+            },
+            {
+              "name": "Video Super-Resolution",
+              "value": 90,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 90
+                }
+              ]
+            },
+            {
+              "name": "Blind Super-Resolution",
+              "value": 79,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 79
+                }
+              ]
+            },
+            {
+              "name": "Face Super-Resolution",
+              "value": 6,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Image & Video Compression",
+          "value": 292,
+          "children": [
+            {
+              "name": "Learned Image/Video Compression",
+              "value": 292,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 292
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Image Enhancement",
+          "value": 274,
+          "children": [
+            {
+              "name": "Low-light Image Enhancement",
+              "value": 93,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 93
+                }
+              ]
+            },
+            {
+              "name": "Image Enhancement",
+              "value": 86,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 86
+                }
+              ]
+            },
+            {
+              "name": "Image Colorization & Color Enhancement",
+              "value": 77,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 77
+                }
+              ]
+            },
+            {
+              "name": "HDR Imaging",
+              "value": 18,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 18
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Computational Photography",
+          "value": 259,
+          "children": [
+            {
+              "name": "Computational Photography",
+              "value": 259,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 259
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Image Quality Assessment",
+          "value": 85,
+          "children": [
+            {
+              "name": "No-reference Image Quality Assessment",
+              "value": 85,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 85
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "14. Application Domains",
+      "value": 2415,
+      "color": "#00897b",
+      "children": [
+        {
+          "name": "Remote Sensing Analysis",
+          "value": 394,
+          "children": [
+            {
+              "name": "Remote Sensing General",
+              "value": 394,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 394
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Autonomous Driving Perception",
+          "value": 363,
+          "children": [
+            {
+              "name": "AD General Perception",
+              "value": 234,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 234
+                }
+              ]
+            },
+            {
+              "name": "AD Object Detection",
+              "value": 96,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 96
+                }
+              ]
+            },
+            {
+              "name": "AD Sensor Fusion & Depth",
+              "value": 21,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 21
+                }
+              ]
+            },
+            {
+              "name": "AD Lane & Road Segmentation",
+              "value": 12,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 12
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Medical Image Analysis",
+          "value": 306,
+          "children": [
+            {
+              "name": "Medical Image Analysis",
+              "value": 306,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 306
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Medical Segmentation",
+          "value": 288,
+          "children": [
+            {
+              "name": "Medical Image Segmentation",
+              "value": 288,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 166
+                },
+                {
+                  "name": "Label-efficient Medical Segmentation",
+                  "value": 35
+                },
+                {
+                  "name": "Cell & Histology Segmentation",
+                  "value": 27
+                },
+                {
+                  "name": "Foundation Model for Medical Segmentation",
+                  "value": 20
+                },
+                {
+                  "name": "Transformer-based Medical Segmentation",
+                  "value": 14
+                },
+                {
+                  "name": "U-Net Family",
+                  "value": 11
+                },
+                {
+                  "name": "Brain MRI Segmentation",
+                  "value": 10
+                },
+                {
+                  "name": "Polyp & Endoscopy Segmentation",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Medical Detection & Diagnosis",
+          "value": 193,
+          "children": [
+            {
+              "name": "Medical Image Diagnosis",
+              "value": 193,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 193
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Scientific & Molecular ML",
+          "value": 119,
+          "children": [
+            {
+              "name": "Molecular Property Prediction & Drug Discovery",
+              "value": 119,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 119
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Remote Sensing Detection",
+          "value": 107,
+          "children": [
+            {
+              "name": "Remote Sensing Object Detection",
+              "value": 107,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 107
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Document Text Recognition",
+          "value": 98,
+          "children": [
+            {
+              "name": "Scene Text Recognition & OCR",
+              "value": 98,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 98
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Medical Image Enhancement",
+          "value": 89,
+          "children": [
+            {
+              "name": "Medical Image Enhancement & Reconstruction",
+              "value": 89,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 89
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Robot Manipulation",
+          "value": 64,
+          "children": [
+            {
+              "name": "Robotic Grasping & Manipulation",
+              "value": 64,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 64
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Robot Navigation",
+          "value": 63,
+          "children": [
+            {
+              "name": "Embodied Navigation",
+              "value": 63,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 63
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Document Analysis",
+          "value": 51,
+          "children": [
+            {
+              "name": "Document Analysis General",
+              "value": 51,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 51
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Medical Image Registration",
+          "value": 44,
+          "children": [
+            {
+              "name": "Medical Image Registration",
+              "value": 44,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 44
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Remote Sensing Classification",
+          "value": 41,
+          "children": [
+            {
+              "name": "Remote Sensing Scene Classification",
+              "value": 41,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 41
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Remote Sensing Segmentation",
+          "value": 39,
+          "children": [
+            {
+              "name": "Remote Sensing Segmentation & Change Detection",
+              "value": 39,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 39
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Document Understanding",
+          "value": 38,
+          "children": [
+            {
+              "name": "Document Layout & Understanding",
+              "value": 38,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 38
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Document Text Detection",
+          "value": 36,
+          "children": [
+            {
+              "name": "Scene Text Detection",
+              "value": 36,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 36
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Robot Perception",
+          "value": 32,
+          "children": [
+            {
+              "name": "Robot Visual Perception",
+              "value": 32,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 32
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Autonomous Driving Prediction",
+          "value": 25,
+          "children": [
+            {
+              "name": "AD Motion Prediction & Tracking",
+              "value": 25,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 25
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Autonomous Driving Planning",
+          "value": 25,
+          "children": [
+            {
+              "name": "AD End-to-End Driving",
+              "value": 25,
+              "children": [
+                {
+                  "name": "(general)",
+                  "value": 25
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

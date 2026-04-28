@@ -1,0 +1,7 @@
+data/raw/
+data/intermediate/
+all_dblp.json
+__pycache__/
+*.pyc
+.DS_Store
+cvml_taxonomy.xlsx

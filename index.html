@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV+ML Paper Phylogeny — EDA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-subtle: #f8f9fa;
+    --bg-elevated: #ffffff;
+    --text: #202124;
+    --text-secondary: #5f6368;
+    --text-muted: #80868b;
+    --border: #e8eaed;
+    --border-strong: #dadce0;
+    --primary: #1a73e8;
+    --primary-hover: #1557b0;
+    --primary-bg: #e8f0fe;
+    --success: #188038;
+    --success-bg: #e6f4ea;
+    --danger: #c5221f;
+    --danger-bg: #fce8e6;
+    --warning: #b06000;
+    --warning-bg: #fef7e0;
+    /* Material elevation */
+    --elev-1: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
+    --elev-2: 0 1px 2px 0 rgba(60,64,67,0.30), 0 2px 6px 2px rgba(60,64,67,0.15);
+    --elev-3: 0 4px 8px 3px rgba(60,64,67,0.15), 0 1px 3px 0 rgba(60,64,67,0.30);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Google Sans', 'Roboto', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+    line-height: 1.5;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+  }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ============== Top app bar ============== */
+  .appbar {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    backdrop-filter: blur(8px);
+  }
+  .appbar-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .appbar-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--text);
+  }
+  .appbar-logo .icon {
+    font-size: 22px;
+  }
+  .appbar-spacer { flex: 1; }
+  .appbar-actions {
+    display: flex; gap: 4px;
+  }
+  .icon-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    color: var(--text-secondary);
+    font-size: 13px; font-weight: 500;
+    transition: background 0.15s;
+    border: none; background: none; cursor: pointer;
+  }
+  .icon-btn:hover {
+    background: var(--bg-subtle);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  /* ============== Hero section ============== */
+  .hero {
+    background: var(--bg);
+    padding: 64px 24px 48px;
+    text-align: center;
+  }
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .hero h1 strong {
+    background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04, #ea4335);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 500;
+  }
+  .hero .lede {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin: 0 0 28px;
+    line-height: 1.6;
+  }
+  .hero .chips {
+    display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .chip {
+    display: inline-flex; align-items: center;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .hero .actions {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s, box-shadow 0.15s;
+    border: none;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--elev-1);
+  }
+  .btn-primary:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--elev-2);
+    text-decoration: none;
+  }
+  .btn-secondary {
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-secondary:hover {
+    background: var(--bg-subtle);
+    text-decoration: none;
+  }
+
+  /* ============== Container ============== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+  }
+
+  /* ============== Stat cards ============== */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .stat-card {
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: var(--elev-1);
+    transition: box-shadow 0.2s;
+  }
+  .stat-card:hover { box-shadow: var(--elev-2); }
+  .stat-value {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ============== Section card ============== */
+  .card {
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 28px;
+    margin: 24px 0;
+    box-shadow: var(--elev-1);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: var(--elev-2); }
+  .card h2 {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 8px;
+    color: var(--text);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .card h2 .num {
+    background: var(--primary-bg);
+    color: var(--primary);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+  }
+  .card .desc {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin: 0 0 16px;
+  }
+  .card .links {
+    margin: 0 0 20px;
+    font-size: 13px;
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .card .links a {
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+
+  /* ============== Taxonomy terminology card ============== */
+  .taxonomy-card { padding: 28px; }
+  .taxonomy-card h2 {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0 0 4px;
+  }
+  .taxonomy-card .sub {
+    color: var(--text-secondary);
+    font-size: 13px; margin-bottom: 20px;
+  }
+  .tx-grid {
+    display: grid;
+    grid-template-columns: 90px 100px 80px 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+  .tx-grid > div {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    line-height: 1.5;
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .tx-grid .tx-h {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--bg-subtle);
+  }
+  .tx-grid .tx-en {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    color: var(--primary);
+  }
+  .tx-grid .tx-ko { color: var(--text-secondary); font-size: 12.5px; }
+  .tx-grid .tx-n  {
+    font-family: 'Roboto Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+  .tx-grid .tx-desc { color: var(--text-secondary); flex-direction: column; align-items: flex-start; }
+  .tx-grid .tx-desc .tx-eg {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .tx-grid .tx-desc .tx-eg code {
+    background: var(--bg-subtle);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+  }
+  .tx-note {
+    margin-top: 18px;
+    padding: 12px 14px;
+    background: var(--primary-bg);
+    border-left: 3px solid var(--primary);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .tx-note strong { color: var(--primary); }
+  @media (max-width: 720px) {
+    .tx-grid { grid-template-columns: 1fr; }
+    .tx-grid > div { border-bottom: none; padding: 6px 14px; }
+    .tx-grid .tx-h { padding-top: 14px; }
+    .tx-grid .tx-desc { padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+  }
+
+  /* ============== Phylum bars (Material progress) ============== */
+  .phyla-card { padding: 28px; }
+  .phyla-card h2 {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0 0 4px;
+  }
+  .phyla-card .sub {
+    color: var(--text-secondary);
+    font-size: 13px; margin-bottom: 20px;
+  }
+  .phylum-bar {
+    display: grid;
+    grid-template-columns: 240px 1fr 100px;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .phylum-bar:last-child { border-bottom: none; }
+  .phylum-bar-track {
+    height: 6px;
+    background: var(--bg-subtle);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .phylum-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: filter 0.15s;
+  }
+  .phylum-bar:hover .phylum-bar-fill {
+    filter: brightness(1.1);
+  }
+  .phylum-name {
+    color: var(--text);
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .phylum-count {
+    color: var(--text-secondary);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+  }
+
+  /* ============== Tabs (Material Design) ============== */
+  .tabs-container {
+    margin: 32px 0 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky;
+    top: 64px;
+    z-index: 40;
+  }
+  .tabs {
+    display: flex; gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============== Language toggle (lives in appbar) ============== */
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 6px;
+    background: var(--bg-subtle);
+    border-radius: 16px;
+    padding: 2px;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+  }
+  .lang-toggle button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 14px;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    transition: all 0.15s;
+  }
+  .lang-toggle button:hover { color: var(--text); }
+  .lang-toggle button.active {
+    background: var(--bg-elevated);
+    color: var(--primary);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+  .tab-input { display: none; }
+  .tab-label {
+    padding: 16px 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-family: 'Google Sans', sans-serif;
+    font-size: 14px; font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+  .tab-label:hover {
+    color: var(--primary);
+    background: var(--primary-bg);
+  }
+  .tab-input:checked + .tab-label {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+  }
+  .tab-content { display: none; }
+  /* Use `~ *` to allow .tab-panels to be nested inside .container,
+     since the radio inputs are siblings of .container, not of
+     .tab-panels directly. */
+  #tab-b:checked ~ * #panel-b,
+  #tab-c:checked ~ * #panel-c,
+  #tab-i:checked ~ * #panel-i {
+    display: block;
+  }
+
+  /* ============== Plot images / iframes ============== */
+  .card img, .card object {
+    width: 100%; height: auto; display: block;
+    border-radius: 4px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+  }
+  .card iframe {
+    width: 100%; height: 850px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: white;
+  }
+
+  /* ============== Details (insights) ============== */
+  details {
+    margin-top: 20px;
+    background: var(--bg-subtle);
+    border-radius: 8px;
+    padding: 16px 20px;
+    transition: background 0.15s;
+  }
+  details[open] { background: var(--primary-bg); }
+  details summary {
+    cursor: pointer;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text);
+    list-style: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before {
+    content: '▸';
+    transition: transform 0.2s;
+    color: var(--text-secondary);
+    font-size: 12px;
+  }
+  details[open] summary::before {
+    transform: rotate(90deg);
+  }
+  details ul {
+    margin: 12px 0 0; padding-left: 22px;
+  }
+  details li {
+    margin: 8px 0;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  details li.quant {
+    color: var(--warning);
+    background: var(--warning-bg);
+    padding: 6px 10px;
+    margin-left: -10px;
+    border-radius: 4px;
+    list-style-position: inside;
+    border-left: 3px solid var(--warning);
+  }
+  details li.quant strong {
+    color: var(--warning);
+  }
+
+  /* ============== Tables (Material) ============== */
+  table.insight {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  table.insight th {
+    text-align: left;
+    padding: 12px 16px;
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  table.insight td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  table.insight td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+  }
+  table.insight tr:hover td {
+    background: var(--bg-subtle);
+  }
+  table.insight .pos { color: var(--success); }
+  table.insight .neg { color: var(--danger); }
+
+  /* ============== Insight callout ============== */
+  .insight-card {
+    background: var(--primary-bg);
+    border-left: 4px solid var(--primary);
+    padding: 14px 18px;
+    margin: 16px 0 0;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .insight-card strong {
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .insight-card::before {
+    content: '💡';
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  /* ============== kbd & code ============== */
+  kbd {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-strong);
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+  }
+  code {
+    background: var(--bg-subtle);
+    padding: 2px 6px; border-radius: 3px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9em;
+    color: var(--text);
+  }
+
+  /* ============== Footer ============== */
+  footer {
+    border-top: 1px solid var(--border);
+    margin-top: 64px;
+    padding: 32px 24px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    text-align: center;
+    background: var(--bg-subtle);
+  }
+  footer p { margin: 4px 0; }
+  footer a { color: var(--primary); }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .hero { padding: 40px 16px 32px; }
+    .container { padding: 0 16px 32px; }
+    .phylum-bar { grid-template-columns: 140px 1fr 80px; gap: 10px; font-size: 12px; }
+    .phylum-name { font-size: 12px; }
+    .appbar { padding: 0 16px; }
+    .appbar-actions .icon-btn span:not(.icon) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== Top App Bar ============== -->
+<div class="appbar">
+  <div class="appbar-inner">
+    <div class="appbar-logo">
+      <span class="icon">🌳</span>
+      <span>CV+ML Phylogeny</span>
+    </div>
+    <div class="appbar-spacer"></div>
+    <div class="appbar-actions">
+      <a class="icon-btn" href="https://github.com/gisbi-kim/cvml-paper-phylogeny" target="_blank">
+        <span class="icon">📚</span><span>GitHub</span>
+      </a>
+      <a class="icon-btn" href="cvml_taxonomy.xlsx">
+        <span class="icon">📊</span><span>Excel</span>
+      </a>
+      <a class="icon-btn" href="TAXONOMY.md">
+        <span class="icon">📖</span><span>Taxonomy</span>
+      </a>
+      <span class="lang-toggle" id="lang-toggle">
+        <button data-lang="ko" class="active">한국어</button>
+        <button data-lang="en">English</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== Hero ============== -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>CV+ML Paper <strong>Phylogeny</strong></h1>
+    <p class="lede" data-en="112,183 CV+ML papers (CVPR / NeurIPS / ICML / ICCV / ICLR / ECCV / 3DV, 1987~2025)<br>classified into a 4-depth semantic phylogeny: 14 Phylum × ~110 Class × ~380 Order × Genus.">
+      112,183편의 컴퓨터비전·머신러닝 논문을 생물 계통도처럼 분류한 결과물<br>
+      (CVPR / NeurIPS / ICML / ICCV / ICLR / ECCV / 3DV, 1987~2025)<br>
+      14 Phylum × ~110 Class × ~380 Order × Genus 4-depth 시맨틱 계통도로 분류한 EDA 결과.
+    </p>
+    <div class="chips">
+      <span class="chip">📦 112,183 papers</span>
+      <span class="chip">📅 1987 — 2025</span>
+      <span class="chip">🌳 4-depth taxonomy</span>
+      <span class="chip">📰 CVPR · NeurIPS · ICML · ICCV · ICLR · ECCV · 3DV</span>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="#explore">
+        <span>↓</span> Explore visualizations
+      </a>
+      <a class="btn btn-secondary" href="https://gisbi-kim.github.io/cvml-paper-phylogeny/" target="_blank">
+        Live Site
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+<!-- ============== Quick stats ============== -->
+<div class="stats">
+  <div class="stat-card"><div class="stat-value">112,183</div><div class="stat-label">Papers</div></div>
+  <div class="stat-card"><div class="stat-value">38</div><div class="stat-label">Years (1987-2025)</div></div>
+  <div class="stat-card"><div class="stat-value">14</div><div class="stat-label">Phylum</div></div>
+  <div class="stat-card"><div class="stat-value">~110</div><div class="stat-label">Class</div></div>
+  <div class="stat-card"><div class="stat-value">~380</div><div class="stat-label">Order</div></div>
+  <div class="stat-card"><div class="stat-value">2.9%</div><div class="stat-label">Unclassified</div></div>
+</div>
+
+<!-- ============== Taxonomy terminology ============== -->
+<div class="card taxonomy-card">
+  <h2 data-en="🧬 4-depth taxonomy terms">🧬 4-depth 분류 용어</h2>
+  <div class="sub" data-en='Four levels borrowed from biological phylogenetic taxonomy. Each level narrows the category from the one above.'>생물 계통도(phylogenetic taxonomy)에서 빌려온 4단계. 위에서 아래로 점점 좁아지는 카테고리.</div>
+
+  <div class="tx-grid">
+    <div class="tx-h">L1</div>
+    <div class="tx-en">Phylum</div>
+    <div class="tx-n" data-en="14">14개</div>
+    <div class="tx-desc" data-en='Top level — the broad areas within CV+ML<span class="tx-eg">e.g. <code>Object Detection</code>, <code>Generative Models</code>, <code>3D Vision</code></span>'>
+      대분류 — 컴퓨터비전·머신러닝 안의 큰 분야
+      <span class="tx-eg">예: <code>Object Detection</code>, <code>Generative Models</code>, <code>3D Vision</code></span>
+    </div>
+
+    <div class="tx-h">L2</div>
+    <div class="tx-en">Class</div>
+    <div class="tx-n" data-en="~110">~110개</div>
+    <div class="tx-desc" data-en='Mid level — major branches inside a Phylum<span class="tx-eg">e.g. <code>Object Detection</code> ▸ <code>Anchor-free Detection</code></span>'>
+      중분류 — Phylum 안의 주요 갈래
+      <span class="tx-eg">예: <code>Object Detection</code> ▸ <code>Anchor-free Detection</code></span>
+    </div>
+
+    <div class="tx-h">L3</div>
+    <div class="tx-en">Order</div>
+    <div class="tx-n" data-en="~380">~380개</div>
+    <div class="tx-desc" data-en='Sub level — specific topics inside a Class<span class="tx-eg">e.g. <code>Anchor-free Detection</code> ▸ <code>Query-based Detection</code></span>'>
+      소분류 — Class 안의 세부 주제
+      <span class="tx-eg">예: <code>Anchor-free Detection</code> ▸ <code>Query-based Detection</code></span>
+    </div>
+
+    <div class="tx-h">L4</div>
+    <div class="tx-en">Genus</div>
+    <div class="tx-n" data-en="varies">가변</div>
+    <div class="tx-desc" data-en='Leaf level — concrete approaches inside an Order. The top 45 Orders carry sub-rules; everything else is labelled (general)<span class="tx-eg">e.g. <code>Query-based Detection</code> ▸ <code>DETR variants</code></span>'>
+      세부 — Order 안의 구체적 접근법. top 45 Order에만 sub-rule이 있고 나머지는 모두 (general)
+      <span class="tx-eg">예: <code>Query-based Detection</code> ▸ <code>DETR variants</code></span>
+    </div>
+  </div>
+
+  <div class="tx-note" data-en='<strong>Why a phylogenetic taxonomy?</strong> The same topic surfaces under wildly different phrasings (e.g. "image segmentation" ≈ "pixel-wise labeling"). Instead of keyword-counting or TF-IDF, papers are clustered by <strong>semantic synonym groups</strong> and mapped onto a tree that drills field → branch → topic → approach. The payoff: at a glance you can see "which areas rose and fell, when" and "which paradigms coexist inside one topic".'>
+    <strong>왜 생물 계통도?</strong> 같은 주제도 논문마다 표현이 다르다 (예: "image segmentation" ≈ "pixel-wise labeling"). 단순 키워드/TF-IDF 대신 <strong>시맨틱 동의어 클러스터</strong>로 묶고, 분야 → 갈래 → 주제 → 접근법으로 내려가는 트리에 매핑. 결과적으로 "어떤 분야가 언제 등장/소멸했는지" "한 주제 안에 어떤 패러다임이 공존하는지"를 한눈에 본다.
+  </div>
+</div>
+
+<!-- ============== Phylum distribution ============== -->
+<div class="card phyla-card">
+  <h2 data-en="Phylum distribution">Phylum 분포</h2>
+  <div class="sub" data-en="All 112,183 papers split across 14 Phyla + Editorial + Unclassified">전체 112,183편을 14 Phylum + Editorial + Unclassified로 분류한 결과</div>
+
+  <!-- TODO: fill after classification -->
+
+</div>
+
+</div>
+<!-- /container -->
+
+<!-- ============== Tabs ============== -->
+<div id="explore"></div>
+<input type="radio" name="tabs" id="tab-b" class="tab-input">
+<input type="radio" name="tabs" id="tab-c" class="tab-input" checked>
+<input type="radio" name="tabs" id="tab-i" class="tab-input">
+
+<div class="tabs-container">
+  <div class="tabs">
+    <label for="tab-b" class="tab-label">📊&nbsp; Time Series</label>
+    <label for="tab-c" class="tab-label">🌳&nbsp; Phylogenetic Tree</label>
+    <label for="tab-i" class="tab-label">📍&nbsp; Quantitative Insights</label>
+  </div>
+</div>
+
+<div class="container">
+<div class="tab-panels">
+
+<!-- ================== TAB B ================== -->
+<div id="panel-b" class="tab-content">
+
+<!-- PLOT 1 -->
+<section class="card">
+  <h2><span class="num">PLOT 1</span> <span data-en="Phylum × year stack chart">Phylum × 연도 stack chart</span></h2>
+  <p class="desc" data-en="X = 1987~2025, Y = papers per year (stacked). Colour = 14 Phyla + Editorial + Unclassified. Hover for exact counts.">X = 1987~2025, Y = 연간 논문 수 (stacked). 색 = 14개 Phylum + Editorial + Unclassified. 호버 시 정확한 카운트 표시.</p>
+  <div class="links">
+    <a href="eda/interactive/01_phylum_stack.html" target="_blank">🖱️ Open in new tab</a>
+    <a href="eda/figures/01_phylum_stack.png" target="_blank">📷 PNG download</a>
+  </div>
+  <iframe src="eda/interactive/01_phylum_stack.html" style="height:650px;"></iframe>
+  <details open>
+    <summary data-en="📍 Patterns + facts in the data">📍 보이는 패턴 + 데이터 사실</summary>
+    <ul>
+      <li data-en="<strong>Early growth</strong> — steady increase as major CV/ML venues expanded"><strong>초기 성장</strong> — 주요 CV/ML 학회가 확장되면서 꾸준히 증가</li>
+      <li data-en="<strong>2017~2020 explosion</strong> followed by <strong>acceleration from 2021</strong> — the deep learning + transformer era"><strong>2017~2020년 폭발</strong> 후 <strong>2021년부터 가속</strong> — 딥러닝 + 트랜스포머 시대</li>
+    </ul>
+  </details>
+</section>
+
+<!-- PLOT 2 -->
+<section class="card">
+  <h2><span class="num">PLOT 2</span> Per-Phylum small multiples</h2>
+  <p class="desc" data-en="One panel per Phylum. Inside each panel, the top 8 Classes are shown as a stacked area. Each panel title is tinted with that Phylum's colour.">14 Phylum 각각에 대해 패널 1개. 각 패널 안에서 top 8 Class가 stacked area. 패널마다 Phylum 색으로 제목 표시.</p>
+  <div class="links">
+    <a href="eda/interactive/02_phylum_small_multiples.html" target="_blank">🖱️ Open in new tab</a>
+    <a href="eda/figures/02_phylum_small_multiples.png" target="_blank">📷 PNG download</a>
+  </div>
+  <iframe src="eda/interactive/02_phylum_small_multiples.html" style="height:1350px;"></iframe>
+  <details>
+    <summary data-en="📍 Patterns + facts in the data">📍 보이는 패턴 + 데이터 사실</summary>
+    <ul>
+      <li data-en="<strong>Object Detection</strong>: anchor-based (RCNN era) → anchor-free → transformer-based (DETR era)"><strong>Object Detection</strong>: anchor-based (RCNN era) → anchor-free → transformer-based (DETR era)</li>
+      <li data-en="<strong>Generative Models</strong>: GAN era → VAE → Diffusion Models explosion from 2022"><strong>Generative Models</strong>: GAN era → VAE → 2022년부터 Diffusion Models 폭발</li>
+    </ul>
+  </details>
+</section>
+
+<!-- PLOT 3 -->
+<section class="card">
+  <h2><span class="num">PLOT 3</span> <span data-en="Class heatmap (all ~110 Classes × year)">Class heatmap (전체 ~110 Class × 연도)</span></h2>
+  <p class="desc" data-en="Rows = every Class (grouped by Phylum), columns = 3-year buckets. Colour = log10(1 + paper count). Hover for Class name + exact count.">행 = 모든 Class (Phylum 그룹 순서), 열 = 3년 bucket. 색 = log10(1 + 논문 수). 호버 시 Class 이름 + 정확한 카운트.</p>
+  <div class="links">
+    <a href="eda/interactive/03_class_heatmap.html" target="_blank">🖱️ Open in new tab</a>
+    <a href="eda/figures/03_class_heatmap.png" target="_blank">📷 PNG download</a>
+  </div>
+  <iframe src="eda/interactive/03_class_heatmap.html" style="height:1500px;"></iframe>
+  <details>
+    <summary data-en="📍 Patterns + facts in the data">📍 보이는 패턴 + 데이터 사실</summary>
+    <ul>
+      <li data-en="<strong>Always active</strong>: Image Classification, Object Detection, Semantic Segmentation — red across every era"><strong>상시 활성</strong>: Image Classification, Object Detection, Semantic Segmentation — 모든 시대 빨강</li>
+      <li data-en="<strong>Recent risers</strong>: Vision-Language Models, Diffusion Models, NeRF/3DGS — only the rightmost columns are red"><strong>최근 부상</strong>: Vision-Language Models, Diffusion Models, NeRF/3DGS — 오른쪽 끝만 빨강</li>
+    </ul>
+  </details>
+</section>
+
+<!-- PLOT 4 -->
+<section class="card">
+  <h2><span class="num">PLOT 4</span> Top 12 Class drill-down</h2>
+  <p class="desc" data-en="A mini panel for each of the 12 largest Classes. Inside each, the top 6 Orders form a stacked area. Hover to see Order names + counts.">가장 큰 12개 Class에 대해 각각 mini panel. 내부에서 top 6 Order가 stacked area. 호버로 Order 이름 + 카운트 확인.</p>
+  <div class="links">
+    <a href="eda/interactive/04_top_classes_drill.html" target="_blank">🖱️ Open in new tab</a>
+    <a href="eda/figures/04_top_classes_drill.png" target="_blank">📷 PNG download</a>
+  </div>
+  <iframe src="eda/interactive/04_top_classes_drill.html" style="height:1150px;"></iframe>
+  <details>
+    <summary data-en="📍 Patterns + facts in the data">📍 보이는 패턴 + 데이터 사실</summary>
+    <ul>
+      <li data-en="<strong>Object Detection</strong>: R-CNN → YOLO → DETR paradigm shift"><strong>Object Detection</strong>: R-CNN → YOLO → DETR 패러다임 전환</li>
+      <li data-en="<strong>Segmentation</strong>: semantic → instance → panoptic → SAM (Segment Anything)"><strong>Segmentation</strong>: semantic → instance → panoptic → SAM (Segment Anything)</li>
+    </ul>
+  </details>
+</section>
+
+</div>
+<!-- /panel-b -->
+
+<!-- ================== TAB C ================== -->
+<div id="panel-c" class="tab-content">
+
+<!-- Radial Tree (pie chart, search-enabled) -->
+<section class="card">
+  <h2>🥧 Radial Tree (D3.js)</h2>
+  <p class="desc" data-en="A phylogenetic-style pie chart. <strong>Sidebar search</strong> highlights every wedge containing the keyword at once. <strong>Hover</strong> to emphasise, <strong>click</strong> to focus a lineage, then use <kbd>←→↑↓</kbd> to navigate.">생물 계통도 파이 차트. <strong>사이드바 검색</strong>으로 단어가 들어간 wedge들을 한꺼번에 하이라이트. <strong>호버</strong>로 강조, <strong>클릭</strong>으로 계열 선택 후 <kbd>←→↑↓</kbd>로 탐색.</p>
+  <div class="links">
+    <a href="eda/interactive/05_phylogeny_radial_web.html" target="_blank">🖱️ Open in new tab (full screen)</a>
+  </div>
+  <iframe id="iframe-radial" src="eda/interactive/05_phylogeny_radial_web.html"></iframe>
+  <details open>
+    <summary data-en="📍 How to use + suggested exploration">📍 사용법 + 추천 탐색</summary>
+    <ul>
+      <li data-en="<strong>🔍 Search</strong> → type a word or click a suggestion chip (↻ refreshes). Matching wedges get an orange glow; the sidebar lists every match."><strong>🔍 검색</strong> → 단어를 입력하거나 추천 칩(↻로 갱신)을 클릭. 매칭된 wedge에 주황 glow + 사이드바에 결과 리스트.</li>
+      <li data-en="<strong>Click a result</strong> → jump to that wedge with full lineage (ancestors + descendants) highlighted."><strong>결과 클릭</strong> → 해당 wedge로 점프, 계열(조상+후손) lineage 하이라이트.</li>
+      <li data-en="<strong>Hover</strong> → wedge thickens, HOVER card appears in the sidebar."><strong>호버</strong> → wedge 두꺼워짐 + 사이드바 HOVER 카드.</li>
+      <li data-en="<strong>←/→</strong> = siblings, <strong>↑</strong> = parent, <strong>↓</strong> = first child (largest first)"><strong>←/→</strong> = 형제, <strong>↑</strong> = 부모, <strong>↓</strong> = 첫 자식 (가장 큰 child부터)</li>
+    </ul>
+  </details>
+</section>
+
+<!-- Horizontal Collapsible Tree -->
+<section class="card">
+  <h2>🌳 Horizontal Collapsible Tree (D3.js)</h2>
+  <p class="desc" data-en="A classic phylogenetic tree branching from root (left) to leaves (right). Click any node or its label to expand/collapse. The default opens to Phylum only — go deeper by clicking or using the sidebar buttons.">왼쪽 root에서 오른쪽으로 가지치는 전형적 phylogenetic tree. 노드 또는 라벨 클릭으로 펼치기/접기. 기본은 Phylum까지만 펼쳐져 있고 더 깊이 들어가려면 클릭하거나 사이드바 버튼 사용.</p>
+  <div class="links">
+    <a href="eda/interactive/06_phylogeny_tree_web.html" target="_blank">🖱️ Open in new tab (full screen)</a>
+  </div>
+  <iframe src="eda/interactive/06_phylogeny_tree_web.html" style="height:850px;"></iframe>
+  <details>
+    <summary data-en="📍 How to use">📍 사용법</summary>
+    <ul>
+      <li data-en="<strong>Click a node or label</strong> → expand/collapse + focus selection (the lineage stays bright, the rest dims)"><strong>노드/라벨 클릭</strong> → 자식 펼치기/접기 + focus 선택 (해당 lineage 강조, 나머지 dim)</li>
+      <li data-en="<strong>Hover</strong> → live HOVER card in the sidebar"><strong>호버</strong> → 사이드바 HOVER 카드에 정보 표시 (실시간)</li>
+      <li data-en="<strong>↑/↓</strong> = sibling navigation, <strong>←</strong> = collapse, <strong>→</strong> = expand, <strong>Esc</strong> = clear focus"><strong>↑/↓</strong> = 같은 부모의 형제 노드로 이동, <strong>←</strong> = 접기, <strong>→</strong> = 펼치기, <strong>Esc</strong> = 해제</li>
+      <li data-en="Sidebar buttons: <strong>To L2</strong> = expand every Class, <strong>To L3</strong> = expand to Order, <strong>Collapse all</strong> = back to Phylum">사이드바 버튼: <strong>L2까지</strong> = 모든 Class 펼침, <strong>L3까지</strong> = Order까지, <strong>전부 접기</strong> = Phylum만</li>
+      <li data-en="A blue ring around a node = it has hidden children">파란 외곽 동그라미가 있는 노드 = 접힌 자식이 있음을 의미</li>
+    </ul>
+  </details>
+</section>
+
+</div>
+<!-- /panel-c -->
+
+<!-- ================== TAB I ================== -->
+<div id="panel-i" class="tab-content">
+
+<!-- Insight 1 -->
+<section class="card">
+  <h2><span class="num">📊 #1</span> <span data-en="First appearance · peak · 5-year growth, by Phylum">Phylum별 출현 · 피크 · 5년 성장률</span></h2>
+  <p class="desc" data-en="For each of the 14 Phyla (out of 112,183 papers): year of first appearance, peak year/count, and 2016-20 → 2021-25 5-year growth.">전체 112,183편 중 14 Phylum 각각의 첫 등장 연도, 피크 연도/논문 수, 그리고 2016-20 → 2021-25 5년 성장률.</p>
+  <!-- TODO: fill after classification -->
+</section>
+
+<!-- Insight 2 -->
+<section class="card">
+  <h2><span class="num">📊 #2</span> <span data-en="Hottest Classes 2020-2025 (TOP 10)">2020-2025 가장 핫한 Class TOP 10</span></h2>
+  <p class="desc" data-en="Top 10 Classes by paper count in the last 5 years.">최근 5년간 논문 수 기준 Top 10 Class.</p>
+  <!-- TODO: fill after classification -->
+</section>
+
+<!-- Insight 3 -->
+<section class="card">
+  <h2><span class="num">📊 #3</span> <span data-en="Faded categories (Pre-2015 ≥ 20 papers → Post-2020 ≤ 10% retained)">사라진 분야 (Pre-2015 ≥ 20편 → Post-2020 ≤ 10%)</span></h2>
+  <p class="desc" data-en="Classes once active but nearly extinct now.">한때 활발했지만 최근 거의 사라진 Class.</p>
+  <!-- TODO: fill after classification -->
+</section>
+
+<!-- Insight 4 -->
+<section class="card">
+  <h2><span class="num">📊 #4</span> <span data-en="First-appearance year of emerging categories">신생 카테고리 첫 등장 연도</span></h2>
+  <p class="desc" data-en="Keyword-matched first-paper year + cumulative count for each hot category.">키워드 매칭으로 각 핫 카테고리의 first paper year + 누적 카운트.</p>
+  <!-- TODO: fill after classification -->
+</section>
+
+</div>
+<!-- /panel-i -->
+
+</div>
+</div>
+
+<footer>
+  <p>Built with matplotlib · plotly · D3.js. Phylogenetic-style classification by semantic synonym clustering.</p>
+  <p>Source: <a href="https://gisbi-kim.github.io/cvml-paper-phylogeny/">gisbi-kim.github.io/cvml-paper-phylogeny</a> · CV+ML Paper Phylogenetic Taxonomy</p>
+</footer>
+
+<script>
+  // URL ↔ state sync. Three pieces of state live in the hash:
+  //   tab=<time|tree|insights>     active tab (default: tree)
+  //   node=<Phylum/Class/...>      focused node in the radial viewer
+  //   lang=<en>                    UI language (default: ko)
+  // Sharing the URL restores all three.
+  (function() {
+    var TAB_TO_HASH = { 'tab-b': 'time', 'tab-c': 'tree', 'tab-i': 'insights' };
+    var HASH_TO_TAB = { 'time': 'tab-b', 'tree': 'tab-c', 'insights': 'tab-i' };
+
+    function parseHash() {
+      var out = {};
+      var raw = (window.location.hash || '').replace(/^#/, '');
+      raw.split('&').forEach(function(pair) {
+        var i = pair.indexOf('=');
+        if (i < 0) return;
+        out[pair.slice(0, i)] = pair.slice(i + 1);
+      });
+      return out;
+    }
+
+    function writeHash(parts) {
+      var pieces = [];
+      if (parts.tab)  pieces.push('tab='  + parts.tab);
+      if (parts.node) pieces.push('node=' + parts.node);
+      if (parts.lang) pieces.push('lang=' + parts.lang);
+      var newHash = pieces.length ? '#' + pieces.join('&') : '';
+      if (window.location.hash !== newHash) {
+        history.replaceState(null, '',
+          newHash || (window.location.pathname + window.location.search));
+      }
+    }
+
+    function applyTabFromHash() {
+      var h = parseHash();
+      var id = h.tab && HASH_TO_TAB[h.tab];
+      if (id) {
+        var radio = document.getElementById(id);
+        if (radio && !radio.checked) radio.checked = true;
+      }
+    }
+
+    // ---- Language ----
+    // Each translatable element has data-en="<English>"; the original
+    // (Korean) markup stays as the default.
+    function applyLang(lang) {
+      var en = lang === 'en';
+      document.documentElement.lang = en ? 'en' : 'ko';
+      // text content
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        if (el.dataset.ko === undefined) el.dataset.ko = el.innerHTML;
+        el.innerHTML = en ? el.dataset.en : el.dataset.ko;
+      });
+      // attribute swaps (placeholder, title, alt, aria-label)
+      ['placeholder', 'title', 'alt', 'aria-label'].forEach(function(attr) {
+        var dsKey = 'en' + attr.replace(/(^|-)([a-z])/g, function(_, _1, c) { return c.toUpperCase(); });
+        var dsKeyKo = 'ko' + attr.replace(/(^|-)([a-z])/g, function(_, _1, c) { return c.toUpperCase(); });
+        var sel = '[data-' + dsKey.replace(/([A-Z])/g, '-$1').toLowerCase() + ']';
+        document.querySelectorAll(sel).forEach(function(el) {
+          if (el.dataset[dsKeyKo] === undefined) {
+            el.dataset[dsKeyKo] = el.getAttribute(attr) || '';
+          }
+          el.setAttribute(attr, en ? el.dataset[dsKey] : el.dataset[dsKeyKo]);
+        });
+      });
+      // Lang toggle button state
+      document.querySelectorAll('#lang-toggle button').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.lang === (en ? 'en' : 'ko'));
+      });
+      // Forward to embedded iframes (radial + horizontal tree viewers
+      // re-translate their own UI when they receive this message).
+      document.querySelectorAll('iframe').forEach(function(f) {
+        try {
+          f.contentWindow.postMessage(
+            { type: 'phylotree:lang', lang: lang || 'ko' }, '*');
+        } catch (_) { /* cross-origin safe-guard */ }
+      });
+      currentLang = lang === 'en' ? 'en' : 'ko';
+    }
+
+    var currentLang = parseHash().lang === 'en' ? 'en' : 'ko';
+
+    // ---- Tab clicks ----
+    function getCurrentTabKey() {
+      var checked = document.querySelector('.tab-input:checked');
+      return checked ? TAB_TO_HASH[checked.id] : null;
+    }
+    document.querySelectorAll('.tab-label').forEach(function(label) {
+      label.addEventListener('click', function() {
+        setTimeout(function() {
+          var h = parseHash();
+          var key = getCurrentTabKey();
+          if (key) h.tab = key;
+          if (currentLang === 'en') h.lang = 'en'; else delete h.lang;
+          writeHash(h);
+        }, 0);
+      });
+    });
+
+    // ---- Lang toggle clicks ----
+    document.querySelectorAll('#lang-toggle button').forEach(function(b) {
+      b.addEventListener('click', function() {
+        var lang = b.dataset.lang;
+        applyLang(lang);
+        var h = parseHash();
+        if (lang === 'en') h.lang = 'en'; else delete h.lang;
+        writeHash(h);
+      });
+    });
+
+    // ---- Initial radial-viewer src: forward incoming #node= and
+    //      lang= so the iframe boots already in the right state. ----
+    (function setupIframeBoot() {
+      var p = parseHash();
+      var iframes = document.querySelectorAll('iframe');
+      iframes.forEach(function(iframe) {
+        var hashParts = [];
+        if (iframe.id === 'iframe-radial' && p.node) hashParts.push('node=' + p.node);
+        if (p.lang === 'en') hashParts.push('lang=en');
+        if (hashParts.length) {
+          iframe.src = iframe.src.split('#')[0] + '#' + hashParts.join('&');
+        }
+      });
+    })();
+
+    // ---- Bubbled selections from the radial iframe ----
+    window.addEventListener('message', function(e) {
+      if (!e.data || e.data.type !== 'phylotree:select') return;
+      if (e.data.source !== 'radial') return;
+      var h = parseHash();
+      if (e.data.path && e.data.path.length) {
+        h.node = e.data.path.map(encodeURIComponent).join('/');
+      } else {
+        delete h.node;
+      }
+      writeHash(h);
+    });
+
+    // ---- Initial paint + back/forward ----
+    applyTabFromHash();
+    applyLang(currentLang);
+    window.addEventListener('hashchange', function() {
+      applyTabFromHash();
+      var newLang = parseHash().lang === 'en' ? 'en' : 'ko';
+      if (newLang !== currentLang) applyLang(newLang);
+    });
+  })();
+</script>
+
+</body>
+</html>

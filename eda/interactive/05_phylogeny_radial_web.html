@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV+ML Phylogeny — Interactive Radial Tree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-subtle: #f8f9fa;
+    --bg-elevated: #ffffff;
+    --text: #202124;
+    --text-secondary: #5f6368;
+    --text-muted: #80868b;
+    --border: #e8eaed;
+    --border-strong: #dadce0;
+    --primary: #1a73e8;
+    --primary-bg: #e8f0fe;
+    --warning: #b06000;
+    --warning-bg: #fef7e0;
+    --focus: #fbbc04;
+    --elev-1: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Google Sans', 'Roboto', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    overflow: hidden;
+    height: 100vh;
+  }
+  a { color: var(--primary); text-decoration: none; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    height: 100vh;
+  }
+
+  /* ============== Left Sidebar (info panel) ============== */
+  .sidebar {
+    background: var(--bg-subtle);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 20px;
+    font-size: 13px;
+  }
+  .sidebar h1 {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 4px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sidebar .subtitle {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+  .help-card {
+    background: white;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 16px;
+    box-shadow: var(--elev-1);
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .help-card .row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin: 4px 0;
+  }
+  .help-card kbd {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-strong);
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    color: var(--text);
+  }
+  .reset-btn {
+    width: 100%;
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--border-strong);
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: background 0.15s;
+  }
+  .reset-btn:hover { background: var(--bg-subtle); }
+
+  /* Info card (current focus/hover) */
+  .info-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: var(--elev-1);
+    margin-bottom: 12px;
+  }
+  .info-empty {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+    padding: 24px 12px;
+    font-style: italic;
+  }
+  .info-source {
+    display: inline-block;
+    font-size: 10px;
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+  .info-source.focus { background: var(--warning-bg); color: var(--warning); }
+  .info-source.hover { background: var(--primary-bg); color: var(--primary); }
+  .info-breadcrumb {
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.45;
+    margin-bottom: 10px;
+    word-break: break-word;
+    font-family: 'Roboto Mono', monospace;
+  }
+  .info-breadcrumb .crumb-row {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .info-breadcrumb .crumb-tree {
+    color: var(--text-muted);
+    user-select: none;
+  }
+  .info-breadcrumb .crumb-name {
+    color: var(--text-secondary);
+  }
+  .info-breadcrumb .crumb-row.last .crumb-name {
+    color: #202124;
+    font-weight: 500;
+  }
+  .info-name {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+    word-break: break-word;
+  }
+  .info-stats {
+    display: flex; gap: 12px;
+    margin-bottom: 12px;
+  }
+  .info-stat {
+    flex: 1;
+    background: var(--bg-subtle);
+    border-radius: 4px;
+    padding: 8px 10px;
+  }
+  .info-stat .v {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .info-stat .l {
+    font-size: 10px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .info-meta {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 4px 8px;
+    font-size: 11px;
+  }
+  .info-meta .k {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    font-size: 10px;
+  }
+  .info-meta .v {
+    color: var(--text);
+  }
+
+  .children-list {
+    margin-top: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+  }
+  .children-list .title {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .children-row {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    gap: 8px;
+    align-items: center;
+    padding: 4px 0;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 4px 6px;
+    margin: 0 -6px;
+  }
+  .children-row:hover { background: var(--bg-subtle); }
+  .children-row .name {
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .children-row .count {
+    text-align: right;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    font-size: 11px;
+  }
+  .children-row .bar {
+    grid-column: 1 / -1;
+    height: 3px;
+    background: var(--bg-subtle);
+    border-radius: 2px;
+    margin-top: 2px;
+    overflow: hidden;
+  }
+  .children-row .bar .fill {
+    height: 100%;
+    background: var(--primary);
+    opacity: 0.5;
+  }
+  .children-row:hover .bar .fill {
+    background: var(--primary);
+    opacity: 0.8;
+  }
+
+  /* "View papers" button at the bottom of the FOCUSED card */
+  .papers-btn {
+    margin-top: 12px;
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 9px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px;
+    transition: background 0.15s;
+  }
+  .papers-btn:hover { background: #1765cc; }
+  .papers-btn:disabled {
+    background: var(--bg-subtle);
+    color: var(--text-muted);
+    cursor: not-allowed;
+  }
+
+  /* Papers modal (overlay listing all papers in the focused subtree) */
+  .papers-modal {
+    position: fixed; inset: 0;
+    background: rgba(32, 33, 36, 0.45);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  .papers-modal.open { display: flex; }
+  .papers-modal .panel {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    max-width: 900px;
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .papers-modal .panel-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .papers-modal .panel-header h2 {
+    margin: 0;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .papers-modal .panel-header .meta {
+    color: var(--text-muted);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .papers-modal .panel-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    color: var(--text-muted);
+    padding: 4px 10px;
+    line-height: 1;
+    border-radius: 4px;
+  }
+  .papers-modal .panel-close:hover {
+    background: var(--bg-subtle);
+    color: var(--text);
+  }
+  .papers-modal .panel-toolbar {
+    padding: 8px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+    align-items: center;
+  }
+  .papers-modal .sort-btn {
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  .papers-modal .sort-btn.active {
+    background: var(--primary-bg);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  .papers-modal .panel-body {
+    overflow-y: auto;
+    padding: 4px 0;
+  }
+  .paper-item {
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .paper-item:last-child { border-bottom: none; }
+  .paper-item .row1 {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .paper-item .title-link {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 13.5px;
+    color: var(--primary);
+    text-decoration: none;
+    flex: 1;
+    line-height: 1.35;
+  }
+  .paper-item .title-link:hover { text-decoration: underline; }
+  .paper-item .ext-icon {
+    font-size: 10px;
+    opacity: 0.6;
+    margin-left: 4px;
+  }
+  .paper-item .citations {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .paper-item .row2 {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .paper-item .venue-year {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-right: 8px;
+  }
+
+  /* ============== Main (SVG) ============== */
+  .main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  svg {
+    max-width: 100%; max-height: 100%;
+  }
+
+  /* Floating keyboard-shortcut overlay (bottom-left of canvas).
+     Lives outside the sidebar so the FOCUSED card stays above the
+     fold and users don't have to scroll the sidebar to read it. */
+  .help-floating {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    pointer-events: auto;
+    user-select: none;
+    box-shadow: var(--elev-1);
+    max-width: 220px;
+  }
+  .help-floating .row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px;
+  }
+  .help-floating kbd {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-strong);
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    padding: 0 5px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 9px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .help-floating .reset-btn {
+    width: 100%;
+    margin-top: 6px;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--border-strong);
+    padding: 3px 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    transition: background 0.15s;
+  }
+  .help-floating .reset-btn:hover { background: var(--bg-subtle); }
+  .arc {
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+  }
+  .arc:hover { stroke: white; stroke-width: 1.5px; }
+  .dimmed { opacity: 0.12; }
+  .highlighted { opacity: 1; }
+  .focused {
+    stroke: var(--focus) !important;
+    stroke-width: 3px !important;
+  }
+  .search-match {
+    stroke: #ff7043 !important;
+    stroke-width: 2.5px !important;
+    filter: drop-shadow(0 0 4px rgba(255, 112, 67, 0.65));
+  }
+
+  /* Suggestion chips */
+  .suggestions {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .suggestions-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    margin-right: 2px;
+  }
+  .suggestion-chip {
+    background: white;
+    border: 1px solid var(--border-strong);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text);
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .suggestion-chip:hover {
+    background: #fff3b0;
+    border-color: #ff7043;
+    color: #ff7043;
+  }
+  .refresh-btn {
+    background: none;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 12px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    transition: transform 0.3s ease, color 0.15s, border-color 0.15s;
+    margin-left: auto;
+  }
+  .refresh-btn:hover { color: var(--primary); border-color: var(--primary); }
+  .refresh-btn.spin { transform: rotate(360deg); }
+
+  /* Search box */
+  .search-card {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: var(--elev-1);
+  }
+  .search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .search-input {
+    width: 100%;
+    padding: 8px 30px 8px 30px;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--bg-subtle);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+  }
+  .search-icon {
+    position: absolute;
+    left: 9px;
+    pointer-events: none;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .search-clear {
+    position: absolute;
+    right: 4px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 6px;
+    line-height: 1;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-clear:hover { background: var(--bg-subtle); color: var(--text); }
+  .search-clear.visible { display: flex; }
+
+  .search-summary {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin: 8px 2px 6px;
+  }
+  .search-summary strong { color: #ff7043; }
+  .match-list {
+    max-height: 260px;
+    overflow-y: auto;
+    margin: 0 -4px;
+  }
+  .match-item {
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px 0;
+    border-left: 3px solid transparent;
+    transition: background 0.12s, border-color 0.12s;
+  }
+  .match-item:hover {
+    background: var(--bg-subtle);
+    border-left-color: #ff7043;
+  }
+  .match-item .match-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    /* highlight the matched substring */
+  }
+  .match-item .match-name mark {
+    background: #fff3b0;
+    color: #ff7043;
+    font-weight: 700;
+    padding: 0 1px;
+    border-radius: 2px;
+  }
+  .match-item .match-meta {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .match-item .match-meta .kind {
+    color: var(--primary);
+    font-weight: 500;
+  }
+  .match-item .match-meta .count {
+    font-family: 'Roboto Mono', monospace;
+    margin-left: 6px;
+  }
+
+  /* Paper-title search results: same scroll container as match-list,
+     but each item shows the (truncated) title instead of a category. */
+  .paper-match {
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px 0;
+    border-left: 3px solid transparent;
+    transition: background 0.12s, border-color 0.12s;
+  }
+  .paper-match:hover {
+    background: var(--bg-subtle);
+    border-left-color: #ff7043;
+  }
+  .paper-match .pm-title {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .paper-match .pm-title mark {
+    background: #fff3b0;
+    color: #ff7043;
+    font-weight: 700;
+    padding: 0 1px;
+    border-radius: 2px;
+  }
+  .paper-match .pm-meta {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .paper-match .pm-path {
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+  }
+  .paper-match .pm-cites {
+    font-family: 'Roboto Mono', monospace;
+    color: var(--text-muted);
+  }
+
+  /* Pagination footer for paper search */
+  .pager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding: 4px 2px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  .pager .pager-info { font-variant-numeric: tabular-nums; }
+  .pager button {
+    background: white;
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.2;
+  }
+  .pager button:hover:not(:disabled) {
+    background: var(--bg-subtle);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  .pager button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .label-inline {
+    pointer-events: none;
+    font-family: 'Google Sans', sans-serif;
+  }
+  .label-inline.depth-1 {
+    font-size: 11px;
+    font-weight: 700;
+    fill: #fff;
+    text-shadow: 0 0 3px rgba(0,0,0,0.7);
+  }
+  .label-inline.depth-2 {
+    font-size: 8.5px;
+    font-weight: 500;
+    fill: #1a1a1a;
+  }
+  .label-inline.depth-3 {
+    font-size: 7px;
+    font-weight: 400;
+    fill: #333;
+  }
+  .center-label {
+    text-anchor: middle;
+    font-weight: 500;
+    font-size: 14px;
+    fill: var(--text);
+    font-family: 'Google Sans', sans-serif;
+  }
+  .center-sub {
+    text-anchor: middle;
+    font-size: 11px;
+    fill: var(--text-secondary);
+  }
+
+  @media (max-width: 720px) {
+    .layout { grid-template-columns: 100%; grid-template-rows: 280px 1fr; }
+    .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ============ LEFT SIDEBAR ============ -->
+  <aside class="sidebar">
+    <h1>🌳 Phylogeny Tree</h1>
+    <div class="subtitle">112,183 CV+ML papers · 14 Phylum × ~110 Class</div>
+
+    <!-- Category search box (matches taxonomy node names) -->
+    <div class="search-card">
+      <!-- Random keyword suggestions -->
+      <div class="suggestions" id="search-suggestions">
+        <span class="suggestions-label" data-en="Try:">추천:</span>
+        <!-- chips populated by JS -->
+        <button class="refresh-btn" id="suggestions-refresh" title="다른 단어" data-en-title="Refresh">↻</button>
+      </div>
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" type="text" id="search-input"
+               placeholder="계통 검색 (예: SLAM, Diffusion, Soft …)"
+               data-en-placeholder="Search categories (e.g. SLAM, Diffusion, Soft …)"
+               autocomplete="off" />
+        <button class="search-clear" id="search-clear" title="지우기" data-en-title="Clear">×</button>
+      </div>
+      <div id="search-summary"></div>
+      <div class="match-list" id="search-results"></div>
+    </div>
+
+    <!-- Paper-title search (matches individual paper titles) -->
+    <div class="search-card">
+      <div class="search-input-wrapper">
+        <span class="search-icon">📄</span>
+        <input class="search-input" type="text" id="paper-search-input"
+               placeholder="논문 제목 검색 (예: NeRF, BERT, Octree …)"
+               data-en-placeholder="Search paper titles (e.g. NeRF, BERT, Octree …)"
+               autocomplete="off" />
+        <button class="search-clear" id="paper-search-clear" title="지우기" data-en-title="Clear">×</button>
+      </div>
+      <div id="paper-search-summary"></div>
+      <div class="match-list" id="paper-search-results"></div>
+      <div class="pager" id="paper-search-pager" style="display:none">
+        <button id="paper-prev" title="이전 (←)" data-en-title="Previous (←)">◀</button>
+        <span class="pager-info" id="paper-pager-info"></span>
+        <button id="paper-next" title="다음 (→)" data-en-title="Next (→)">▶</button>
+      </div>
+    </div>
+
+    <!-- Focused (sticky) info -->
+    <div id="focused-card"></div>
+    <!-- Hovered (transient) info -->
+    <div id="hovered-card"></div>
+  </aside>
+
+  <!-- ============ MAIN (SVG) ============ -->
+  <main class="main">
+    <svg id="tree" viewBox="-460 -460 920 920"></svg>
+
+    <!-- Keyboard / interaction hints, pinned to canvas bottom-left
+         so they don't push the FOCUSED info card below the fold. -->
+    <div class="help-floating">
+      <div class="row"><span data-en="Hover (highlight)">호버 (강조)</span><kbd>mouse</kbd></div>
+      <div class="row"><span data-en="Select lineage">계열 선택</span><kbd>click</kbd></div>
+      <div class="row"><span data-en="Sibling nav">형제 이동</span><kbd>← →</kbd></div>
+      <div class="row"><span data-en="Parent / first child">부모 / 첫 자식</span><kbd>↑ ↓</kbd></div>
+      <div class="row"><span data-en="Clear">해제</span><kbd>Esc</kbd></div>
+      <button class="reset-btn" id="reset" data-en="Clear selection">선택 해제</button>
+    </div>
+  </main>
+</div>
+
+<!-- ============ PAPERS MODAL ============ -->
+<div class="papers-modal" id="papers-modal">
+  <div class="panel">
+    <div class="panel-header">
+      <h2 id="papers-modal-title">Papers</h2>
+      <span class="meta" id="papers-modal-meta"></span>
+      <button class="panel-close" id="papers-modal-close" title="닫기 (Esc)" data-en-title="Close (Esc)">×</button>
+    </div>
+    <div class="panel-toolbar">
+      <span data-en="Sort:">정렬:</span>
+      <button class="sort-btn active" data-sort="citations" data-en="Citations ↓">피인용 ↓</button>
+      <button class="sort-btn" data-sort="year" data-en="Newest ↓">최신순 ↓</button>
+      <button class="sort-btn" data-sort="title" data-en="Title A→Z">제목 A→Z</button>
+    </div>
+    <div class="panel-body" id="papers-modal-body"></div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script>
+const RADIUS = 420;       // outer radius of the tree itself
+const ROOT_R0 = 0;
+const ROOT_R1 = 60;
+const LEADER_INNER = RADIUS + 12;   // where leaders start (just past tree)
+const LEADER_OUTER = RADIUS + 38;   // where leaders bend / labels begin
+const LABEL_PAD    = 4;             // gap between line and text
+
+const svg = d3.select('#tree');
+const focusedCard = d3.select('#focused-card');
+const hoveredCard = d3.select('#hovered-card');
+
+function lighten(hex, amt) {
+  return d3.interpolateRgb(hex, '#ffffff')(amt);
+}
+
+let root, arcs, arc;
+let focusedNode = null;
+
+// Papers list (loaded asynchronously). Each entry has the four
+// taxonomy fields + title/authors/venue/year/citations + doi/url
+// (where available). buildInfoCardHTML reads .length to decide
+// whether to enable the "View papers" button.
+let papers = [];
+let papersByPath = null;  // lazy-built index, see filterPapers()
+
+d3.json('papers.json')
+  .then(arr => {
+    papers = Array.isArray(arr) ? arr : [];
+    // Re-render the focused card if a node is already selected so the
+    // "View papers" button switches from "loading…" to ready.
+    if (focusedNode) renderFocusedPanel(focusedNode);
+    // If the user typed in the paper search before papers loaded,
+    // run the search now that we have data.
+    const pendingQuery = document.getElementById('paper-search-input');
+    if (pendingQuery && pendingQuery.value) {
+      performPaperSearch(pendingQuery.value);
+    }
+  })
+  .catch(err => {
+    console.warn('papers.json not loaded — paper list disabled', err);
+  });
+
+d3.json('tree_data.json').then(data => {
+  root = d3.hierarchy(data)
+    .sum(d => d.value || 0)
+    .sort((a, b) => b.value - a.value);
+
+  const partition = d3.partition()
+    .size([2 * Math.PI, RADIUS - ROOT_R1]);
+  partition(root);
+
+  // Adjust ring radii by depth
+  const ringWidth = (RADIUS - ROOT_R1) / 4;
+  root.each(d => {
+    if (d.depth === 0) {
+      d.y0 = 0; d.y1 = ROOT_R1;
+    } else {
+      d.y0 = ROOT_R1 + (d.depth - 1) * ringWidth;
+      d.y1 = ROOT_R1 + d.depth * ringWidth;
+    }
+  });
+
+  arc = d3.arc()
+    .startAngle(d => d.x0)
+    .endAngle(d => d.x1)
+    .innerRadius(d => d.y0)
+    .outerRadius(d => d.y1)
+    .padAngle(0.001)
+    .padRadius(RADIUS / 4);
+
+  function nodeColor(d) {
+    if (d.depth === 0) return '#222';
+    let phyAncestor = d;
+    while (phyAncestor.depth > 1) phyAncestor = phyAncestor.parent;
+    const baseColor = phyAncestor.data.color || '#888';
+    if (d.depth === 1) return baseColor;
+    if (d.depth === 2) return lighten(baseColor, 0.35);
+    if (d.depth === 3) return lighten(baseColor, 0.55);
+    return lighten(baseColor, 0.72);
+  }
+
+  const allNodes = root.descendants().filter(d => d.depth > 0);
+  arcs = svg.selectAll('path.arc')
+    .data(allNodes)
+    .join('path')
+    .attr('class', 'arc')
+    .attr('d', arc)
+    .attr('fill', d => nodeColor(d))
+    .attr('stroke', 'white')
+    .attr('stroke-width', 0.5)
+    .on('mouseover', function(event, d) {
+      d3.select(this).attr('stroke-width', 2);
+      renderHoverPanel(d);
+    })
+    .on('mouseout', function() {
+      d3.select(this).attr('stroke-width', 0.5);
+      renderHoverPanel(null);
+    })
+    .on('click', function(event, d) {
+      event.stopPropagation();
+      selectNode(d);
+    });
+
+  // Center text
+  svg.append('text')
+    .attr('class', 'center-label')
+    .attr('y', -4)
+    .text('CV+ML');
+  svg.append('text')
+    .attr('class', 'center-sub')
+    .attr('y', 14)
+    .text(`${root.value.toLocaleString()} papers`);
+
+  // ============== Label system ==============
+  //
+  //  All labels are oriented RADIALLY OUTWARD (along the line from
+  //  the center to the wedge). For wedges where the text is too long
+  //  to fit inside the band, we draw an L-shaped leader line that
+  //  ends in the outer margin, with a horizontal label at the tip.
+  //
+  //   ─────────────────────────────────────────────────────────────
+  //   Inline:   wedge ▒▒▒▒░░░░ ―→ "Manipulation"  (radial inside)
+  //
+  //   Leader:   wedge ▒  ╮
+  //                       ╰─── "Robot Software & Architecture"
+  //   ─────────────────────────────────────────────────────────────
+
+  const FONT_PER_CHAR = 0.55;   // approx text-width / fontSize per char
+
+  function midAngleOf(d) { return (d.x0 + d.x1) / 2; }
+  function bandRadialWidth(d) { return d.y1 - d.y0; }
+  function bandMidR(d) { return (d.y0 + d.y1) / 2; }
+
+  function fontSizeFor(depth) {
+    if (depth === 1) return 11;   // Phylum
+    if (depth === 2) return 8.5;  // Class
+    return 7;                     // Order/Genus
+  }
+
+  function approxTextWidth(name, fontSize) {
+    return name.length * fontSize * FONT_PER_CHAR;
+  }
+
+  // Polar (D3 sunburst convention: 0 at top, CW) → cartesian (SVG y-down)
+  function polarXY(angleRad, r) {
+    return [Math.sin(angleRad) * r, -Math.cos(angleRad) * r];
+  }
+
+  // Text rotation (degrees, CCW from horizontal) so the baseline is aligned
+  // with the RADIAL direction at `angleRad` (= a spoke from the center
+  // outward, like the hands of a clock). NOT along the arc.
+  // D3 sunburst convention: angle 0 = 12 o'clock, increasing clockwise.
+  //
+  //   bearing  position    desired text orientation     rotation
+  //   ─────────────────────────────────────────────────────────
+  //   0°       top          vertical, reading bottom→top  -90
+  //   90°      right        horizontal, left→right         0
+  //   180°     bottom       vertical, top→bottom          90 (or -90 after flip)
+  //   270°     left         horizontal, right→left      180 (→ 0 after flip)
+  //
+  // Auto-flip whenever |rotation| > 90° so the text stays upright when
+  // read from outside the circle.
+  function radialUprightRotation(angleRad) {
+    let bearing = (angleRad * 180 / Math.PI) % 360;
+    while (bearing < 0) bearing += 360;
+    let rot = bearing - 90;
+    while (rot > 180) rot -= 360;
+    while (rot <= -180) rot += 360;
+    if (rot > 90) rot -= 180;
+    else if (rot < -90) rot += 180;
+    return rot;
+  }
+
+  // Decide labeling for one node.
+  // Strategy: ALL labels are inline radial outward, with text truncated
+  // to fit within the band's radial width. No leader lines — keeps the
+  // figure tidy. Density is limited per parent so we don't crowd narrow
+  // sectors.
+  // Returns { mode: 'inline'|'skip', label: string }
+  function labelDecision(d) {
+    // Show only depth 1-3: Phylum, Class, Order (소분류까지). Skip Genus.
+    if (d.depth < 1 || d.depth > 3) return { mode: 'skip' };
+
+    const span = d.x1 - d.x0;
+    if (span < 0.004) return { mode: 'skip' };  // ~0.23° — too thin to label
+
+    // Density caps so labels don't pile up
+    if (d.depth === 2) {
+      // Class: top 5 per Phylum, span ≥ 0.4°
+      const sib = d.parent.children.slice().sort((a, b) => b.value - a.value);
+      if (sib.indexOf(d) >= 5 || span < 0.007) return { mode: 'skip' };
+    } else if (d.depth === 3) {
+      // Order: top 2 per Class, span ≥ 1.0°
+      const sib = d.parent.children.slice().sort((a, b) => b.value - a.value);
+      if (sib.indexOf(d) >= 2 || span < 0.018) return { mode: 'skip' };
+    }
+
+    // Truncate text to fit the band's radial budget
+    const fontSize = fontSizeFor(d.depth);
+    const radialBudget = bandRadialWidth(d) * 0.92;
+    const charBudget = Math.floor(radialBudget / (fontSize * FONT_PER_CHAR));
+    if (charBudget < 2) return { mode: 'skip' };
+
+    let name = d.data.name;
+    if (name.length > charBudget) {
+      name = (charBudget >= 2)
+        ? name.slice(0, Math.max(1, charBudget - 1)) + '…'
+        : name.slice(0, charBudget);
+    }
+    return { mode: 'inline', label: name };
+  }
+
+  const labelDecisions = allNodes.map(d => ({ d, ...labelDecision(d) }));
+  const inlineLabels = labelDecisions.filter(x => x.mode === 'inline');
+
+  // ----- Inline radial labels -----
+  svg.selectAll('text.label-inline')
+    .data(inlineLabels)
+    .join('text')
+    .attr('class', x => `label-inline depth-${x.d.depth}`)
+    .attr('transform', x => {
+      const mid = midAngleOf(x.d);
+      const r = bandMidR(x.d);
+      const [cx, cy] = polarXY(mid, r);
+      const rot = radialUprightRotation(mid);
+      return `translate(${cx},${cy}) rotate(${rot})`;
+    })
+    .attr('text-anchor', 'middle')
+    .attr('dy', '0.35em')
+    .text(x => x.label);
+
+  // (Leader lines removed — all labels are now inline-only with truncation.)
+
+  // Initial empty info
+  renderFocusedPanel(null);
+  renderHoverPanel(null);
+
+  // Background click resets
+  svg.on('click', resetSelection);
+  d3.select('#reset').on('click', resetSelection);
+
+  // ---- Search wiring ----
+  d3.select('#search-input').on('input', function() {
+    performSearch(this.value);
+  });
+  d3.select('#search-clear').on('click', () => {
+    const inp = document.getElementById('search-input');
+    inp.value = '';
+    performSearch('');
+    inp.focus();
+  });
+
+  // ---- Suggestions ----
+  buildKeywordPool();
+  renderSuggestions();
+  d3.select('#suggestions-refresh').on('click', function() {
+    // Brief spin animation, then refresh
+    this.classList.add('spin');
+    setTimeout(() => this.classList.remove('spin'), 350);
+    renderSuggestions();
+  });
+
+  // Honor any incoming #node=... selection now that the tree exists
+  applySelectionFromURL();
+  // Re-apply if hash changes externally (e.g. parent updates iframe src
+  // hash via location, or browser back/forward in the iframe)
+  window.addEventListener('hashchange', applySelectionFromURL);
+
+  // Keyboard nav
+  d3.select(window).on('keydown', (event) => {
+    // While the papers modal is open, the modal owns the keyboard (Esc
+    // closes it, etc). Don't run tree navigation underneath.
+    if (d3.select('#papers-modal').classed('open')) return;
+    if (!focusedNode) return;
+    let handled = true;
+    switch (event.key) {
+      case 'ArrowLeft':  navigate('prev');   break;
+      case 'ArrowRight': navigate('next');   break;
+      case 'ArrowUp':    navigate('parent'); break;
+      case 'ArrowDown':  navigate('child');  break;
+      case 'Escape':     resetSelection();   break;
+      default: handled = false;
+    }
+    if (handled) event.preventDefault();
+  });
+
+}).catch(err => {
+  console.error('Failed to load tree_data.json', err);
+});
+
+
+// ===== Selection / focus management =====
+function selectNode(d) {
+  focusedNode = d;
+  const ancestors = new Set(d.ancestors());
+  const descendants = new Set(d.descendants());
+
+  arcs.classed('dimmed', n => !ancestors.has(n) && !descendants.has(n))
+      .classed('highlighted', n => ancestors.has(n) || descendants.has(n))
+      .classed('focused', n => n === d);
+
+  renderFocusedPanel(d);
+  writeSelectionToURL(d);
+}
+
+function resetSelection() {
+  focusedNode = null;
+  arcs.classed('dimmed', false)
+      .classed('highlighted', false)
+      .classed('focused', false);
+  renderFocusedPanel(null);
+  writeSelectionToURL(null);
+}
+
+// ----- URL <-> selection bridge -----
+//
+// Two outputs per selection:
+//   1. own URL hash (#node=Phylum/Class/...) — works when this viewer
+//      is opened standalone (the "Open in new tab" link).
+//   2. postMessage to parent — index.html embeds this viewer in an
+//      iframe and surfaces the selection in its OWN top-level URL,
+//      which is what users actually copy/paste when sharing.
+
+function nodeToPathArr(d) {
+  if (!d || d.depth === 0) return null;
+  return d.ancestors().reverse().slice(1).map(n => n.data.name);
+}
+
+function writeSelectionToURL(d) {
+  const path = nodeToPathArr(d);
+  const newHash = path
+    ? '#node=' + path.map(encodeURIComponent).join('/')
+    : '';
+  if (window.location.hash !== newHash) {
+    history.replaceState(null, '',
+      newHash || (window.location.pathname + window.location.search));
+  }
+  if (window.parent !== window) {
+    window.parent.postMessage(
+      { type: 'phylotree:select', source: 'radial', path: path }, '*');
+  }
+}
+
+function applySelectionFromURL() {
+  const m = (window.location.hash || '').match(/[#&]node=([^&]+)/);
+  if (!m || !root) return;
+  const path = m[1].split('/').map(decodeURIComponent);
+  const node = findNodeByPath(path);
+  if (node) selectNode(node);
+}
+
+function navigate(direction) {
+  if (!focusedNode) return;
+  const d = focusedNode;
+  let target = null;
+  switch (direction) {
+    case 'parent':
+      if (d.parent && d.parent.depth >= 1) target = d.parent;
+      break;
+    case 'child':
+      if (d.children && d.children.length > 0) target = d.children[0];
+      break;
+    case 'next':
+    case 'prev': {
+      if (!d.parent || !d.parent.children) break;
+      const siblings = d.parent.children.slice().sort((a, b) => a.x0 - b.x0);
+      const i = siblings.indexOf(d);
+      if (i < 0) break;
+      const n = siblings.length;
+      const j = direction === 'next' ? (i + 1) % n : (i - 1 + n) % n;
+      target = siblings[j];
+      break;
+    }
+  }
+  if (target) selectNode(target);
+}
+
+
+// ===== Sidebar render =====
+const DEPTH_KIND = ['CV+ML', 'Phylum', 'Class', 'Order', 'Genus'];
+
+function buildBreadcrumbHTML(d) {
+  // Render ancestors as a vertically-stacked tree so the hierarchy is
+  // visually obvious at a glance (no more single-line ›-chain that
+  // collapses depth into a wall of text).
+  const chain = d.ancestors().reverse();
+  return chain.map((n, i, arr) => {
+    const isLast = i === arr.length - 1;
+    let prefix = '';
+    if (i > 0) {
+      // Indent: one "  " per ancestor level above the current row,
+      // then "└─ " for the current row's branch glyph.
+      prefix = '\u00A0\u00A0'.repeat(i - 1) + '└─\u00A0';
+    }
+    return `<span class="crumb-row${isLast ? ' last' : ''}">` +
+             `<span class="crumb-tree">${prefix}</span>` +
+             `<span class="crumb-name">${escapeHTML(n.data.name)}</span>` +
+           `</span>`;
+  }).join('');
+}
+
+function buildInfoCardHTML(d, sourceLabel, sourceClass) {
+  if (!d) {
+    return `<div class="info-card"><div class="info-empty">${
+      sourceLabel === 'FOCUSED'
+        ? t('Click any wedge to see its info here.', '아무 wedge나 클릭하면 여기에 정보가 표시됩니다.')
+        : t('Hover a wedge.', 'wedge에 마우스를 올려보세요.')
+    }</div></div>`;
+  }
+  const total = root ? root.value : d.value;
+  const pct = (d.value / total * 100).toFixed(2);
+  const kind = DEPTH_KIND[d.depth] || `Depth ${d.depth}`;
+
+  // Top children (if any)
+  let childrenHTML = '';
+  if (d.children && d.children.length > 0) {
+    const sorted = d.children.slice().sort((a, b) => b.value - a.value).slice(0, 8);
+    const maxVal = sorted[0].value;
+    childrenHTML = `
+      <div class="children-list">
+        <div class="title">Top sub-categories (${d.children.length})</div>
+        ${sorted.map(c => `
+          <div class="children-row" data-name="${escapeAttr(c.data.name)}">
+            <span class="name">${escapeHTML(c.data.name)}</span>
+            <span class="count">${c.value.toLocaleString()}</span>
+            <div class="bar"><div class="fill" style="width:${(c.value / maxVal * 100).toFixed(1)}%"></div></div>
+          </div>`).join('')}
+      </div>`;
+  }
+
+  // "View papers" button — only on the FOCUSED card (not on hover-preview).
+  // disabled until papers.json finishes loading; updated on load.
+  const papersBtnHTML = sourceLabel === 'FOCUSED' ? `
+      <button class="papers-btn" data-action="open-papers"
+              ${papers.length === 0 ? 'disabled' : ''}>
+        📄 ${papers.length === 0
+              ? t('Loading paper data…', '논문 데이터 로딩…')
+              : t(`View all ${d.value.toLocaleString()} papers in this lineage`,
+                  `이 계열의 논문 ${d.value.toLocaleString()}편 보기`)}
+      </button>` : '';
+
+  return `
+    <div class="info-card">
+      <span class="info-source ${sourceClass}">${sourceLabel}</span>
+      <div class="info-breadcrumb">${buildBreadcrumbHTML(d)}</div>
+      <div class="info-name">${escapeHTML(d.data.name)}</div>
+      <div class="info-stats">
+        <div class="info-stat"><div class="v">${d.value.toLocaleString()}</div><div class="l">Papers</div></div>
+        <div class="info-stat"><div class="v">${pct}%</div><div class="l">of total</div></div>
+      </div>
+      <div class="info-meta">
+        <span class="k">Kind</span><span class="v">${kind}</span>
+        <span class="k">Depth</span><span class="v">${d.depth} / 4</span>
+        <span class="k">Children</span><span class="v">${d.children ? d.children.length : 0}</span>
+      </div>
+      ${childrenHTML}
+      ${papersBtnHTML}
+    </div>`;
+}
+
+function renderFocusedPanel(d) {
+  focusedCard.html(buildInfoCardHTML(d, 'FOCUSED', 'focus'));
+  // Click on a sub-category row → navigate to that child
+  if (d) {
+    focusedCard.selectAll('.children-row').on('click', function() {
+      const name = this.getAttribute('data-name');
+      const child = (d.children || []).find(c => c.data.name === name);
+      if (child) selectNode(child);
+    });
+    // Click on "view papers" button → open modal
+    focusedCard.select('button[data-action="open-papers"]').on('click', () => {
+      openPapersModal(d);
+    });
+  }
+}
+
+function renderHoverPanel(d) {
+  hoveredCard.html(buildInfoCardHTML(d, 'HOVER', 'hover'));
+}
+
+function escapeHTML(s) {
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+}
+function escapeAttr(s) { return escapeHTML(s); }
+
+
+// ============ Search ============
+let currentSearchQuery = '';
+let currentMatches = [];
+
+function performSearch(rawQuery) {
+  const query = rawQuery.trim().toLowerCase();
+  currentSearchQuery = query;
+
+  // Clear button visibility
+  d3.select('#search-clear').classed('visible', query.length > 0);
+
+  // Empty → clear all search highlights and the result list
+  if (!query) {
+    currentMatches = [];
+    if (arcs) arcs.classed('search-match', false);
+    d3.select('#search-summary').html('');
+    d3.select('#search-results').html('');
+    return;
+  }
+
+  // Find matching nodes (case-insensitive substring on node name).
+  // currentMatches = the *named* hits — these populate the sidebar result
+  // list (one row per match, click navigates to that node).
+  currentMatches = root.descendants().filter(d =>
+    d.depth >= 1 && d.depth <= 4 &&
+    d.data.name.toLowerCase().includes(query)
+  );
+
+  // Visual highlight set = each match + all its descendants down to the
+  // leaves. Without the descendants, matches at depth 2/3 (thin rings)
+  // are nearly invisible in the radial; with them, every hit shows up
+  // as a clear orange spoke from the matching ring outward to the rim.
+  const highlightSet = new Set();
+  currentMatches.forEach(m => {
+    m.descendants().forEach(n => highlightSet.add(n));
+  });
+
+  // Search highlight is ORTHOGONAL to lineage selection — a wedge can be
+  // both .focused (yellow) and .search-match (orange glow) at once.
+  arcs.classed('search-match', d => highlightSet.has(d));
+
+  // Update sidebar summary + result list
+  renderSearchResults();
+}
+
+function renderSearchResults() {
+  const total = currentMatches.length;
+  if (!currentSearchQuery) return;
+
+  if (total === 0) {
+    d3.select('#search-summary').html(
+      `<div class="search-summary"><strong>0</strong> matches for "${escapeHTML(currentSearchQuery)}"</div>`);
+    d3.select('#search-results').html('');
+    return;
+  }
+
+  d3.select('#search-summary').html(
+    `<div class="search-summary"><strong>${total}</strong> ${t('matches for', 'matches for')} "${escapeHTML(currentSearchQuery)}" — ${t('click to jump', '클릭해서 이동')}</div>`);
+
+  // Sort by depth then by paper count desc (Phyla first, then larger nodes)
+  const sorted = currentMatches.slice().sort((a, b) =>
+    a.depth - b.depth || b.value - a.value);
+
+  const list = d3.select('#search-results');
+  list.html('');
+  // Cap at 30 results to keep the sidebar scrollable
+  sorted.slice(0, 30).forEach(d => {
+    const path = d.ancestors().reverse().slice(1, -1)
+      .map(n => n.data.name).join(' › ');
+    const kind = DEPTH_KIND[d.depth] || `Depth ${d.depth}`;
+    const item = list.append('div')
+      .attr('class', 'match-item')
+      .on('click', (event) => {
+        event.stopPropagation();
+        selectNode(d);
+      });
+    item.html(`
+      <div class="match-name">${highlightMatch(d.data.name, currentSearchQuery)}</div>
+      <div class="match-meta">
+        <span class="kind">${kind}</span>
+        ${path ? '· ' + escapeHTML(path) : ''}
+        <span class="count">${d.value.toLocaleString()}p</span>
+      </div>
+    `);
+  });
+  if (sorted.length > 30) {
+    list.append('div').attr('class', 'match-meta')
+      .style('text-align', 'center')
+      .style('padding', '6px')
+      .text(`... +${sorted.length - 30} more`);
+  }
+}
+
+function highlightMatch(name, query) {
+  if (!query) return escapeHTML(name);
+  const idx = name.toLowerCase().indexOf(query);
+  if (idx < 0) return escapeHTML(name);
+  return escapeHTML(name.slice(0, idx))
+    + '<mark>' + escapeHTML(name.slice(idx, idx + query.length)) + '</mark>'
+    + escapeHTML(name.slice(idx + query.length));
+}
+
+
+// ============ Random keyword suggestions ============
+let keywordPool = [];
+
+// Common stop-ish words to exclude from the suggestion pool — they
+// produce too-broad or trivial matches. Keep technical terms.
+const SUGGESTION_STOPWORDS = new Set([
+  'the', 'and', 'for', 'with', 'from', 'into', 'using', 'over',
+  'based', 'general', 'system', 'systems', 'method', 'methods',
+  'analysis', 'design', 'model', 'models', 'modeling', 'estimation',
+  'control', 'controller', 'other', 'editorial', 'unclassified',
+  'robot', 'robotic', 'robotics',
+  'application', 'applications', 'domain', 'domains',
+  'foundation', 'foundations', 'theoretical',
+  'meta',
+]);
+
+function buildKeywordPool() {
+  const counts = new Map();   // word → occurrences across node names
+  root.descendants().forEach(d => {
+    if (d.depth < 1 || d.depth > 4) return;
+    // Tokenize on whitespace + a few delimiters; keep word characters
+    d.data.name.split(/[\s/&\-(),.+:|]+/).forEach(raw => {
+      const w = raw.replace(/[^\w]/g, '');
+      if (!w) return;
+      const lc = w.toLowerCase();
+      if (lc.length < 3) return;
+      if (SUGGESTION_STOPWORDS.has(lc)) return;
+      if (/^\d+$/.test(w)) return;   // skip pure numbers
+      counts.set(w, (counts.get(w) || 0) + 1);
+    });
+  });
+  // Use words that appear at least once and aren't in stopwords
+  // De-duplicate case variants by keeping the most-common surface form
+  // (keys are case-sensitive surface forms, that's fine).
+  keywordPool = Array.from(counts.keys());
+}
+
+function pickRandomKeywords(n) {
+  if (keywordPool.length === 0) return [];
+  const out = new Set();
+  // Try up to 5*n picks to handle de-dup across case variants
+  let attempts = 0;
+  while (out.size < n && attempts < n * 6) {
+    const w = keywordPool[Math.floor(Math.random() * keywordPool.length)];
+    out.add(w);
+    attempts++;
+  }
+  return Array.from(out);
+}
+
+function renderSuggestions() {
+  const container = d3.select('#search-suggestions');
+  const refreshBtn = container.select('#suggestions-refresh').node();
+  // Clear existing chips but keep the label and refresh button
+  container.selectAll('.suggestion-chip').remove();
+  const words = pickRandomKeywords(5);
+  // Insert chips between the label and the refresh button
+  const labelEl = container.select('.suggestions-label').node();
+  words.forEach(w => {
+    const btn = document.createElement('button');
+    btn.className = 'suggestion-chip';
+    btn.textContent = w;
+    btn.addEventListener('click', () => {
+      const inp = document.getElementById('search-input');
+      inp.value = w;
+      performSearch(w);
+      // Refresh suggestions so the next 5 are different
+      renderSuggestions();
+    });
+    container.node().insertBefore(btn, refreshBtn);
+  });
+}
+
+
+// ============ Papers modal ============
+//
+// Filter papers by the focused node's taxonomy path. Each paper carries
+// its full {phylum, class, order, genus} address; the focused node's
+// path is rebuilt from its ancestors. A paper "belongs to" the node iff
+// the first N path segments match (N = node.depth).
+const PATH_FIELDS = ['phylum', 'class', 'order', 'genus'];
+
+function nodePath(d) {
+  // Skip root (depth 0). Returns ['Phylum', 'Class', ...] up to depth.
+  return d.ancestors().reverse().slice(1).map(n => n.data.name);
+}
+
+function filterPapers(d) {
+  if (!papers.length) return [];
+  if (d.depth === 0) return papers.slice();
+  const path = nodePath(d);
+  return papers.filter(p => {
+    for (let i = 0; i < path.length; i++) {
+      if (p[PATH_FIELDS[i]] !== path[i]) return false;
+    }
+    return true;
+  });
+}
+
+let currentPapersList = [];
+let currentSort = 'citations';
+
+function sortPapers(list, mode) {
+  const c = list.slice();
+  if (mode === 'citations') {
+    c.sort((a, b) => (b.citations || 0) - (a.citations || 0));
+  } else if (mode === 'year') {
+    c.sort((a, b) => (b.year || 0) - (a.year || 0)
+                  || (b.citations || 0) - (a.citations || 0));
+  } else if (mode === 'title') {
+    c.sort((a, b) => String(a.title || '').localeCompare(String(b.title || '')));
+  }
+  return c;
+}
+
+function paperLink(p) {
+  // Prefer the explicit URL (https://doi.org/...) from RoboPaper Atlas.
+  // Fall back to a Google Scholar title search for the ~1% without DOI.
+  if (p.url) return p.url;
+  if (p.doi) return 'https://doi.org/' + p.doi;
+  return 'https://scholar.google.com/scholar?q=' + encodeURIComponent(p.title || '');
+}
+
+function renderPapersList() {
+  const sorted = sortPapers(currentPapersList, currentSort);
+  const body = d3.select('#papers-modal-body');
+  body.html('');
+  sorted.forEach(p => {
+    const item = body.append('div').attr('class', 'paper-item');
+    const row1 = item.append('div').attr('class', 'row1');
+    row1.append('a')
+      .attr('class', 'title-link')
+      .attr('href', paperLink(p))
+      .attr('target', '_blank')
+      .attr('rel', 'noopener noreferrer')
+      .html(escapeHTML(p.title || '(no title)') +
+            (p.url || p.doi ? ' <span class="ext-icon">↗</span>'
+                            : ` <span class="ext-icon" title="${t('No DOI — Scholar search', 'DOI 없음 — Scholar 검색')}">🔎</span>`));
+    row1.append('span')
+      .attr('class', 'citations')
+      .text(((p.citations || 0).toLocaleString()) + ' cites');
+    const row2 = item.append('div').attr('class', 'row2');
+    row2.append('span')
+      .attr('class', 'venue-year')
+      .text(`${p.venue || '?'} ${p.year || '?'}`);
+    row2.append('span')
+      .attr('class', 'authors')
+      .text(p.authors || '');
+  });
+}
+
+function openPapersModal(d) {
+  currentPapersList = filterPapers(d);
+  currentSort = 'citations';
+  d3.select('#papers-modal-title').text(d.data.name);
+  d3.select('#papers-modal-meta').text(
+    `${currentPapersList.length.toLocaleString()} papers · ${nodePath(d).join(' › ')}`
+  );
+  d3.selectAll('#papers-modal .sort-btn')
+    .classed('active', function() { return this.dataset.sort === currentSort; });
+  renderPapersList();
+  d3.select('#papers-modal').classed('open', true);
+}
+
+function closePapersModal() {
+  d3.select('#papers-modal').classed('open', false);
+}
+
+// Modal wiring (one-time)
+d3.select('#papers-modal-close').on('click', closePapersModal);
+d3.select('#papers-modal').on('click', function(event) {
+  // Click on the dim backdrop (not inside the panel) closes the modal
+  if (event.target === this) closePapersModal();
+});
+d3.selectAll('#papers-modal .sort-btn').on('click', function() {
+  currentSort = this.dataset.sort;
+  d3.selectAll('#papers-modal .sort-btn')
+    .classed('active', function() { return this.dataset.sort === currentSort; });
+  renderPapersList();
+});
+d3.select(window).on('keydown.modal', (event) => {
+  if (event.key === 'Escape' &&
+      d3.select('#papers-modal').classed('open')) {
+    closePapersModal();
+    event.stopPropagation();
+  }
+});
+
+
+// ============ i18n ============
+//
+// Static HTML strings carry data-en (and data-en-placeholder /
+// data-en-title) attributes. JS-built dynamic strings call the t(en, ko)
+// helper. Lang is read from the URL hash (#lang=en) on load and from
+// postMessage when embedded in index.html.
+let currentLang = (function() {
+  var m = (window.location.hash || '').match(/[#&]lang=([a-z]+)/);
+  return m && m[1] === 'en' ? 'en' : 'ko';
+})();
+
+function t(en, ko) { return currentLang === 'en' ? en : ko; }
+
+function applyLang(lang) {
+  var en = lang === 'en';
+  document.documentElement.lang = en ? 'en' : 'ko';
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    if (el.dataset.ko === undefined) el.dataset.ko = el.innerHTML;
+    el.innerHTML = en ? el.dataset.en : el.dataset.ko;
+  });
+  ['placeholder', 'title'].forEach(function(attr) {
+    var dsKey = 'en' + attr.charAt(0).toUpperCase() + attr.slice(1);
+    var dsKeyKo = 'ko' + attr.charAt(0).toUpperCase() + attr.slice(1);
+    var sel = '[data-' + dsKey.replace(/([A-Z])/g, '-$1').toLowerCase() + ']';
+    document.querySelectorAll(sel).forEach(function(el) {
+      if (el.dataset[dsKeyKo] === undefined) {
+        el.dataset[dsKeyKo] = el.getAttribute(attr) || '';
+      }
+      el.setAttribute(attr, en ? el.dataset[dsKey] : el.dataset[dsKeyKo]);
+    });
+  });
+  currentLang = en ? 'en' : 'ko';
+  // Re-render any dynamic content that uses t() so it picks up new lang.
+  // typeof guards: these vars are `let`-declared further down the file;
+  // a same-tick boot would hit the temporal dead zone otherwise.
+  if (typeof focusedNode !== 'undefined' && focusedNode) renderFocusedPanel(focusedNode);
+  if (typeof currentSearchQuery !== 'undefined' && currentSearchQuery) renderSearchResults();
+  if (typeof paperSearchQuery !== 'undefined' && paperSearchQuery) renderPaperResults();
+  if (typeof renderSuggestions === 'function') renderSuggestions();
+}
+
+// Listen for parent (index.html) telling us to switch
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.type === 'phylotree:lang') {
+    applyLang(e.data.lang === 'en' ? 'en' : 'ko');
+  }
+});
+
+
+// ============ Paper-title search ============
+//
+// Independent of the category search above. Runs against papers.json
+// (loaded asynchronously). Up to PAPER_PAGE_SIZE results per page;
+// arrows page through the rest. Click a result → resolve the paper's
+// {phylum, class, order, genus} path to the deepest existing tree node
+// and call selectNode() — same lineage highlight as a wedge click.
+
+const PAPER_PAGE_SIZE = 100;
+let paperSearchQuery = '';
+let paperSearchMatches = [];
+let paperSearchPage = 0;
+
+function findNodeByPath(path) {
+  // Walk the tree depth-first by exact name match; stop at the deepest
+  // node that exists. Any of phylum/class/order/genus can be missing
+  // (a 7,477-paper dataset has plenty of '(general)' Genus leaves
+  // that exist as tree nodes too, but defensive).
+  if (!root) return null;
+  let node = root;
+  for (const name of path) {
+    if (!node.children) break;
+    const next = node.children.find(c => c.data.name === name);
+    if (!next) break;
+    node = next;
+  }
+  return node === root ? null : node;
+}
+
+function paperPath(p) {
+  // Drop nullish so we don't try to descend into a missing level.
+  return [p.phylum, p.class, p.order, p.genus].filter(x => x);
+}
+
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function highlightTitle(title, query) {
+  const safe = escapeHTML(title || '');
+  if (!query) return safe;
+  const re = new RegExp('(' + escapeRegex(query) + ')', 'ig');
+  return safe.replace(re, '<mark>$1</mark>');
+}
+
+function performPaperSearch(rawQuery) {
+  const query = rawQuery.trim().toLowerCase();
+  paperSearchQuery = query;
+  paperSearchPage = 0;
+
+  d3.select('#paper-search-clear').classed('visible', query.length > 0);
+
+  if (!query) {
+    paperSearchMatches = [];
+    d3.select('#paper-search-summary').html('');
+    d3.select('#paper-search-results').html('');
+    d3.select('#paper-search-pager').style('display', 'none');
+    return;
+  }
+
+  if (!papers.length) {
+    d3.select('#paper-search-summary').html(
+      `<div class="search-summary">${t('Loading paper data…', '논문 데이터 로딩 중…')}</div>`);
+    return;
+  }
+
+  paperSearchMatches = papers.filter(p =>
+    (p.title || '').toLowerCase().includes(query)
+  );
+  // Most-cited first within results — feels more useful than insertion order
+  paperSearchMatches.sort((a, b) => (b.citations || 0) - (a.citations || 0));
+  renderPaperResults();
+}
+
+function renderPaperResults() {
+  const total = paperSearchMatches.length;
+  if (!paperSearchQuery) return;
+
+  if (total === 0) {
+    d3.select('#paper-search-summary').html(
+      `<div class="search-summary"><strong>0</strong> papers for "${escapeHTML(paperSearchQuery)}"</div>`);
+    d3.select('#paper-search-results').html('');
+    d3.select('#paper-search-pager').style('display', 'none');
+    return;
+  }
+
+  const totalPages = Math.ceil(total / PAPER_PAGE_SIZE);
+  paperSearchPage = Math.max(0, Math.min(paperSearchPage, totalPages - 1));
+  const start = paperSearchPage * PAPER_PAGE_SIZE;
+  const end = Math.min(start + PAPER_PAGE_SIZE, total);
+  const page = paperSearchMatches.slice(start, end);
+
+  d3.select('#paper-search-summary').html(
+    `<div class="search-summary"><strong>${total.toLocaleString()}</strong> papers for "${escapeHTML(paperSearchQuery)}" — ${t('click to highlight the lineage', '클릭해서 계통 강조')}</div>`);
+
+  const list = d3.select('#paper-search-results');
+  list.html('');
+  page.forEach(p => {
+    const item = list.append('div').attr('class', 'paper-match');
+    item.append('div')
+      .attr('class', 'pm-title')
+      .html(highlightTitle(p.title, paperSearchQuery));
+    const meta = item.append('div').attr('class', 'pm-meta');
+    meta.append('span')
+      .attr('class', 'pm-path')
+      .text(paperPath(p).join(' › '));
+    meta.append('span')
+      .attr('class', 'pm-cites')
+      .text(`${p.venue || '?'} ${p.year || '?'} · ${(p.citations || 0).toLocaleString()} cites`);
+    item.on('click', () => {
+      const node = findNodeByPath(paperPath(p));
+      if (node) selectNode(node);
+    });
+  });
+
+  // Pager: only show if more than one page
+  const pager = d3.select('#paper-search-pager');
+  if (totalPages > 1) {
+    pager.style('display', 'flex');
+    d3.select('#paper-pager-info').text(
+      `${(start + 1).toLocaleString()}–${end.toLocaleString()} / ${total.toLocaleString()} (${paperSearchPage + 1}/${totalPages})`
+    );
+    d3.select('#paper-prev').property('disabled', paperSearchPage === 0);
+    d3.select('#paper-next').property('disabled', paperSearchPage === totalPages - 1);
+  } else {
+    pager.style('display', 'none');
+  }
+}
+
+// Wiring (one-time)
+d3.select('#paper-search-input').on('input', function() {
+  performPaperSearch(this.value);
+});
+d3.select('#paper-search-clear').on('click', () => {
+  d3.select('#paper-search-input').property('value', '');
+  performPaperSearch('');
+  document.getElementById('paper-search-input').focus();
+});
+d3.select('#paper-prev').on('click', () => {
+  if (paperSearchPage > 0) { paperSearchPage--; renderPaperResults(); }
+});
+d3.select('#paper-next').on('click', () => {
+  paperSearchPage++; renderPaperResults();
+});
+// Arrow-key paging while the paper input is focused
+d3.select('#paper-search-input').on('keydown', (event) => {
+  if (paperSearchMatches.length <= PAPER_PAGE_SIZE) return;
+  if (event.key === 'ArrowLeft' && paperSearchPage > 0) {
+    paperSearchPage--; renderPaperResults(); event.preventDefault();
+  } else if (event.key === 'ArrowRight') {
+    const totalPages = Math.ceil(paperSearchMatches.length / PAPER_PAGE_SIZE);
+    if (paperSearchPage < totalPages - 1) {
+      paperSearchPage++; renderPaperResults(); event.preventDefault();
+    }
+  }
+});
+
+// Boot the language layer LAST — all let-declared state above
+// (paperSearchQuery, etc.) must exist before applyLang touches it.
+applyLang(currentLang);
+</script>
+</body>
+</html>
